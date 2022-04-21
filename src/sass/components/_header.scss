@@ -1,0 +1,15 @@
+.header {
+  background-color: pink;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: auto;
+
+  &_logo {
+    height: 5rem;
+    width: 5rem;
+  }
+}
