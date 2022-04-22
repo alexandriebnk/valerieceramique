@@ -1,0 +1,17 @@
+.social {
+  background-color: salmon;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &_instagram {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+  }
+
+  &_mail {
+    width: 2rem;
+    height: 2rem;
+  }
+}

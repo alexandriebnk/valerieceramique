@@ -1,3 +1,19 @@
 .footer {
   background-color: $background;
+  width: 98vw;
+  margin: auto;
+
+  &_content {
+    // background-color: yellow;
+    width: 90vw;
+    margin: auto;
+
+    &:not:last-of-type {
+      background-color: chocolate;
+    }
+  }
+
+  &_copyright {
+    background-color: pink;
+  }
 }
