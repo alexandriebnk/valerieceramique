@@ -1,0 +1,9 @@
+.shop-cart {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
+
+  &_title {
+    margin-right: 0.5rem;
+  }
+}

@@ -1,16 +1,15 @@
 .navbar {
-  background-color: lightblue;
-  width: 45rem;
+  //background-color: lightblue;
+  width: 50rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  text-decoration: none !important;
+  text-align: center;
 
   &_item {
-    background-color: lightgreen;
-    width: 20%;
+    //background-color: lightgreen;
+    width: 8rem;
     font-size: 1.3rem;
     text-transform: uppercase;
-    text-decoration: none !important;
   }
 }

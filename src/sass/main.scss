@@ -1,7 +1,9 @@
 @import './base';
+@import './colors';
+
+@import './components/app';
 
 @import './components/header';
 @import './components/navBar';
+@import './components/shopCart';
 @import './components/footer';
-
-@import './components/app';

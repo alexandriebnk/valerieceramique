@@ -1,15 +1,38 @@
 .header {
-  background-color: pink;
-  width: 100vw;
+  //background-color: pink;
+  width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   margin: auto;
 
   &_logo {
-    height: 5rem;
-    width: 5rem;
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+  }
+
+  &_title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &_bottom {
+    //background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+
+    &_navbar {
+      margin: auto;
+    }
+
+    &_shop-cart {
+      cursor: pointer;
+    }
   }
 }

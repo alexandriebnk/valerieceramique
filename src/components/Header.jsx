@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Link } from 'react-router-dom';
 import NavBar from './NavBar';
+import ShopCart from './ShopCart';
 import Logo from '../assets/logo.jpeg';
 
 const Header = () => {
@@ -17,7 +18,14 @@ const Header = () => {
         </h1>
       </Link>
       <h2 className='header_title'>Valérie Céramique</h2>
-      <NavBar />
+      <div className='header_bottom'>
+        <div className='header_bottom_navbar'>
+          <NavBar />
+        </div>
+        <div className='header_bottom_shop-cart'>
+          <ShopCart />
+        </div>
+      </div>
     </div>
   );
 };
