@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button';
+import SubmitButton from './SubmitButton';
 
 const Emailing = () => {
   return (
@@ -9,7 +9,9 @@ const Emailing = () => {
         type='email'
         placeholder='Email Address'
       />
-      <Button />
+      <div className='emailing_button'>
+        <SubmitButton />
+      </div>
     </div>
   );
 };

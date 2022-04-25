@@ -1,11 +1,7 @@
 import React from 'react';
 
 const Copyright = () => {
-  return (
-    <div className='copyright'>
-      <p>&copy; 2022 - Valérie Céramique</p>
-    </div>
-  );
+  return <p className='copyright'>&copy; 2022 - Valérie Céramique</p>;
 };
 
 export default Copyright;

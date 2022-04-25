@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   const itemsNavBar = ['about', 'shop', 'gallery', 'contact'];
   return (
-    <Fragment>
+    <>
       <ul className='navbar'>
         {itemsNavBar.map((item) => (
           <li key={item} className='navbar_item'>
@@ -12,7 +12,7 @@ const NavBar = () => {
           </li>
         ))}
       </ul>
-    </Fragment>
+    </>
   );
 };
 

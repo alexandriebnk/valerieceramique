@@ -1,3 +1,18 @@
 .emailing {
-  background-color: darkgrey;
+  //background-color: darkgrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  & input[type='email'] {
+    height: 5rem;
+    width: 25rem;
+    padding-left: 1.5rem;
+    font-size: 1.5rem;
+    border: 0.1rem solid $emailing;
+
+    &:focus {
+      outline: none;
+    }
+  }
 }

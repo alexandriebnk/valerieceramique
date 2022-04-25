@@ -2,9 +2,9 @@ import React from 'react';
 
 const Button = () => {
   return (
-    <div className='button'>
-      <p>Button</p>
-    </div>
+    <button type='button' className='button'>
+      Button
+    </button>
   );
 };
 

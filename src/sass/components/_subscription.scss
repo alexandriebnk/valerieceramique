@@ -1,6 +1,22 @@
 .subscription {
+  //background-color: green;
+  max-width: 42rem;
   margin: auto;
+
   &_title {
     font-size: 2rem;
+  }
+
+  &_text {
+    text-align: center;
+  }
+
+  &_emailing {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  &_privacy {
+    font-size: 1.4rem;
   }
 }

@@ -1,19 +1,23 @@
 .footer {
   background-color: $background;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
   width: 98vw;
-  margin: auto;
+  padding-top: 8rem;
+  //padding-bottom: 8rem;
 
   &_content {
-    // background-color: yellow;
+    //background-color: yellow;
+    display: flex;
+    flex-direction: column;
     width: 90vw;
     margin: auto;
-
-    &:not:last-of-type {
-      background-color: chocolate;
-    }
   }
+}
 
-  &_copyright {
-    background-color: pink;
-  }
+.item:not(:last-child) {
+  //background-color: blue;
+  align-items: center;
 }

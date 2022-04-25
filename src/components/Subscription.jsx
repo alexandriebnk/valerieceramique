@@ -4,7 +4,7 @@ import Emailing from './Emailing';
 const Subscription = () => {
   return (
     <div className='subscription'>
-      <div className='subscription_title'>
+      <div className='subscription_title subscription_text'>
         <p className='subscription_title_fr'>
           Inscrivez-vous afin de recevoir les actualités de l’atelier
         </p>
@@ -15,7 +15,7 @@ const Subscription = () => {
       <div className='subscription_emailing'>
         <Emailing />
       </div>
-      <div className='subscription_privacy'>
+      <div className='subscription_privacy subscription_text'>
         <p className='subscription_privacy_fr'>
           Nous respectons votre vie privée
         </p>
