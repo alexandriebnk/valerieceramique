@@ -1,22 +1,44 @@
 .hero {
-  min-height: 100rem;
+  //background-color: salmon;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  margin-bottom: 5rem;
 
-  &__illustration {
-    position: absolute;
-    height: 100%;
+  @include respondTo(mobile) {
+    //background-color: aquamarine;
+    margin-top: 10rem;
+    margin-bottom: 4rem;
+  }
+
+  &__image {
+    height: 60rem;
     width: 100%;
-    object-fit: cover;
-    user-select: none;
+    margin-bottom: 5rem;
+
+    @include respondTo(mobile) {
+      height: 30rem;
+    }
+
+    &--item {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 
   &__title {
+    //background-color: pink;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+
+    &--top {
+      margin-bottom: 0.8rem;
+    }
   }
 }

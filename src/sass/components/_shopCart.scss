@@ -3,6 +3,10 @@
   flex-direction: row;
   font-size: 1.4rem;
 
+  @include respondTo(mobile) {
+    margin-top: 1.6rem;
+  }
+
   &__title {
     margin-right: 0.5rem;
   }
