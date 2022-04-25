@@ -3,8 +3,17 @@ import HeroImg from '../assets/hero.png';
 
 const Hero = () => {
   return (
-    <div>
-      <img src={HeroImg} className='hero' alt='hero' />
+    <div className='hero'>
+      <img
+        src={HeroImg}
+        className='hero__illustration'
+        alt='hero'
+        draggable='false'
+      />
+      <div className='hero__title'>
+        <p>Pottery Studio</p>
+        <p>Paris 18</p>
+      </div>
     </div>
   );
 };

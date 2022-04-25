@@ -7,17 +7,17 @@ import Copyright from './Copyright';
 const Footer = () => {
   return (
     <footer className='footer'>
-      <div className='footer_content'>
-        <div className='footer_content_subscription item'>
+      <div className='footer__content'>
+        <div className='footer__content-subscription item'>
           <Subscription />
         </div>
-        <div className='footer_content_social item'>
+        <div className='footer__content-social item'>
           <Social />
         </div>
-        <div className='footer_content_informations item'>
+        <div className='footer__content-informations item'>
           <Informations />
         </div>
-        <div className='footer_content_copyright item'>
+        <div className='footer__content-copyright item'>
           <Copyright />
         </div>
       </div>

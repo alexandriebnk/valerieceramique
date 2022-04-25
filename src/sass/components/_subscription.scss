@@ -3,20 +3,20 @@
   max-width: 42rem;
   margin: auto;
 
-  &_title {
+  &__title {
     font-size: 2rem;
   }
 
-  &_text {
+  &__text {
     text-align: center;
   }
 
-  &_emailing {
+  &__emailing {
     margin-top: 3rem;
     margin-bottom: 3rem;
   }
 
-  &_privacy {
+  &__privacy {
     font-size: 1.4rem;
   }
 }

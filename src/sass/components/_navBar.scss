@@ -1,15 +1,27 @@
-.navbar {
+.navbar__burger {
+  display: none;
+  height: 5rem;
+  width: 5rem;
+
+  @include respondTo(mobile) {
+    display: block;
+  }
+}
+
+.navbar__classic {
   //background-color: lightblue;
-  width: 50rem;
+  width: 30rem;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  text-align: center;
+  justify-content: space-between;
   list-style-type: none;
 
-  &_item {
+  @include respondTo(mobile) {
+    flex-direction: column;
+  }
+
+  &-item {
     //background-color: lightgreen;
-    width: 8rem;
     font-size: 1.3rem;
     text-transform: uppercase;
   }

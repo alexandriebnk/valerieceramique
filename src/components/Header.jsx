@@ -7,22 +7,24 @@ import Logo from '../assets/logo.jpeg';
 const Header = () => {
   return (
     <div className='header'>
-      <Link to='/'>
-        <h1 aria-label='Valérie Céramique'>
-          <img
-            src={Logo}
-            className='header_logo'
-            alt='logo'
-            draggable='false'
-          />
-        </h1>
-      </Link>
-      <h2 className='header_title'>Valérie Céramique</h2>
-      <div className='header_bottom'>
-        <div className='header_bottom_navbar'>
+      <div className='header__top'>
+        <Link to='/'>
+          <h1 aria-label='Valérie Céramique'>
+            <img
+              src={Logo}
+              className='header__top-logo'
+              alt='logo'
+              draggable='false'
+            />
+          </h1>
+        </Link>
+        <h2 className='header__top-title'>Valérie Céramique</h2>
+      </div>
+      <div className='header__bottom'>
+        <div className='header__bottom-navbar'>
           <NavBar />
         </div>
-        <div className='header_bottom_shop-cart'>
+        <div className='header__bottom-shop-cart'>
           <ShopCart />
         </div>
       </div>

@@ -4,22 +4,22 @@ import Emailing from './Emailing';
 const Subscription = () => {
   return (
     <div className='subscription'>
-      <div className='subscription_title subscription_text'>
-        <p className='subscription_title_fr'>
+      <div className='subscription__title subscription__text'>
+        <p className='subscription__title-fr'>
           Inscrivez-vous afin de recevoir les actualités de l’atelier
         </p>
-        <p className='subscription_title_en'>
+        <p className='subscription__title-en'>
           Sign up to get the news from the studio
         </p>
       </div>
-      <div className='subscription_emailing'>
+      <div className='subscription__emailing'>
         <Emailing />
       </div>
-      <div className='subscription_privacy subscription_text'>
-        <p className='subscription_privacy_fr'>
+      <div className='subscription__privacy subscription__text'>
+        <p className='subscription__privacy-fr'>
           Nous respectons votre vie privée
         </p>
-        <p className='subscription_privacy_en'>We respect your privacy</p>
+        <p className='subscription__privacy-en'>We respect your privacy</p>
       </div>
     </div>
   );
