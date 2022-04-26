@@ -1,54 +1,75 @@
 .header {
   background-color: $background;
   height: 20rem;
-  max-width: 100rem;
-  position: relative;
+  width: 100%;
+  max-width: 130rem;
   margin: auto;
-  text-align: center;
+  padding-top: 4rem;
 
   @include respondTo(mobile) {
+    height: 7rem;
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 1;
-    text-align: initial;
+    padding-top: 0;
   }
 
-  &__logo {
-    height: 3rem;
-    width: 3rem;
-    cursor: pointer;
+  &__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @include respondTo(mobile) {
-      position: absolute;
-      height: 5rem;
-      width: 5rem;
+      //background-color: aquamarine;
+      height: 100%;
+      width: 90%;
+      margin: auto;
     }
-  }
 
-  &__title {
-    margin-top: 1.5rem;
-    margin-bottom: 4rem;
+    &--logo {
+      height: 3rem;
+      width: 3rem;
+      cursor: pointer;
 
-    @include respondTo(mobile) {
-      display: none;
+      @include respondTo(mobile) {
+        position: absolute;
+        top: 1.5rem;
+        left: 0;
+        height: 4rem;
+        width: 4rem;
+      }
     }
-  }
 
-  &__navbar {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    &--title {
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
 
-    @include respondTo(mobile) {
-      right: 0;
-      transform: translateX(0);
+      @include respondTo(mobile) {
+        display: none;
+      }
+    }
+
+    &--navbar {
+      @include respondTo(mobile) {
+        position: absolute;
+        top: 2.9rem;
+        right: 0;
+      }
     }
   }
 
   &__shop-cart {
     //background-color: yellow;
     position: absolute;
-    right: 17%;
+    top: 13.7rem;
+    right: 5%;
     cursor: pointer;
+
+    @include respondTo(mobile) {
+      top: 1.4rem;
+      right: 15%;
+    }
   }
 }

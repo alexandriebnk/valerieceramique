@@ -1,4 +1,7 @@
 .app {
-  //background-color: red;
   color: $font;
+
+  @include respondTo(mobile) {
+    overflow-x: hidden;
+  }
 }

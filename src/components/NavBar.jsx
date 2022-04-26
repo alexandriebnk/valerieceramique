@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BurgerIcon from './BurgerIcon';
+import BurgerIcon from './ComponentsSVG/BurgerIcon';
 
 const NavBar = () => {
   const itemsNavBar = ['about', 'shop', 'gallery', 'contact'];

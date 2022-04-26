@@ -4,9 +4,14 @@
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
-  width: 98vw;
+  width: 100%;
+  max-width: 140rem;
   padding-top: 8rem;
-  //padding-bottom: 8rem;
+
+  @include respondTo(mobile) {
+    //background-color: aquamarine;
+    width: 90%;
+  }
 
   &__content {
     //background-color: yellow;

@@ -5,6 +5,7 @@
 
   @include respondTo(mobile) {
     margin-top: 1.6rem;
+    font-size: 1.2rem;
   }
 
   &__title {

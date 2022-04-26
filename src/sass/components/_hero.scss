@@ -8,8 +8,7 @@
 
   @include respondTo(mobile) {
     //background-color: aquamarine;
-    margin-top: 10rem;
-    margin-bottom: 4rem;
+    margin-top: 9rem;
   }
 
   &__image {
@@ -19,6 +18,8 @@
 
     @include respondTo(mobile) {
       height: 30rem;
+      width: 80%;
+      margin: 0 auto 5rem auto;
     }
 
     &--item {

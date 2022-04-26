@@ -1,10 +1,10 @@
 import React from 'react';
 
-const ShopCart = (props) => {
+const ShopCart = () => {
   return (
     <div className='shop-cart'>
       <p className='shop-cart__title'>Shop Cart</p>
-      <p className='shop-cart__number'>(${props.number})</p>
+      <p className='shop-cart__number'>(0)</p>
     </div>
   );
 };

@@ -3,12 +3,8 @@
     display: none;
 
     @include respondTo(mobile) {
-      // background-color: salmon;
+      //background-color: salmon;
       display: block;
-      position: absolute;
-      right: -1rem;
-      height: 5rem;
-      width: 5rem;
     }
   }
 
