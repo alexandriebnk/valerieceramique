@@ -17,7 +17,7 @@
     border: 0.1rem solid $emailing;
 
     @include respondTo(mobile) {
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
 
     &:focus {

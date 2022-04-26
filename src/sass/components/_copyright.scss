@@ -2,4 +2,9 @@
   //background-color: pink;
   margin-top: 6rem;
   margin-bottom: 2rem;
+
+  @include respondTo(mobile) {
+    //background-color: aquamarine;
+    font-size: 1.2rem;
+  }
 }

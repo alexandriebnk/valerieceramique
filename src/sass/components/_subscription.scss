@@ -3,8 +3,16 @@
   max-width: 42rem;
   margin: auto;
 
+  @include respondTo(mobile) {
+    max-width: 28rem;
+  }
+
   &__title {
     font-size: 2rem;
+
+    @include respondTo(mobile) {
+      font-size: 1.6rem;
+    }
   }
 
   &__text {
