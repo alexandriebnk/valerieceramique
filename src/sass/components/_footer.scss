@@ -3,10 +3,14 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 0;
+  bottom: 1.5rem;
   width: 100%;
-  max-width: 140rem;
+  max-width: 138rem;
   padding-top: 8rem;
+
+  @include respondTo(tablandscape) {
+    width: 96%;
+  }
 
   @include respondTo(mobile) {
     //background-color: aquamarine;
@@ -17,8 +21,13 @@
     //background-color: yellow;
     display: flex;
     flex-direction: column;
-    width: 90vw;
+    width: 90%;
     margin: auto;
+
+    &--copyright {
+      margin-top: 6rem;
+      margin-bottom: 2rem;
+    }
   }
 }
 

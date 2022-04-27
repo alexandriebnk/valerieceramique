@@ -67,6 +67,10 @@
     right: 5%;
     cursor: pointer;
 
+    @include respondTo(xlarge) {
+      right: 16.5%;
+    }
+
     @include respondTo(mobile) {
       top: 1.4rem;
       right: 15%;

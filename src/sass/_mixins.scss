@@ -1,7 +1,8 @@
 // BREAKPOINTS POUR MIXIN
 $breakpoint-mobile: 375px;
 $breakpoint-tablet: 768px;
-$breakpoint-desktop: 1920px; //big desktop - 21pouces
+$breakpoint-tablandscape: 992px; //tablet-landscape
+$breakpoint-xlarge: 1920px; //big desktop - 21pouces
 
 @mixin respondTo($media) {
   @if $media == mobile {
@@ -12,8 +13,12 @@ $breakpoint-desktop: 1920px; //big desktop - 21pouces
     @media (max-width: $breakpoint-tablet) {
       @content;
     }
-  } @else if $media == desktop {
-    @media (min-width: $breakpoint-desktop) {
+  } @else if $media == tablandscape {
+    @media (max-width: $breakpoint-tablandscape) {
+      @content;
+    }
+  } @else if $media == xlarge {
+    @media (min-width: $breakpoint-xlarge) {
       @content;
     }
   }

@@ -8,16 +8,16 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <div className='footer__content'>
-        <div className='footer__content-subscription item'>
+        <div className='footer__content--subscription item'>
           <Subscription />
         </div>
-        <div className='footer__content-social item'>
+        <div className='footer__content--social item'>
           <Social />
         </div>
-        <div className='footer__content-informations item'>
+        <div className='footer__content--informations item'>
           <Informations />
         </div>
-        <div className='footer__content-copyright item'>
+        <div className='footer__content--copyright item'>
           <Copyright />
         </div>
       </div>
