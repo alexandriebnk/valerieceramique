@@ -18,7 +18,7 @@ const NavBar = () => {
   return (
     <div className='navbar'>
       <div className='navbar__burger' onClick={openNavToggle}>
-        <BurgerIcon />
+        <BurgerIcon isOpen={isOpen} />
       </div>
 
       <ul

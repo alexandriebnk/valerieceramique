@@ -1,4 +1,6 @@
-const BurgerIcon = () => {
+import React from 'react';
+
+const BurgerIcon = ({ isOpen }) => {
   return (
     <svg
       className='burger-icon'
@@ -9,7 +11,9 @@ const BurgerIcon = () => {
       xmlns='http://www.w3.org/2000/svg'
     >
       <rect
-        className='burger-icon--top'
+        className={`burger-icon__top burger-icon__top${
+          isOpen ? '--cross' : ''
+        }`}
         x='1'
         y='16'
         width='22'
@@ -17,7 +21,9 @@ const BurgerIcon = () => {
         fill='#0E184D'
       />
       <rect
-        className='burger-icon--middle'
+        className={`burger-icon__middle burger-icon__middle${
+          isOpen ? '--cross' : ''
+        }`}
         x='1'
         y='9'
         width='22'
@@ -25,7 +31,9 @@ const BurgerIcon = () => {
         fill='#0E184D'
       />
       <rect
-        className='burger-icon--bottom'
+        className={`burger-icon__bottom burger-icon__bottom${
+          isOpen ? '--cross' : ''
+        }`}
         x='1'
         y='2'
         width='22'

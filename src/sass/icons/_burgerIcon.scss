@@ -1,10 +1,31 @@
 .burger-icon {
-  &--top {
+  &__top {
+    transform: translate(0, 0) rotate(0);
+    transition: 0.5s ease-in-out;
+
+    &--cross {
+      transform: translate(-10px, 5px) rotate(-41deg);
+      transition: 0.5s ease-in-out;
+    }
   }
 
-  &--middle {
+  &__middle {
+    opacity: 1;
+    transition: 1s ease-in-out;
+
+    &--cross {
+      opacity: 0;
+      transition: 0.5s ease-in-out;
+    }
   }
 
-  &--bottom {
+  &__bottom {
+    transform: translate(0, 0) rotate(0);
+    transition: 0.5s ease-in-out;
+
+    &--cross {
+      transform: translate(2px, 0) rotate(41deg);
+      transition: 0.5s ease-in-out;
+    }
   }
 }
