@@ -9,79 +9,62 @@
   margin-top: 3rem;
   margin-bottom: 5rem;
 
+  @include respondTo(tablandscape) {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include respondTo(tablet) {
+    margin-top: 0;
+  }
+
+  @include respondTo(mobile) {
+    margin-top: 7rem;
+  }
+
   &__image {
-    border: 2px solid red;
-    max-width: 30%;
+    max-width: 30.8%;
+    width: 30.8%;
+    height: 40rem;
+
+    &:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
+      margin-top: 4.9rem;
+    }
+
+    @include respondTo(tablandscape) {
+      max-width: 29%;
+      width: 29%;
+      height: 25.9rem;
+
+      &:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
+        margin-top: 5.8rem;
+      }
+    }
+
+    @include respondTo(tablet) {
+      margin-top: 2.65rem;
+      height: 21.4rem;
+
+      &:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
+        margin-top: 4.5rem;
+      }
+    }
 
     @include respondTo(mobile) {
       max-width: 45%;
+      width: 45%;
+      height: 15rem;
+
+      &:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(2)) {
+        margin-top: 3rem;
+      }
     }
 
     img {
-      border: 2px solid yellow;
       height: 100%;
       width: 100%;
       object-fit: cover;
     }
   }
 }
-
-/*.gallery {
-  background-color: salmon;
-  //position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 130rem;
-  margin: auto;
-  margin-top: 3rem;
-  margin-bottom: 5rem;
-
-  @include respondTo(tablandscape) {
-    width: 90%;
-  }
-
-  &__line {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-
-    &:not(:last-child) {
-      margin-bottom: 5rem;
-
-      @include respondTo(tablandscape) {
-        margin-bottom: 4rem;
-      }
-
-      @include respondTo(tablet) {
-        margin-bottom: 4.5rem;
-      }
-    }
-    &--illustration {
-      height: 40rem;
-      width: 40rem;
-
-      @include respondTo(tablandscape) {
-        height: 27rem;
-        width: 27rem;
-      }
-
-      @include respondTo(tablet) {
-        height: 20rem;
-        width: 20rem;
-      }
-
-      @include respondTo(mobile) {
-        min-width: 10rem;
-      }
-
-      &--item {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-    }
-  }
-}*/
