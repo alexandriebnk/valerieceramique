@@ -20,6 +20,7 @@
   }
 
   @include respondTo(mobile) {
+    width: 80%;
     margin-top: 7rem;
   }
 
@@ -33,31 +34,38 @@
     }
 
     @include respondTo(tablandscape) {
-      max-width: 29%;
-      width: 29%;
-      height: 25.9rem;
+      max-width: 30%;
+      width: 30%;
+      height: 26.8rem;
 
       &:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
-        margin-top: 5.8rem;
+        margin-top: 4.4rem;
       }
     }
 
     @include respondTo(tablet) {
+      max-width: 28.5%;
+      width: 28.5%;
+      height: 20rem;
       margin-top: 2.65rem;
-      height: 21.4rem;
 
       &:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
-        margin-top: 4.5rem;
+        margin-top: 5rem;
       }
     }
 
     @include respondTo(mobile) {
-      max-width: 45%;
-      width: 45%;
-      height: 15rem;
+      max-width: 44%;
+      width: 44%;
+      height: 13.4rem;
+      margin-top: 2rem;
 
-      &:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(2)) {
-        margin-top: 3rem;
+      &:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
+        margin-top: 3.5rem;
+      }
+
+      &:nth-child(3) {
+        margin-top: 3.5rem;
       }
     }
 

@@ -1,5 +1,12 @@
 import React from 'react';
+import Category from './CategoryPreview';
 
-const Content = () => <div className='content'>Content</div>;
+const Content = () => {
+  return (
+    <div className='content'>
+      <Category />
+    </div>
+  );
+};
 
 export default Content;

@@ -1,4 +1,5 @@
 import React from 'react';
+import Product from './Product';
 
 const images = [
   '/gallery/gallery_1.png',
@@ -15,17 +16,23 @@ const images = [
   '/gallery/gallery_12.png',
 ];
 
-const Gallery = () => {
+const Category = () => {
   return (
-    <div className='gallery'>
+    <div className='category'>
       {images.map((image) => {
         return (
-          <div key={image} className='gallery__image'>
-            <img src={image} alt='gallery-item' draggable='false' />
+          <div key={image} className='category__product'>
+            <Product
+              title={image.title}
+              img={image}
+              price={image.price}
+              id={image.id}
+            />
           </div>
         );
       })}
     </div>
   );
 };
-export default Gallery;
+
+export default Category;

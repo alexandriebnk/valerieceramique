@@ -1,0 +1,50 @@
+.product {
+  text-align: center;
+
+  &__visual {
+    position: relative;
+
+    &--image {
+      height: 27rem;
+      width: 100%;
+
+      @include respondTo(tablandscape) {
+        height: 18rem;
+      }
+
+      @include respondTo(mobile) {
+        height: 22rem;
+      }
+
+      &-item {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &--button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__details {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    width: 100%;
+
+    @include respondTo(tablandscape) {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &--title {
+      font-weight: 100;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
