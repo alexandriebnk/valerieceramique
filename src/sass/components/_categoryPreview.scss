@@ -1,0 +1,69 @@
+.preview {
+  background-color: pink;
+  width: 100%;
+  max-width: 130rem;
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+
+  &__category {
+    background-color: aquamarine;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+    &--details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &-image {
+        width: 90%;
+        height: 70rem;
+
+        &-item {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+/*
+
+  &__category {
+    
+
+    &:nth-child(2) {
+      margin-top: 20rem;
+    }
+
+    &--details {
+      background-color: cornflowerblue;
+      position: relative;
+      max-width: 45%;
+      width: 45%;
+      margin-bottom: 3rem;
+
+      &-brand {
+        background-color: sandybrown;
+        //height: fit-content;
+        position: absolute;
+        bottom: 8.6rem;
+        left: -10rem;
+        font-size: 2rem;
+        font-weight: 100;
+        transform: rotate(-90deg);
+        cursor: pointer;
+      }
+
+      
+    }
+  }
+}*/

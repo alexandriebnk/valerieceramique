@@ -1,5 +1,7 @@
 import React from 'react';
-import Category from './Category';
+//import Category from './Category';
+
+const categories = ['bowl', 'carafe', 'plat', 'vase', 'glass'];
 
 const CategoryPreview = () => {
   return (
@@ -9,21 +11,58 @@ const CategoryPreview = () => {
         <p>See all</p>
       </div>
       <div className='preview__category'>
-        <div className='preview__category--details'>
-          <p className='preview__category--details-brand'>Valérie Céramique</p>
-          <div className='preview__category--details-image'>
-            <img
-              src='/gallery/gallery_1.png'
-              className='preview__category--details-image-item'
-              alt='product'
-              draggable='false'
-            />
-          </div>
-          <div className='preview__category--details-title'></div>
-        </div>
+        {categories.map((category, index) => {
+          if (index % 2 !== 0) {
+            return (
+              <div
+                key={`${index}-${category}`}
+                className='preview__category--details'
+              >
+                <p className='preview__category--details-brand preview__category--brand'>
+                  Valérie Céramique
+                </p>
+                <div className='preview__category--details-image'>
+                  <img
+                    src='/gallery/gallery_2.png'
+                    className='preview__category--details-image-item'
+                    alt='product'
+                    draggable='false'
+                  />
+                </div>
+                <div className='preview__category--details-title'>
+                  {category}
+                </div>
+              </div>
+            );
+          } else if (index % 2 === 0) {
+            return (
+              <div
+                key={`${index}-${category}`}
+                className='preview__category--details'
+              >
+                <p className='preview__category--details-brand preview__category--brand'>
+                  Valérie Céramique
+                </p>
+                <div className='preview__category--details-image'>
+                  <img
+                    src='/gallery/gallery_2.png'
+                    className='preview__category--details-image-item'
+                    alt='product'
+                    draggable='false'
+                  />
+                </div>
+                <div className='preview__category--details-title'>
+                  {category}
+                </div>
+              </div>
+            );
+          }
+
+          return null;
+        })}
       </div>
 
-      <Category />
+      {/*} <Category />*/}
     </div>
   );
 };
