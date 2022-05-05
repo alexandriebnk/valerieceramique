@@ -1,0 +1,17 @@
+.checkout {
+  background-color: aquamarine;
+  width: 100%;
+  max-width: 130rem;
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+
+  &__route {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &-shipping {
+      width: 60%;
+    }
+  }
+}

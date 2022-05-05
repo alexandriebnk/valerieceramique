@@ -1,0 +1,30 @@
+.list {
+  //background-color: pink;
+  width: 100%;
+  max-width: 130rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+
+  &__title {
+    background-color: yellow;
+    font-size: 2rem;
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+
+    &--left,
+    &--right {
+      //background-color: fuchsia;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--right {
+      margin-top: 40rem;
+    }
+  }
+}
