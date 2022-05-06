@@ -1,0 +1,123 @@
+.dropdown {
+  background-color: antiquewhite;
+  position: absolute;
+  top: 3rem;
+  right: -1.6rem;
+  width: 41.5rem;
+  padding-left: 2.5rem;
+  border-radius: 3%;
+  font-size: 1.5rem;
+  z-index: 10;
+  pointer-events: none;
+
+  &__burger-icon {
+    background-color: aquamarine;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  &__cart {
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 35rem;
+    margin-top: 7rem;
+    margin-bottom: 5rem;
+
+    &--list {
+      width: 100%;
+
+      &-article {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 3rem;
+        line-height: 2.2rem;
+
+        &-details {
+          :nth-child(2) {
+            color: red;
+          }
+
+          &-remove {
+            font-size: 1.3rem;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &-amount {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid $font;
+        padding-bottom: 1rem;
+
+        &-choice {
+          background-color: cadetblue;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          //height: 3rem;
+          width: 6.5rem;
+
+          &-minus,
+          &-plus {
+            background-color: darkgreen;
+            height: 1.7rem;
+            width: 1.7rem;
+
+            &-item {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+
+    &--total {
+      background-color: chartreuse;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+
+      &-text {
+        line-height: 2.2rem;
+
+        &-title {
+          font-weight: bold;
+        }
+        &-fees {
+          font-size: 1.3rem;
+          font-style: italic;
+        }
+      }
+
+      &-amount {
+        font-weight: bold;
+      }
+    }
+
+    &--button {
+      background-color: white;
+      border: none;
+      height: 4rem;
+      padding-right: 3rem;
+      padding-left: 3rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      border-radius: 10%;
+      cursor: pointer;
+    }
+  }
+}

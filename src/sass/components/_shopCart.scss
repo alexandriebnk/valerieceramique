@@ -1,11 +1,17 @@
 .shop-cart {
+  position: relative;
   display: flex;
   flex-direction: row;
   font-size: 1.4rem;
+  cursor: pointer;
 
   @include respondTo(mobile) {
     margin-top: 1.6rem;
     font-size: 1.2rem;
+  }
+
+  &--is-open {
+    pointer-events: none;
   }
 
   &__title {

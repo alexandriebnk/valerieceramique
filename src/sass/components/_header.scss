@@ -64,7 +64,6 @@
     position: absolute;
     top: 13.7rem;
     right: 5%;
-    cursor: pointer;
 
     @include respondTo(xlarge) {
       right: 16.5%;
