@@ -5,9 +5,18 @@
   margin-top: 3rem;
   margin-bottom: 5rem;
 
+  @include respondTo(mobile) {
+    margin-bottom: 3rem;
+  }
+
   &__title {
-    background-color: yellow;
+    //background-color: yellow;
     font-size: 2rem;
+    margin-bottom: 3rem;
+
+    @include respondTo(tablet) {
+      margin-bottom: 5rem;
+    }
   }
 
   &__categories {
@@ -16,15 +25,49 @@
     justify-content: space-around;
     width: 100%;
 
+    @include respondTo(mobile) {
+      display: block;
+    }
+
     &--left,
     &--right {
-      //background-color: fuchsia;
+      // background-color: fuchsia;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      width: 50%;
+
+      @include respondTo(mobile) {
+        display: block;
+        flex-direction: inherit;
+        width: 100%;
+      }
     }
 
     &--right {
       margin-top: 40rem;
+
+      @include respondTo(tablandscape) {
+        margin-top: 35rem;
+      }
+
+      @include respondTo(tablet) {
+        margin-top: 30rem;
+        padding-right: 1.7rem;
+      }
+
+      @include respondTo(mobile) {
+        //background-color: salmon;
+        margin-top: 7rem;
+        padding-left: 1.7rem;
+        padding-right: 0;
+      }
+    }
+
+    &--left {
+      @include respondTo(tablet) {
+        padding-left: 1.7rem;
+      }
     }
   }
 }
