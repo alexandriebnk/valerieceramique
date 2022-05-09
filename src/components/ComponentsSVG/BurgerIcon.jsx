@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import CartContext from '../../store/cart-context';
 
-const BurgerIcon = ({ isOpen }) => {
+const BurgerIcon = () => {
+  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+
+  const closeCart = () => {
+    console.log('je ferme');
+    setIsCartOpen(false);
+  };
+
   return (
     <svg
       className='burger-icon'
@@ -9,10 +17,11 @@ const BurgerIcon = ({ isOpen }) => {
       viewBox='0 0 22 20'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
+      onClick={closeCart}
     >
       <rect
         className={`burger-icon__top burger-icon__top${
-          isOpen ? '--cross' : ''
+          isCartOpen ? '--cross' : ''
         }`}
         x='1'
         y='16'
@@ -22,7 +31,7 @@ const BurgerIcon = ({ isOpen }) => {
       />
       <rect
         className={`burger-icon__middle burger-icon__middle${
-          isOpen ? '--cross' : ''
+          isCartOpen ? '--cross' : ''
         }`}
         x='1'
         y='9'
@@ -32,7 +41,7 @@ const BurgerIcon = ({ isOpen }) => {
       />
       <rect
         className={`burger-icon__bottom burger-icon__bottom${
-          isOpen ? '--cross' : ''
+          isCartOpen ? '--cross' : ''
         }`}
         x='1'
         y='2'

@@ -8,7 +8,7 @@
 
     @include respondTo(mobile) {
       display: block;
-      z-index: 10;
+      z-index: 30;
     }
   }
 
@@ -32,7 +32,7 @@
       justify-content: flex-start;
       padding-top: 5rem;
       padding-left: 3rem;
-      z-index: 5;
+      z-index: 20;
       opacity: 0;
       transition: 0.5s ease-in-out;
 
