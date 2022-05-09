@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import BurgerIcon from './ComponentsSVG/BurgerIcon';
+import Button from './Button';
 import Minus from '../assets/minus.png';
 import Plus from '../assets/plus.png';
 import CartContext from '../store/cart-context';
 
 const CartDropdown = () => {
-  const { setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
 
   const closeCart = () => {
     setIsCartOpen(false);
@@ -13,10 +14,11 @@ const CartDropdown = () => {
 
   return (
     <>
-      <div className='dropdown'>
+      <div className={`dropdown dropdown${isCartOpen ? '--is-open' : ''}`}>
         <div className='dropdown__burger-icon'>
           <BurgerIcon />
         </div>
+        <div className='dropdown__title'>Shop Cart</div>
 
         <div className='dropdown__cart'>
           <div className='dropdown__cart--list'>
@@ -64,12 +66,15 @@ const CartDropdown = () => {
             <p className='dropdown__cart--total-amount'>50 €</p>
           </div>
 
-          <button type='button' className='dropdown__cart--button'>
-            Payment
-          </button>
+          <div className='dropdown__cart--button'>
+            <Button name={'payment'} theme='dark' size='medium' />
+          </div>
         </div>
       </div>
-      <div className='overlay' onClick={closeCart}></div>
+      <div
+        className={`overlay overlay${isCartOpen ? '--is-open' : ''}`}
+        onClick={closeCart}
+      ></div>
     </>
   );
 };

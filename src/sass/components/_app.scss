@@ -6,8 +6,4 @@
   @include respondTo(mobile) {
     overflow-x: hidden;
   }
-
-  &--is-open {
-    overflow: hidden;
-  }
 }

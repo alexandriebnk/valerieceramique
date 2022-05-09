@@ -20,9 +20,9 @@ const App = () => {
 
   return (
     <CartContext.Provider value={{ isCartOpen, setIsCartOpen }}>
-      <div className={`app app${isCartOpen ? '--is-open' : ''}`}>
+      <div className='app'>
         <Header />
-        {isCartOpen && <CartDropdown />}
+        <CartDropdown />
         <main>
           <Routes>
             <Route path='/' exact element={<HomePage />} />

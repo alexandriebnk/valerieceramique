@@ -4,6 +4,13 @@
   &__visual {
     position: relative;
 
+    &:hover {
+      .product__visual--button {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+
     &--image {
       height: 27rem;
       width: 100%;
@@ -28,6 +35,9 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.15s linear;
     }
   }
 

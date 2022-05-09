@@ -1,4 +1,7 @@
 .burger-icon {
+  cursor: pointer;
+  height: 2rem;
+  width: 2.2rem;
   &__top {
     transform: translate(0, 0) rotate(0);
     transition: 0.5s ease-in-out;

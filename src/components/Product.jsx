@@ -14,7 +14,7 @@ const Product = ({ title, image, price, id }) => {
           />
         </div>
         <div className='product__visual--button'>
-          <Button />
+          <Button name={'View'} theme='light' size='small' />
         </div>
       </div>
       <div className='product__details'>

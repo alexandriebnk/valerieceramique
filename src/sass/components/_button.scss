@@ -1,10 +1,61 @@
 .button {
-  background-color: white;
-  border: none;
-  height: 2.5rem;
   padding-right: 3rem;
   padding-left: 3rem;
-  font-size: 1.2rem;
-  border-radius: 10%;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-radius: 0.5rem;
   cursor: pointer;
+  transition: all 0.15s ease-in;
+
+  &--dark {
+    background-color: $emailing;
+    border: 0.19rem solid white;
+    color: white;
+
+    &:hover {
+      background-color: white;
+      color: $emailing;
+      border-color: $emailing;
+    }
+  }
+
+  &--neutral {
+    background-color: transparent;
+    border: 0.2rem solid $emailing;
+    color: $font;
+
+    &:hover {
+      background-color: $font;
+      color: white;
+      border: none;
+    }
+  }
+
+  &--light {
+    background-color: white;
+    color: $font;
+    border: none;
+
+    &:hover {
+      background-color: $emailing;
+      color: white;
+    }
+  }
+
+  &--small {
+    height: 2rem;
+    font-size: 1rem;
+  }
+
+  &--medium {
+    height: 4rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  &--large {
+    height: 5rem;
+    width: 16rem;
+    font-size: 1.5rem;
+  }
 }

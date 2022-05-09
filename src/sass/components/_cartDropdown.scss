@@ -1,17 +1,31 @@
 .dropdown {
   background-color: white;
   display: block;
-  position: absolute;
-  top: 20rem;
+  position: fixed;
+  top: 4rem;
   right: 5%;
   width: 41.5rem;
   padding-left: 2.5rem;
-  border-radius: 3%;
+  border-radius: 2%;
   font-size: 1.5rem;
   z-index: 40;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.35s linear;
+
+  &--is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__title {
+    //background-color: yellow;
+    margin-top: 4.5rem;
+    font-size: 2rem;
+  }
 
   &__burger-icon {
-    background-color: aquamarine;
+    //background-color: aquamarine;
     position: absolute;
     top: 2rem;
     right: 2rem;
@@ -25,7 +39,7 @@
     justify-content: space-between;
     align-items: flex-start;
     width: 35rem;
-    margin-top: 7rem;
+    margin-top: 2rem;
     margin-bottom: 5rem;
 
     &--list {
@@ -106,20 +120,6 @@
         font-weight: bold;
       }
     }
-
-    &--button {
-      background-color: white;
-      border: none;
-      height: 4rem;
-      padding-right: 3rem;
-      padding-left: 3rem;
-      font-size: 1.4rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 0.1rem;
-      border-radius: 10%;
-      cursor: pointer;
-    }
   }
 }
 
@@ -132,4 +132,12 @@
   left: 0;
   background-color: rgba(antiquewhite, 0.5);
   z-index: 30;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.35s linear;
+
+  &--is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
 }
