@@ -13,6 +13,16 @@
   opacity: 0;
   transition: all 0.35s linear;
 
+  @include respondTo(xlarge) {
+    right: 16.1%;
+  }
+
+  @include respondTo(mobile) {
+    top: 1rem;
+    right: 3.4%;
+    width: 35rem;
+  }
+
   &--is-open {
     opacity: 1;
     pointer-events: all;
@@ -42,6 +52,10 @@
     margin-top: 2rem;
     margin-bottom: 5rem;
 
+    @include respondTo(mobile) {
+      width: 30rem;
+    }
+
     &--list {
       width: 100%;
 
@@ -54,7 +68,8 @@
 
         &-details {
           :nth-child(2) {
-            //color: red;
+            color: grey;
+            font-size: 1.3rem;
           }
 
           &-remove {

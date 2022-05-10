@@ -2,7 +2,7 @@ import React from 'react';
 
 const CategoriesContext = React.createContext({
   bowls: {
-    icon: '/gallery/gallery_3.png',
+    icon: '/gallery/gallery_2.png',
     name: 'bowls',
     items: [
       {
@@ -168,7 +168,7 @@ const CategoriesContext = React.createContext({
     ],
   },
   carafe: {
-    icon: '/gallery/gallery_4.png',
+    icon: '/gallery/gallery_2.png',
     name: 'carafe',
     items: [
       {
@@ -334,7 +334,7 @@ const CategoriesContext = React.createContext({
     ],
   },
   plats: {
-    icon: '/gallery/gallery_5.png',
+    icon: '/gallery/gallery_2.png',
     name: 'plats',
     items: [
       {
@@ -500,7 +500,7 @@ const CategoriesContext = React.createContext({
     ],
   },
   vases: {
-    icon: '/gallery/gallery_6.png',
+    icon: '/gallery/gallery_2.png',
     name: 'vases',
     items: [
       {
@@ -666,7 +666,7 @@ const CategoriesContext = React.createContext({
     ],
   },
   glasses: {
-    icon: '/gallery/gallery_7.png',
+    icon: '/gallery/gallery_2.png',
     name: 'glasses',
     items: [
       {

@@ -1,14 +1,12 @@
 .preview {
-  background-color: aquamarine;
+  //background-color: aquamarine;
   position: relative;
   display: flex;
   flex-direction: row;
-  width: 90%;
-  //margin-bottom: 20rem;
-
-  &:not(:last-child) {
-    margin-bottom: 20rem;
-  }
+  width: 100%;
+  padding-left: 1rem;
+  text-decoration: none;
+  cursor: pointer;
 
   @include respondTo(tablet) {
     width: 100%;
@@ -25,6 +23,7 @@
 
   &--reverse {
     flex-direction: row-reverse;
+    padding-right: 1rem;
 
     @include respondTo(mobile) {
       flex-direction: column-reverse;
@@ -32,13 +31,13 @@
 
     .preview__brand {
       position: absolute;
-      top: 27.3rem;
-      left: 29.5rem;
+      top: 30.9rem;
+      left: 31.6rem;
       transform: rotate(90deg);
 
       @include respondTo(tablandscape) {
-        top: 18.8rem;
-        left: 20.5rem;
+        top: 21.04rem;
+        left: 21.5rem;
       }
 
       @include respondTo(tablet) {
@@ -52,6 +51,7 @@
         left: -1.7rem;
       }
     }
+
     .preview__title {
       //background-color: green;
       margin-right: -2rem;
@@ -62,27 +62,21 @@
     }
   }
 
-  &__link {
-    //background-color: fuchsia;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
   &__brand {
     //background-color: sandybrown;
     height: fit-content;
     width: 100%;
     position: absolute;
-    bottom: 27.75rem;
-    left: -29.5rem;
+    bottom: 30.9rem;
+    left: -31.7rem;
     font-size: 2.5rem;
     font-weight: 100;
     transform: rotate(-90deg);
     cursor: pointer;
 
     @include respondTo(tablandscape) {
-      bottom: 18.8rem;
-      left: -20.5rem;
+      bottom: 21.05rem;
+      left: -21.5rem;
       font-size: 2rem;
     }
 
@@ -131,8 +125,13 @@
     top: 5rem;
     margin-left: -2rem;
     height: fit-content;
+    width: fit-content;
     font-style: italic;
     font-size: 3rem;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
 
     @include respondTo(tablet) {
       font-size: 2.5rem;

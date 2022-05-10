@@ -1,5 +1,5 @@
 .list {
-  background-color: pink;
+  //background-color: pink;
   width: 100%;
   max-width: 130rem;
   margin-top: 3rem;
@@ -23,7 +23,7 @@
     //background-color: yellowgreen;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
 
     @include respondTo(mobile) {
@@ -38,6 +38,14 @@
       align-items: center;
       width: 50%;
       list-style: none;
+
+      &-category {
+        width: 100%;
+
+        &:not(:last-child) {
+          margin-bottom: 20rem;
+        }
+      }
 
       @include respondTo(mobile) {
         display: block;

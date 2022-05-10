@@ -1,15 +1,21 @@
 .header {
+  //background-color: antiquewhite;
   height: 20rem;
   width: 100%;
   max-width: 130rem;
   margin: auto;
   padding-top: 4rem;
 
+  @include respondTo(tablandscape) {
+    width: 90%;
+  }
+
   @include respondTo(mobile) {
     height: 7rem;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     z-index: 10;
     padding-top: 0;
   }

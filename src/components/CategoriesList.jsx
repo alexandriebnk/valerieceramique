@@ -16,11 +16,11 @@ const CategoriesList = () => {
           {arrayCategory.map((category, index) => {
             if (index % 2 === 0) {
               return (
-                <li>
-                  <CategoryPreview
-                    category={category}
-                    key={`${category}-${index}`}
-                  />
+                <li
+                  className='list__categories--left-category'
+                  key={`${category}-${index}`}
+                >
+                  <CategoryPreview category={category} />
                 </li>
               );
             }
@@ -31,11 +31,16 @@ const CategoriesList = () => {
           {arrayCategory.map((category, index) => {
             if (index % 2 !== 0) {
               return (
-                <CategoryPreview
-                  category={category}
+                <li
+                  className='list__categories--right-category'
                   key={`${category}-${index}`}
-                  reverse
-                />
+                >
+                  <CategoryPreview
+                    category={category}
+                    key={`${category}-${index}`}
+                    reverse
+                  />
+                </li>
               );
             }
             return null;
