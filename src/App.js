@@ -5,6 +5,7 @@ import CartDropdown from './components/CartDropdown';
 import HomePage from './routes/HomePage';
 import About from './routes/About';
 import Shop from './routes/Shop';
+import Content from './components/Content';
 import Gallery from './routes/Gallery';
 import Contact from './routes/Contact';
 import Stockists from './routes/Informations/Stockists';
@@ -28,6 +29,7 @@ const App = () => {
             <Route path='/' exact element={<HomePage />} />
             <Route path='/about' element={<About />} />
             <Route path='/shop' element={<Shop />} />
+            <Route path='/shop/:category' component={<Content />} />
             <Route path='/gallery' element={<Gallery />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/stockists' element={<Stockists />} />

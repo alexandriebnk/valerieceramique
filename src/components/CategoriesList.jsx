@@ -1,30 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import CategoryPreview from './CategoryPreview';
-
-const categories = ['Bowls', 'Carafes', 'Plats', 'Vases', 'Glasses'];
+import CategoriesContext from '../store/categories-context';
 
 const CategoriesList = () => {
+  const category = useContext(CategoriesContext);
+  const arrayCategory = Object.values(category);
+
   return (
     <div className='list'>
       <div className='list__title'>
         <h1>Categories</h1>
       </div>
       <div className='list__categories'>
-        <div className='list__categories--left'>
-          {categories.map((category, index) => {
+        <ul className='list__categories--left'>
+          {arrayCategory.map((category, index) => {
             if (index % 2 === 0) {
               return (
-                <CategoryPreview
-                  category={category}
-                  key={`${category}-${index}`}
-                />
+                <li>
+                  <CategoryPreview
+                    category={category}
+                    key={`${category}-${index}`}
+                  />
+                </li>
               );
             }
             return null;
           })}
-        </div>
-        <div className='list__categories--right'>
-          {categories.map((category, index) => {
+        </ul>
+        <ul className='list__categories--right'>
+          {arrayCategory.map((category, index) => {
             if (index % 2 !== 0) {
               return (
                 <CategoryPreview
@@ -36,7 +40,7 @@ const CategoriesList = () => {
             }
             return null;
           })}
-        </div>
+        </ul>
       </div>
     </div>
   );

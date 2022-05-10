@@ -1,9 +1,10 @@
 .preview {
-  //background-color: aquamarine;
+  background-color: aquamarine;
   position: relative;
   display: flex;
   flex-direction: row;
   width: 90%;
+  //margin-bottom: 20rem;
 
   &:not(:last-child) {
     margin-bottom: 20rem;
@@ -59,6 +60,12 @@
         margin-right: 0rem;
       }
     }
+  }
+
+  &__link {
+    //background-color: fuchsia;
+    text-decoration: none;
+    cursor: pointer;
   }
 
   &__brand {

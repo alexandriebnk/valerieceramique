@@ -1,11 +1,10 @@
 import React from 'react';
-//import CategoriesList from './CategoriesList';
-import Category from './Category';
+import CategoriesList from './CategoriesList';
 
 const Content = () => {
   return (
     <div className='content'>
-      <Category />
+      <CategoriesList />
     </div>
   );
 };
