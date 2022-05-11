@@ -1,32 +1,24 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import Product from './Product';
-
-const images = [
-  '/gallery/gallery_1.png',
-  '/gallery/gallery_2.png',
-  '/gallery/gallery_3.png',
-  '/gallery/gallery_4.png',
-  '/gallery/gallery_5.png',
-  '/gallery/gallery_6.png',
-  '/gallery/gallery_7.png',
-  '/gallery/gallery_8.png',
-  '/gallery/gallery_9.png',
-  '/gallery/gallery_10.png',
-  '/gallery/gallery_11.png',
-  '/gallery/gallery_12.png',
-];
+import { products } from '../categories';
 
 const Category = () => {
+  const { category } = useParams();
+
   return (
     <div className='category'>
-      {images.map((image) => {
+      <h1 className='category__title'>{category}</h1>
+
+      {products.map((product, index) => {
         return (
-          <div key={image} className='category__product'>
+          <div key={`${product}-${index}`} className='category__product'>
             <Product
-              title={image.title}
-              img={image}
-              price={image.price}
-              id={image.id}
+              category={category}
+              title={product.title.en}
+              img={product.src}
+              price={product.price}
+              id={product.id}
             />
           </div>
         );

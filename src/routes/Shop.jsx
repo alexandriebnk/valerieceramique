@@ -1,5 +1,5 @@
 import React from 'react';
-import Content from '../components/Content';
+import CategoriesList from '../components/CategoriesList';
 
 const Shop = () => {
   return (
@@ -24,7 +24,7 @@ const Shop = () => {
         </p>
       </div>
       <div className='shop__content'>
-        <Content />
+        <CategoriesList />
       </div>
     </div>
   );

@@ -19,4 +19,13 @@
   @include respondTo(mobile) {
     grid-template-columns: repeat(auto-fill, 15rem);
   }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
 }

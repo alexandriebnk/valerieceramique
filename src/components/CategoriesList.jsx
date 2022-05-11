@@ -1,11 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import CategoryPreview from './CategoryPreview';
-import CategoriesContext from '../store/categories-context';
+import { categories } from '../categories';
 
 const CategoriesList = () => {
-  const category = useContext(CategoriesContext);
-  const arrayCategory = Object.values(category);
-
   return (
     <div className='list'>
       <div className='list__title'>
@@ -13,14 +10,14 @@ const CategoriesList = () => {
       </div>
       <div className='list__categories'>
         <ul className='list__categories--left'>
-          {arrayCategory.map((category, index) => {
+          {categories.map((category, index) => {
             if (index % 2 === 0) {
               return (
                 <li
                   className='list__categories--left-category'
                   key={`${category}-${index}`}
                 >
-                  <CategoryPreview category={category} />
+                  <CategoryPreview category={category.name} />
                 </li>
               );
             }
@@ -28,7 +25,7 @@ const CategoriesList = () => {
           })}
         </ul>
         <ul className='list__categories--right'>
-          {arrayCategory.map((category, index) => {
+          {categories.map((category, index) => {
             if (index % 2 !== 0) {
               return (
                 <li
@@ -36,7 +33,7 @@ const CategoriesList = () => {
                   key={`${category}-${index}`}
                 >
                   <CategoryPreview
-                    category={category}
+                    category={category.name}
                     key={`${category}-${index}`}
                     reverse
                   />

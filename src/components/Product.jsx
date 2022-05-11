@@ -1,25 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from './Button';
 
-const Product = ({ title, image, price, id }) => {
+const Product = ({ category, title, image, price, id }) => {
   return (
     <div key={id} className='product'>
       <div className='product__visual'>
         <div className='product__visual--image'>
           <img
-            src='/gallery/gallery_1.png'
+            src={image}
             className='product__visual--image-item'
             alt='product'
             draggable='false'
           />
         </div>
-        <div className='product__visual--button'>
+        <Link
+          to={`/shop/${category}/${id}`}
+          className='product__visual--button'
+        >
           <Button name={'View'} theme='light' size='small' />
-        </div>
+        </Link>
       </div>
       <div className='product__details'>
-        <h4 className='product__details--title'>Small flower cup, white</h4>
-        <p className='product__details--price'>€30.00</p>
+        <h4 className='product__details--title'>{title}</h4>
+        <p className='product__details--price'>{price}</p>
       </div>
     </div>
   );

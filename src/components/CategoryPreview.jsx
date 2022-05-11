@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const CategoryPreview = ({ category, reverse }) => {
   return (
     <Link
-      to={`/shop/${category.name}`}
+      to={`/shop/${category}`}
       className={`preview${reverse ? ' preview--reverse' : ''}`}
     >
       <p className='preview__brand'>Valérie Céramique</p>
