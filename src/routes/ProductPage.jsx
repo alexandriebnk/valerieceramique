@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Button from '../components/Button';
-import DescriptionProd from '../components/DescriptionProd';
+import DetailsProd from '../components/DetailsProd';
 import { products } from '../categories';
 
 const ProductPage = () => {
@@ -12,34 +12,52 @@ const ProductPage = () => {
   return (
     <div className='product-page'>
       <div className='product-page__visual'>
-        <img
-          src={product.src}
-          className='product-page__visual--item'
-          alt='product'
-          draggable='false'
-        />
+        <div className='product-page__visual-wrapper'>
+          {product.images.map((src) => (
+            <img
+              key={src}
+              src={src}
+              className='product-page__visual-wrapper--item'
+              alt='product'
+              draggable='false'
+            />
+          ))}
+        </div>
       </div>
 
-      <div className='product-page__text'>
-        <p className='product-page__text--title'>{product.en.title}</p>
-        <p className='product-page__text--price'>{product.price}</p>
-        <div className='product-page__text--fr'>
-          <DescriptionProd
-            product={product.fr}
-            titleWeight='poids'
-            titleCapacity='Contenance'
-          />
+      <div className='product-page__main'>
+        <h2 className='product-page__main--title'>{product.title}</h2>
+        <p className='product-page__main--price'>{product.price}</p>
+
+        <div className='product-page__main--details'>
+          <div className='product-page__main--details-first'>
+            <DetailsProd
+              product={product}
+              titleWeight='weight'
+              titleCapacity='capacity'
+            />
+          </div>
+
+          <div className='product-page__main--details-second'>
+            <DetailsProd
+              product={product}
+              titleWeight='weight'
+              titleCapacity='capacity'
+            />
+          </div>
         </div>
-        <div className='product-page__text--fr'>
-          <DescriptionProd
-            product={product.en}
-            titleWeight='weight'
-            titleCapacity='capacity'
-          />
+
+        <div className='product-page__main--quality'>
+          <p className='product-page__main--quality-first'>
+            {product.description}
+          </p>
+          <p className='product-page__main--quality-second'>
+            {product.description}
+          </p>
         </div>
 
         <div>
-          <Button />
+          <Button name='add to cart' theme='dark' size='medium' />
         </div>
       </div>
     </div>
