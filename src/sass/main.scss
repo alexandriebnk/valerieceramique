@@ -9,19 +9,19 @@
 @import './components/navBar';
 @import './components/shopCart';
 
-@import './components/homePage';
+@import './pages/homePage';
 @import './components/hero';
 
-@import './components/about';
-@import './components/shop';
-@import './components/gallery';
-@import './components/contact';
+@import './pages/about';
+@import './pages/shop';
+@import './pages/gallery';
+@import './pages/contact';
 
 @import './components/categoriesList';
 @import './components/categoryPreview';
 @import './components/category';
 @import './components/product';
-@import './components/productPage';
+@import './pages/productPage';
 
 @import './components/checkoutPage';
 @import './components/cartDropdown';
@@ -33,5 +33,8 @@
 @import './icons/burgerIcon';
 @import './icons/instagramIcon';
 @import './icons/mailIcon';
+
 @import './components/informations';
+@import './pages/informations/stockists';
+
 @import './components/copyright';

@@ -123,8 +123,13 @@
       justify-content: space-between;
       width: 80%;
 
+      @include respondTo(tablandscape) {
+        width: 85%;
+      }
+
       @include respondTo(tablet) {
         flex-wrap: wrap;
+        width: 80%;
       }
 
       @include respondTo(mobile) {
@@ -135,6 +140,10 @@
         height: 15rem;
         width: 23%;
         cursor: pointer;
+
+        @include respondTo(tablandscape) {
+          height: 12rem;
+        }
 
         @include respondTo(tablet) {
           width: 45%;
@@ -188,7 +197,7 @@
         background-color: $font;
         position: absolute;
         left: 0;
-        top: 25.5rem;
+        top: 26.2rem;
         height: 0.1rem;
         width: 1rem;
 
