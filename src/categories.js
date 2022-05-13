@@ -27,14 +27,6 @@ export const products = [
       '/gallery/gallery_2.png',
       '/gallery/gallery_3.png',
       '/gallery/gallery_4.png',
-      '/gallery/gallery_5.png',
-      '/gallery/gallery_6.png',
-      '/gallery/gallery_7.png',
-      '/gallery/gallery_8.png',
-      '/gallery/gallery_9.png',
-      '/gallery/gallery_10.png',
-      '/gallery/gallery_11.png',
-      '/gallery/gallery_12.png',
     ],
   },
   {
@@ -51,6 +43,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -66,6 +64,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -81,6 +85,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
 
   // CARAFES
@@ -98,6 +108,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -113,6 +129,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -128,6 +150,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -143,6 +171,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
 
   // PLATS
@@ -160,6 +194,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -175,6 +215,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -190,6 +236,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -205,6 +257,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -220,6 +278,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
 
   // VASES
@@ -237,6 +301,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -252,6 +322,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -267,6 +343,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -282,6 +364,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -297,6 +385,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
 
   // GLASSES
@@ -314,6 +408,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -329,6 +429,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -344,6 +450,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -359,6 +471,12 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
   {
     id: 'the-good-carafes',
@@ -374,5 +492,11 @@ export const products = [
     capacity: '700ml',
     description:
       'Toutes les pièces sont entièrement façonnées à la main, tournées et émaillées dans mon atelier à Paris. Étant fabriquées de façon artisanale, il peut donc y avoir de légères variations en terme de dimensions et de couleur par rapport aux photos et entre les différentes pièces d’une même série. Cette vaisselle est adaptée au contact alimentaire et faite pour un usage quotidien. En terme d’entretien, elle passe au lave-vaisselle mais pour la préserver le plus longtemps possible, il est recommandé de la laver à la main avec soin. Elle passe aussi au micro-ondes mais ne convient pas pour le four.',
+    images: [
+      '/gallery/gallery_1.png',
+      '/gallery/gallery_2.png',
+      '/gallery/gallery_3.png',
+      '/gallery/gallery_4.png',
+    ],
   },
 ];

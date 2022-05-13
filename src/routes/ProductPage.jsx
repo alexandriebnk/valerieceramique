@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Button from '../components/Button';
 import DetailsProd from '../components/DetailsProd';
@@ -6,21 +6,48 @@ import { products } from '../categories';
 
 const ProductPage = () => {
   const { id } = useParams();
-
   const product = products.find((product) => product.id === id);
+
+  const [mainVisual, setMainVisual] = useState(product.images[0]);
+
+  const updateMainVisual = (event) => {
+    event.preventDefault();
+    const nextIndex = event.currentTarget.dataset.imageIndex;
+    setMainVisual(product.images[nextIndex]);
+  };
 
   return (
     <div className='product-page'>
       <div className='product-page__visual'>
-        <div className='product-page__visual-wrapper'>
-          {product.images.map((src) => (
-            <img
+        <div className='product-page__visual--block'>
+          <div className='product-page__visual--block-anim'>
+            <p>céramique</p>
+            <div className='product-page__visual--block-big'>
+              <img
+                src={mainVisual}
+                className='product-page__visual--block-big-item'
+                alt='product'
+                draggable='false'
+              />
+            </div>
+            <p>contemporaine</p>
+          </div>
+        </div>
+        <div className='product-page__visual--gallery'>
+          {product.images.map((src, index) => (
+            <div
+              className='product-page__visual--gallery-wrapper'
               key={src}
-              src={src}
-              className='product-page__visual-wrapper--item'
-              alt='product'
-              draggable='false'
-            />
+              data-image-index={index}
+              onClick={updateMainVisual}
+            >
+              <img
+                src={src}
+                className='product-page__visual--gallery-wrapper--item'
+                alt='product'
+                draggable='false'
+              />
+            </div>
           ))}
         </div>
       </div>

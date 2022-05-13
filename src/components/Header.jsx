@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
 import ShopCart from './ShopCart';
-import Logo from '../assets/logo.jpeg';
+import Logo from '../assets/logo.svg';
 
 const Header = () => {
   return (
