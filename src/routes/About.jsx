@@ -1,7 +1,5 @@
-import { gql, useQuery } from '@apollo/client';
-import React, { useEffect } from 'react';
-import Portrait from '../assets/portrait.jpg';
-import Copyright from '../components/Copyright';
+import React from 'react';
+import { useQuery, gql } from '@apollo/client';
 
 const aboutQuery = gql`
   query About {
@@ -62,13 +60,11 @@ const About = () => {
           responsible manufacturing, they are mostly made from local clays,
           extracted in nearby regions such as Normandy or Burgundy (France).
         </p>
-        <div className='about__biography--copyright'>
-          <Copyright />
-        </div>
+        <div className='about__biography--copyright'>copyright</div>
       </div>
       <div className='about__portrait'>
         <img
-          src={Portrait}
+          src=''
           className='about__portrait--item'
           alt='portrait'
           draggable='false'

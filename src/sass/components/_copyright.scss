@@ -1,8 +1,0 @@
-.copyright {
-  //background-color: pink;
-
-  @include respondTo(mobile) {
-    //background-color: aquamarine;
-    font-size: 1.2rem;
-  }
-}

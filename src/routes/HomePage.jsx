@@ -32,8 +32,6 @@ const HomePage = () => {
   const name = data.home.data.attributes.name;
   const title = data.home.data.attributes.title;
 
-  console.log();
-
   return (
     <div className='home-page'>
       <div className='hero'>

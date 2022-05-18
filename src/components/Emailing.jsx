@@ -1,16 +1,16 @@
 import React from 'react';
 import Button from './Button';
 
-const Emailing = () => {
+const Emailing = ({ data }) => {
   return (
     <div className='emailing'>
       <input
         className='emailing_input'
         type='email'
-        placeholder='Email Address'
+        placeholder={data.emailPlaceholder}
       />
       <div>
-        <Button name={'Subscribe'} theme='neutral' size='large' />
+        <Button name={data.subscribeButton} theme='neutral' size='large' />
       </div>
     </div>
   );
