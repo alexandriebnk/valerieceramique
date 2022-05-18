@@ -16,5 +16,9 @@
 
   &__title {
     margin-right: 0.5rem;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
 }

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BurgerIcon from './ComponentsSVG/BurgerIcon';
 
-const NavBar = () => {
+const NavBar = ({ titles }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const itemsNavBar = ['about', 'shop', 'gallery', 'contact'];
+  const navbarTitles = Object.values(titles);
 
   const openNavToggle = () => {
     setIsOpen(!isOpen);
@@ -26,9 +26,9 @@ const NavBar = () => {
           isOpen ? '--is-open' : ''
         }`}
       >
-        {itemsNavBar.map((item) => (
-          <li key={item} className='navbar__classic-item'>
-            <Link to={`/${item}`}>{item}</Link>
+        {navbarTitles.map((title) => (
+          <li key={title} className='navbar__classic-title'>
+            <Link to={`/${title}`}>{title}</Link>
           </li>
         ))}
       </ul>

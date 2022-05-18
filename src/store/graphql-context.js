@@ -1,17 +1,4 @@
-query Header {
-  header {
-    data {
-      attributes {
-        title
-        about
-        shop
-        gallery
-        contact
-        shopcart
-      }
-    }
-  }
-}
+
 
 ///
 

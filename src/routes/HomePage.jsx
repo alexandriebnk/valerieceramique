@@ -27,6 +27,11 @@ const HomePage = () => {
   if (loading) return <p>Loading..</p>;
   if (error) return <p>Error..</p>;
 
+  const url =
+    data.home.data.attributes.visual.data.attributes.formats.large.url;
+  const name = data.home.data.attributes.name;
+  const title = data.home.data.attributes.title;
+
   console.log();
 
   return (
@@ -34,19 +39,15 @@ const HomePage = () => {
       <div className='hero'>
         <div className='hero__image'>
           <img
-            src={
-              data.home.data.attributes.visual.data.attributes.formats.large.url
-            }
+            src={url}
             className='hero__image--item'
             alt='hero'
             draggable='false'
           />
         </div>
         <div className='hero__title'>
-          <p className='hero__title--top'>{data.home.data.attributes.name}</p>
-          <p className='hero__title--bottom'>
-            {data.home.data.attributes.title}
-          </p>
+          <p className='hero__title--top'>{name}</p>
+          <p className='hero__title--bottom'>{title}</p>
         </div>
       </div>
     </div>

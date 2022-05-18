@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import CartContext from '../store/cart-context';
 
-const ShopCart = () => {
+const ShopCart = ({ title }) => {
   const { isCartOpen, setIsCartOpen } = useContext(CartContext);
 
   const toggleOpenCart = () => {
@@ -13,7 +13,7 @@ const ShopCart = () => {
       className={`shop-cart shop-cart${isCartOpen ? '--is-open' : ''}`}
       onClick={toggleOpenCart}
     >
-      <p className='shop-cart__title'>Shop Cart</p>
+      <p className='shop-cart__title'>{title}</p>
       <p className='shop-cart__number'>(0)</p>
     </div>
   );
