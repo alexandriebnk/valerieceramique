@@ -1,20 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useQuery, gql } from '@apollo/client';
 import Button from '../components/Button';
 import DetailsProd from '../components/DetailsProd';
-import { products } from '../categories';
+
+const PRODUCTPAGEDATA = gql`
+  query Products($slug: String!) {
+    products(filters: { slug: { eq: $slug } }) {
+      data {
+        attributes {
+          slug
+          title
+          price
+          weight
+          specificationsFR
+          specificationsEN
+          descriptionFR
+          descriptionEN
+          Images {
+            Image {
+              data {
+                attributes {
+                  formats
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 const ProductPage = () => {
-  const { id } = useParams();
-  const product = products.find((product) => product.id === id);
+  const { slug } = useParams();
 
-  const [mainVisual, setMainVisual] = useState(product.images[0]);
+  const { loading, error, data } = useQuery(PRODUCTPAGEDATA, {
+    variables: { slug },
+  });
+
+  const [mainVisual, setMainVisual] = useState('');
+
+  useEffect(() => {
+    if (data) {
+      setMainVisual(
+        data.products.data[0].attributes.Images[0].Image.data.attributes.formats
+          .large.url
+      );
+    }
+  }, [data]);
 
   const updateMainVisual = (event) => {
     event.preventDefault();
     const nextIndex = event.currentTarget.dataset.imageIndex;
-    setMainVisual(product.images[nextIndex]);
+    setMainVisual(
+      data.products.data[0].attributes.Images[nextIndex].Image.data.attributes
+        .formats.large.url
+    );
   };
+
+  if (loading) return <p>Loading..</p>;
+  if (error) return <p>Error..</p>;
 
   return (
     <div className='product-page'>
@@ -34,15 +80,15 @@ const ProductPage = () => {
           </div>
         </div>
         <div className='product-page__visual--gallery'>
-          {product.images.map((src, index) => (
+          {data.products.data[0].attributes.Images.map((image, index) => (
             <div
               className='product-page__visual--gallery-wrapper'
-              key={src}
+              key={image.Image.data.attributes.formats.large.url}
               data-image-index={index}
               onClick={updateMainVisual}
             >
               <img
-                src={src}
+                src={image.Image.data.attributes.formats.large.url}
                 className='product-page__visual--gallery-wrapper--item'
                 alt='product'
                 draggable='false'
@@ -53,13 +99,17 @@ const ProductPage = () => {
       </div>
 
       <div className='product-page__main'>
-        <h2 className='product-page__main--title'>{product.title}</h2>
-        <p className='product-page__main--price'>{product.price}</p>
+        <h2 className='product-page__main--title'>
+          {data.products.data[0].attributes.title}
+        </h2>
+        <p className='product-page__main--price'>
+          {data.products.data[0].attributes.price}
+        </p>
 
         <div className='product-page__main--details'>
           <div className='product-page__main--details-first'>
             <DetailsProd
-              product={product}
+              specifications={data.products.data[0].attributes.specificationsFR}
               titleWeight='weight'
               titleCapacity='capacity'
             />
@@ -67,7 +117,7 @@ const ProductPage = () => {
 
           <div className='product-page__main--details-second'>
             <DetailsProd
-              product={product}
+              specifications={data.products.data[0].attributes.specificationsEN}
               titleWeight='weight'
               titleCapacity='capacity'
             />
@@ -76,10 +126,10 @@ const ProductPage = () => {
 
         <div className='product-page__main--quality'>
           <p className='product-page__main--quality-first'>
-            {product.description}
+            {data.products.data[0].attributes.descriptionFR}
           </p>
           <p className='product-page__main--quality-second'>
-            {product.description}
+            {data.products.data[0].attributes.descriptionEN}
           </p>
         </div>
 

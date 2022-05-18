@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 
-const Product = ({ category, title, image, price, id }) => {
+const Product = ({ category, title, images, price, id }) => {
+  const firstImage = images[0];
   return (
     <div key={id} className='product'>
       <div className='product__visual'>
         <div className='product__visual--image'>
           <img
-            src={image}
+            src={firstImage}
             className='product__visual--image-item'
             alt='product'
             draggable='false'

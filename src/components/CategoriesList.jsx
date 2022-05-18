@@ -1,8 +1,32 @@
 import React from 'react';
 import CategoryPreview from './CategoryPreview';
-import { categories } from '../categories';
+import { useQuery, gql } from '@apollo/client';
+
+const CATEGORYDATA = gql`
+  query Category {
+    categories {
+      data {
+        attributes {
+          title
+          visual {
+            data {
+              attributes {
+                formats
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 const CategoriesList = () => {
+  const { loading, error, data } = useQuery(CATEGORYDATA);
+
+  if (loading) return <p>Loading..</p>;
+  if (error) return <p>Error..</p>;
+
   return (
     <div className='list'>
       <div className='list__title'>
@@ -10,7 +34,7 @@ const CategoriesList = () => {
       </div>
       <div className='list__categories'>
         <ul className='list__categories--left'>
-          {categories.map((category, index) => {
+          {data.categories.data.map((category, index) => {
             if (index % 2 === 0) {
               return (
                 <li
@@ -25,7 +49,7 @@ const CategoriesList = () => {
           })}
         </ul>
         <ul className='list__categories--right'>
-          {categories.map((category, index) => {
+          {data.categories.data.map((category, index) => {
             if (index % 2 !== 0) {
               return (
                 <li

@@ -1,28 +1,38 @@
 import React from 'react';
+import { useQuery, gql } from '@apollo/client';
 import CategoriesList from '../components/CategoriesList';
 
+const ABOUTDATA = gql`
+  query Shop {
+    shop {
+      data {
+        attributes {
+          descriptionFR
+          descriptionEN
+          title
+        }
+      }
+    }
+  }
+`;
+
 const Shop = () => {
+  const { loading, error, data } = useQuery(ABOUTDATA);
+
+  if (loading) return <p>Loading..</p>;
+  if (error) return <p>Error..</p>;
+
+  const descriptionFR = data.shop.data.attributes.descriptionFR;
+  const descriptionEN = data.shop.data.attributes.descriptionEN;
+  const title = data.shop.data.attributes.title;
+
   return (
     <div className='shop'>
       <div className='shop__description'>
-        <p className='shop__description--fr'>
-          Bienvenue dans la boutique en ligne de l’atelier.
-          <br /> Chacune des pièces disponible dans cette boutique a été
-          réalisée à la main, du tournage à l’émaillage dans mon atelier à
-          Paris. Pour les personnes habitant en région parisienne, le retrait à
-          l’atelier est disponible dans les options de livraison à la
-          confirmation de votre commande.
-        </p>
-        <p className='shop__description--en'>
-          Welcome to the studio online shop.
-          <br /> Each of the pieces available in this shop has been handmade,
-          from throwing to glazing in my studio in Paris. Delivery is available
-          worldwide. For international shipments, please note that customs fees
-          and local taxes may apply. For people living in the area, the pick-up
-          at the studio is available in the delivery options upon confirmation
-          of your order.
-        </p>
+        <p className='shop__description--fr'>{descriptionFR}</p>
+        <p className='shop__description--en'>{descriptionEN}</p>
       </div>
+      <p>{title}</p>
       <div className='shop__content'>
         <CategoriesList />
       </div>

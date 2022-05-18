@@ -1,27 +1,43 @@
 import React from 'react';
+import { useQuery, gql } from '@apollo/client';
 
-const images = [
-  '/gallery/gallery_1.png',
-  '/gallery/gallery_2.png',
-  '/gallery/gallery_3.png',
-  '/gallery/gallery_4.png',
-  '/gallery/gallery_5.png',
-  '/gallery/gallery_6.png',
-  '/gallery/gallery_7.png',
-  '/gallery/gallery_8.png',
-  '/gallery/gallery_9.png',
-  '/gallery/gallery_10.png',
-  '/gallery/gallery_11.png',
-  '/gallery/gallery_12.png',
-];
+const GALLERYIMAGEDATA = gql`
+  query GalleryImage {
+    galleryImages {
+      data {
+        attributes {
+          image {
+            data {
+              attributes {
+                formats
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 const Gallery = () => {
+  const { loading, error, data } = useQuery(GALLERYIMAGEDATA);
+
+  if (loading) return <p>Loading..</p>;
+  if (error) return <p>Error..</p>;
+
   return (
     <div className='gallery'>
-      {images.map((image) => {
+      {data.galleryImages.data.map((image) => {
         return (
-          <div key={image} className='gallery__image'>
-            <img src={image} alt='gallery-item' draggable='false' />
+          <div
+            key={image.attributes.image.data.attributes.formats.large.url}
+            className='gallery__image'
+          >
+            <img
+              src={image.attributes.image.data.attributes.formats.large.url}
+              alt='gallery-item'
+              draggable='false'
+            />
           </div>
         );
       })}
