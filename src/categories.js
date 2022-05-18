@@ -1,5 +1,5 @@
 export const categories = [
-  { name: 'bowls', icon: '/gallery/gallery_2.png' },
+  { name: 'bowls', icon: '/gallery/gallery_1.png' },
   { name: 'carafes', icon: '/gallery/gallery_3.png' },
   { name: 'plats', icon: '/gallery/gallery_4.png' },
   { name: 'vases', icon: '/gallery/gallery_5.png' },

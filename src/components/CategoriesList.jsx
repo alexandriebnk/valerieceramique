@@ -17,7 +17,7 @@ const CategoriesList = () => {
                   className='list__categories--left-category'
                   key={`${category}-${index}`}
                 >
-                  <CategoryPreview category={category.name} />
+                  <CategoryPreview category={category} />
                 </li>
               );
             }
@@ -33,7 +33,7 @@ const CategoriesList = () => {
                   key={`${category}-${index}`}
                 >
                   <CategoryPreview
-                    category={category.name}
+                    category={category}
                     key={`${category}-${index}`}
                     reverse
                   />

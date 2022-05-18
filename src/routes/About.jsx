@@ -1,8 +1,31 @@
-import React from 'react';
+import { gql, useQuery } from '@apollo/client';
+import React, { useEffect } from 'react';
 import Portrait from '../assets/portrait.jpg';
 import Copyright from '../components/Copyright';
 
+const aboutQuery = gql`
+  query About {
+    about {
+      data {
+        attributes {
+          copyright
+        }
+      }
+    }
+  }
+`;
+
 const About = () => {
+  const { loading, error, data } = useQuery(aboutQuery);
+
+  if (loading) {
+    return <p>Loading</p>;
+  }
+
+  if (error) {
+    return <p>Error</p>;
+  }
+
   return (
     <div className='about'>
       <div className='about__biography'>

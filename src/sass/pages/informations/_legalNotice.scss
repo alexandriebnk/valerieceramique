@@ -43,4 +43,20 @@
       line-height: 1.8rem;
     }
   }
+
+  &__garantees {
+    &--responsabilities {
+      margin-top: 1rem;
+    }
+  }
+
+  &__rights {
+    &--copyright {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    &--penalty {
+      margin-bottom: 1rem;
+    }
+  }
 }

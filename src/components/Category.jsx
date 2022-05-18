@@ -5,6 +5,7 @@ import { products } from '../categories';
 
 const Category = () => {
   const { category } = useParams();
+  console.log(category);
 
   return (
     <div className='category'>
@@ -15,7 +16,7 @@ const Category = () => {
             <Product
               category={category}
               title={product.title.en}
-              img={product.src}
+              image={product.src}
               price={product.price}
               id={product.id}
             />
