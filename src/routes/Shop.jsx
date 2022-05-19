@@ -32,7 +32,7 @@ const Shop = () => {
         <p className='shop__description--fr'>{descriptionFR}</p>
         <p className='shop__description--en'>{descriptionEN}</p>
       </div>
-      <p>{title}</p>
+      <h2 className='shop__title-category'>{title}</h2>
       <div className='shop__content'>
         <CategoriesList />
       </div>

@@ -1,28 +1,44 @@
 import React from 'react';
+import { useQuery, gql } from '@apollo/client';
+
+const STOCKISTSDATA = gql`
+  query Stokists {
+    stockists {
+      data {
+        attributes {
+          title
+          location
+          website
+          country
+        }
+      }
+    }
+  }
+`;
 
 const Stockists = () => {
+  const { loading, error, data } = useQuery(STOCKISTSDATA);
+
+  if (loading) return <p>Loading..</p>;
+  if (error) return <p>Error..</p>;
+
   return (
     <div className='stockists'>
       <p className='stockists__title'>Stockists</p>
-      <p className='stockists__title--france'>FRANCE</p>
-      <div className='stockists__shop'>
-        <p>La Lune Décoration</p>
-        <p>Online</p>
-        <a href='https://www.lalunedecoration.com'>lalunedecoration.com</a>
-      </div>
-
-      <div className='stockists__shop'>
-        <p>Brutal Ceramics</p>
-        <p>Online</p>
-        <a href='https://www.brutalceramics.com'>brutalceramics.com</a>
-      </div>
-      <p className='stockists__title--japan'>JAPAN</p>
-      <div className='stockists__shop'>
-        <p>General Furnishings & Co</p>
-        <p>202, 1-8-10, Sendagaya, Shibuya-ku</p>
-        <p>Tokyo, 151-0051</p>
-        <a href='https://www.gfandco-shop.com'>gfandco-shop.com</a>
-      </div>
+      {data.stockists.data.map((distributor) => {
+        return (
+          <div key={distributor.attributes.title} className='stockists__shop'>
+            <p>{distributor.attributes.title}</p>
+            <p>{distributor.attributes.location}</p>
+            <a href={`'https://www.${distributor.attributes.website}'`}>
+              {distributor.attributes.website}
+            </a>
+            <p className='stockists__title--country'>
+              {distributor.attributes.country}
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -11,8 +11,6 @@
 
   &__title {
     //background-color: yellow;
-    font-size: 2rem;
-    margin-bottom: 3rem;
 
     @include respondTo(tablet) {
       margin-bottom: 5rem;

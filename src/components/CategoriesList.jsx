@@ -29,9 +29,6 @@ const CategoriesList = () => {
 
   return (
     <div className='list'>
-      <div className='list__title'>
-        <h1>Categories</h1>
-      </div>
       <div className='list__categories'>
         <ul className='list__categories--left'>
           {data.categories.data.map((category, index) => {

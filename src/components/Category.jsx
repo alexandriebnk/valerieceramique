@@ -41,19 +41,20 @@ const Category = () => {
   return (
     <div className='category'>
       <h1 className='category__title'>{category}</h1>
-      {data.products.data.map((product, index) => {
-        return (
-          <div key={`${product}-${index}`} className='category__product'>
+      <div className='category__product'>
+        {data.products.data.map((product, index) => {
+          return (
             <Product
+              key={`${product}-${index}`}
               category={category}
               title={product.attributes.title}
               images={product.attributes.Images}
               price={product.attributes.price}
               id={product.attributes.slug}
             />
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
