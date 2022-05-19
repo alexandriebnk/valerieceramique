@@ -15,6 +15,7 @@
   &__title {
     position: relative;
     margin-bottom: 4rem;
+    text-transform: uppercase;
 
     &:after {
       content: '';
@@ -37,6 +38,9 @@
     & p {
       &:nth-child(1) {
         font-weight: bold;
+      }
+      &:last-child {
+        text-transform: uppercase;
       }
     }
   }

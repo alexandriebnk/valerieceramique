@@ -1,0 +1,61 @@
+.button {
+  padding-right: 3rem;
+  padding-left: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease-in;
+}
+
+.button-dark {
+  background-color: rgb(250, 210, 156);
+  border: 0.19rem solid white;
+  color: white;
+}
+
+.button-dark:hover {
+  background-color: white;
+  color: rgb(250, 210, 156);
+  border-color: rgb(250, 210, 156);
+}
+
+.button-neutral {
+  background-color: transparent;
+  border: 0.2rem solid rgb(250, 210, 156);
+  color: rgb(14, 24, 77);
+}
+
+.button-neutral:hover {
+  background-color: rgb(14, 24, 77);
+  color: white;
+  border: none;
+}
+
+.button-light {
+  background-color: white;
+  color: rgb(14, 24, 77);
+  border: none;
+}
+
+.button-:hover {
+  background-color: rgb(250, 210, 156);
+  color: white;
+}
+
+.button-small {
+  height: 2rem;
+  font-size: 1rem;
+}
+
+.button-medium {
+  height: 4rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.button-large {
+  height: 5rem;
+  width: 16rem;
+  font-size: 1.5rem;
+}

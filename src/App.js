@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import CartDropdown from './components/CartDropdown';
-import HomePage from './routes/HomePage';
-import About from './routes/About';
-import Shop from './routes/Shop';
-import Category from './components/Category';
-import ProductPage from './routes/ProductPage';
-import Gallery from './routes/Gallery';
-import Contact from './routes/Contact';
-import Stockists from './routes/Informations/Stockists';
-import LegalNotice from './routes/Informations/LegalNotice';
-import Cgv from './routes/Informations/Cgv';
-import Privacy from './routes/Informations/Privacy';
-import PageNotFound from './routes/PageNotFound';
-import Footer from './components/Footer';
+import Header from './components/Header/Header';
+import CartDropdown from './components/CartDropdown/CartDropdown';
+import HomePage from './routes/HomePage/HomePage';
+import About from './routes/About/About';
+import Shop from './routes/Shop/Shop';
+import Category from './components/Category/Category';
+import ProductPage from './routes/ProductPage/ProductPage';
+import Gallery from './routes/Gallery/Gallery';
+import Contact from './routes/Contact/Contact';
+import Stockists from './routes/Informations/Stockists/Stockists';
+import LegalNotice from './routes/Informations/LegalNotice/LegalNotice';
+import Cgv from './routes/Informations/Cgv/Cgv';
+import Privacy from './routes/Informations/Privacy/Privacy';
+import PageNotFound from './routes/PageNotFound/PageNotFound';
+import Footer from './components/Footer/Footer';
 import CartContext from './store/cart-context';
 
 const App = () => {
