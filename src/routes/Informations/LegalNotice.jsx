@@ -29,20 +29,26 @@ const LegalNotice = () => {
   if (loading) return <p>Loading..</p>;
   if (error) return <p>Error..</p>;
   return (
-    <div className='legalnotice'>
-      <div className='legalnotice__fr'>
+    <div className='legalnotice infos'>
+      <div className='legalnotice__fr infos__fr'>
         <h3>{data?.legalNotice?.data?.attributes?.titleFR}</h3>
         {data?.legalNotice?.data?.attributes?.sectionsFR.map((section) => (
-          <section key={section.Title} className='legalnotice__fr__section'>
+          <section
+            key={section.Title}
+            className='legalnotice__fr__section infos__fr__section'
+          >
             <h3>{section.Title}</h3>
             <ParagraphHTML content={section.Content} />
           </section>
         ))}
       </div>
-      <div className='legalnotice__en'>
+      <div className='legalnotice__en infos__en'>
         <h3>{data?.legalNotice?.data?.attributes?.titleEN}</h3>
         {data?.legalNotice?.data?.attributes?.sectionsEN.map((section) => (
-          <section key={section.Title} className='legalnotice__en__section'>
+          <section
+            key={section.Title}
+            className='legalnotice__en__section infos__en__section'
+          >
             <h3>{section.Title}</h3>
             <ParagraphHTML content={section.Content} />
           </section>

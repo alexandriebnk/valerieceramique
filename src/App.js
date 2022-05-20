@@ -10,9 +10,7 @@ import ProductPage from './routes/ProductPage';
 import Gallery from './routes/Gallery';
 import Contact from './routes/Contact';
 import Stockists from './routes/Informations/Stockists';
-import LegalNotice from './routes/Informations/LegalNotice';
-import Cgv from './routes/Informations/Cgv';
-import Privacy from './routes/Informations/Privacy';
+import LegalInfos from './components/LegalInfos';
 import PageNotFound from './routes/PageNotFound';
 import Footer from './components/Footer';
 import CartContext from './store/cart-context';
@@ -35,9 +33,9 @@ const App = () => {
             <Route path='/gallery' element={<Gallery />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/stockists' element={<Stockists />} />
-            <Route path='/legal-notice' element={<LegalNotice />} />
-            <Route path='/cgv' element={<Cgv />} />
-            <Route path='/privacy' element={<Privacy />} />
+            <Route path='/mentions-legales' element={<LegalInfos />} />
+            <Route path='/cgv' element={<LegalInfos />} />
+            <Route path='/confidentialite' element={<LegalInfos />} />
             <Route path='*' element={<PageNotFound />} />
           </Routes>
         </main>

@@ -29,20 +29,20 @@ const Cgv = () => {
   if (loading) return <p>Loading..</p>;
   if (error) return <p>Error..</p>;
   return (
-    <div className='cgv'>
-      <div className='cgv__fr'>
+    <div className='infos'>
+      <div className='infos__fr'>
         <h3>{data?.cgv?.data?.attributes?.titleFR}</h3>
         {data?.cgv?.data?.attributes?.sectionsFR.map((section) => (
-          <section key={section.Title} className='cgv__fr__section'>
+          <section key={section.Title} className='infos__fr__section'>
             <h3>{section.Title}</h3>
             <ParagraphHTML content={section.Content} />
           </section>
         ))}
       </div>
-      <div className='cgv__en'>
+      <div className='infos__fr'>
         <h3>{data?.cgv?.data?.attributes?.titleEN}</h3>
         {data?.cgv?.data?.attributes?.sectionsEN.map((section) => (
-          <section key={section.Title} className='cgv__en__section'>
+          <section key={section.Title} className='infos__fr__section'>
             <h3>{section.Title}</h3>
             <ParagraphHTML content={section.Content} />
           </section>

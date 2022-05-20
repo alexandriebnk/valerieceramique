@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import Subscription from './Subscription';
 import Social from './Social';
-import Informations from './Informations';
+import FooterLinks from './FooterLinks';
 
 const FOOTERDATA = gql`
   query Footer {
@@ -41,7 +41,7 @@ const Footer = () => {
     privacyEN: data?.footer.data.attributes.privacyEN,
   };
 
-  const informationsData = {
+  const linksData = {
     stockists: data?.footer.data.attributes.stockists,
     legalFR: data?.footer.data.attributes.legalFR,
     legalEN: data?.footer.data.attributes.legalEN,
@@ -65,7 +65,7 @@ const Footer = () => {
           <Social />
         </div>
         <div className='footer__content__informations item'>
-          <Informations data={informationsData} />
+          <FooterLinks data={linksData} />
         </div>
         <div className='footer__content__copyright item'>{copyright}</div>
       </div>
