@@ -29,13 +29,13 @@ const CategoriesList = () => {
 
   return (
     <div className='list'>
-      <div className='list__categories'>
-        <ul className='list__categories--left'>
+      <div className='categories'>
+        <ul className='categories__left'>
           {data.categories.data.map((category, index) => {
             if (index % 2 === 0) {
               return (
                 <li
-                  className='list__categories--left-category'
+                  className='categories__left__category'
                   key={`${category}-${index}`}
                 >
                   <CategoryPreview category={category} />
@@ -45,12 +45,12 @@ const CategoriesList = () => {
             return null;
           })}
         </ul>
-        <ul className='list__categories--right'>
+        <ul className='categories__right'>
           {data.categories.data.map((category, index) => {
             if (index % 2 !== 0) {
               return (
                 <li
-                  className='list__categories--right-category'
+                  className='categories__right__category'
                   key={`${category}-${index}`}
                 >
                   <CategoryPreview

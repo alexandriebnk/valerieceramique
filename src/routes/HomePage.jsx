@@ -36,16 +36,11 @@ const HomePage = () => {
     <div className='home-page'>
       <div className='hero'>
         <div className='hero__image'>
-          <img
-            src={url}
-            className='hero__image--item'
-            alt='hero'
-            draggable='false'
-          />
+          <img src={url} alt='hero' draggable='false' />
         </div>
         <div className='hero__title'>
-          <p className='hero__title--top'>{name}</p>
-          <p className='hero__title--bottom'>{title}</p>
+          <h3>{name}</h3>
+          <h3>{title}</h3>
         </div>
       </div>
     </div>

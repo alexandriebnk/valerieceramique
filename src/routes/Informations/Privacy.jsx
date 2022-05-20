@@ -31,18 +31,18 @@ const Privacy = () => {
   return (
     <div className='privacy'>
       <div className='privacy__fr'>
-        <h2>{data?.privacy?.data?.attributes?.titleFR}</h2>
+        <h3>{data?.privacy?.data?.attributes?.titleFR}</h3>
         {data?.privacy?.data?.attributes?.sectionsFR.map((section) => (
-          <section key={section.Title} className='privacy__fr-section'>
+          <section key={section.Title} className='privacy__fr__section'>
             <h3>{section.Title}</h3>
             <ParagraphHTML content={section.Content} />
           </section>
         ))}
       </div>
       <div className='privacy__en'>
-        <h2>{data?.privacy?.data?.attributes?.titleEN}</h2>
+        <h3>{data?.privacy?.data?.attributes?.titleEN}</h3>
         {data?.privacy?.data?.attributes?.sectionsEN.map((section) => (
-          <section key={section.Title} className='privacy__en-section'>
+          <section key={section.Title} className='privacy__en__section'>
             <h3>{section.Title}</h3>
             <ParagraphHTML content={section.Content} />
           </section>

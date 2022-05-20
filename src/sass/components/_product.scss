@@ -11,7 +11,7 @@
       }
     }
 
-    &--image {
+    &__image {
       height: 27rem;
       width: 100%;
 
@@ -23,14 +23,14 @@
         height: 22rem;
       }
 
-      &-item {
+      img {
         height: 100%;
         width: 100%;
         object-fit: cover;
       }
     }
 
-    &--button {
+    &__button {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -52,7 +52,7 @@
       margin-right: auto;
     }
 
-    &--title {
+    &__title {
       font-weight: 100;
       margin-bottom: 0.5rem;
     }

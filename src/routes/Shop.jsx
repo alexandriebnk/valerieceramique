@@ -29,10 +29,10 @@ const Shop = () => {
   return (
     <div className='shop'>
       <div className='shop__description'>
-        <p className='shop__description--fr'>{descriptionFR}</p>
-        <p className='shop__description--en'>{descriptionEN}</p>
+        <p>{descriptionFR}</p>
+        <p>{descriptionEN}</p>
       </div>
-      <h2 className='shop__title-category'>{title}</h2>
+      <h2 className='shop__title'>{title}</h2>
       <div className='shop__content'>
         <CategoriesList />
       </div>

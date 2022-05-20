@@ -4,7 +4,7 @@
   width: 100%;
   max-width: 130rem;
   margin: auto;
-  padding-top: 4rem;
+  margin-bottom: 5rem;
 
   @include respondTo(tablandscape) {
     width: 90%;
@@ -28,14 +28,16 @@
 
     @include respondTo(mobile) {
       //background-color: aquamarine;
+      position: relative;
       height: 100%;
       width: 90%;
       margin: auto;
     }
 
-    &--logo {
-      height: 3rem;
-      width: 3rem;
+    &__logo {
+      height: 7rem;
+      width: 7rem;
+      margin-top: 3rem;
       cursor: pointer;
 
       @include respondTo(mobile) {
@@ -45,18 +47,24 @@
         height: 4rem;
         width: 4rem;
       }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
     }
 
-    &--title {
-      margin-top: 1.5rem;
-      margin-bottom: 3rem;
+    &__title {
+      margin-top: 2rem;
+      margin-bottom: 4rem;
 
       @include respondTo(mobile) {
         display: none;
       }
     }
 
-    &--navbar {
+    &__navbar {
       @include respondTo(mobile) {
         position: absolute;
         top: 2.9rem;
@@ -68,7 +76,7 @@
   &__shop-cart {
     //background-color: yellow;
     position: absolute;
-    top: 13.7rem;
+    top: 17.8rem;
     right: 5%;
 
     @include respondTo(xlarge) {

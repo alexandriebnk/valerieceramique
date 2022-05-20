@@ -39,15 +39,10 @@ const About = () => {
       <div className='about__biography'>
         <p className='about__biography--fr'>{descriptionFR}</p>
         <p className='about__biography--en'>{descriptionEN}</p>
-        <div className='about__biography--copyright'>{copyright}</div>
+        <div className='about__biography__copyright'>{copyright}</div>
       </div>
       <div className='about__portrait'>
-        <img
-          src={visual}
-          className='about__portrait--item'
-          alt='portrait'
-          draggable='false'
-        />
+        <img src={visual} alt='portrait' draggable='false' />
       </div>
     </div>
   );

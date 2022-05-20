@@ -36,17 +36,14 @@ const Contact = () => {
 
   return (
     <div className='contact'>
-      <p className='contact__title'>{title}</p>
+      <h3 className='contact__title'>{title}</h3>
       <div className='contact__address'>
-        <p className='contact__title--city'>{location}</p>
-        <p className='contact__title--email'>{email}</p>
+        <p>{location}</p>
+        <p>{email}</p>
       </div>
-      <img
-        src={visual}
-        className='contact__shop'
-        alt='shop'
-        draggable='false'
-      />
+      <div className='contact__shop'>
+        <img src={visual} alt='shop' draggable='false' />
+      </div>
     </div>
   );
 };

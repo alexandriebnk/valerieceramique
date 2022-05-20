@@ -6,7 +6,6 @@
   width: 100%;
   max-width: 130rem;
   margin: auto;
-  margin-top: 5rem;
   margin-bottom: 5rem;
 
   @include respondTo(tablandscape) {
@@ -42,7 +41,7 @@
       padding-right: 1rem;
     }
 
-    &--fr {
+    p:first-child {
       position: relative;
       margin-bottom: 4rem;
 
@@ -67,7 +66,7 @@
     }
   }
 
-  &__title-category {
+  &__title {
     //border: 2px solid blue;
     font-size: 4em;
     font-weight: bold;

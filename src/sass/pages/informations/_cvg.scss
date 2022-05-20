@@ -18,16 +18,12 @@
       border-bottom: 1px solid $font;
     }
 
-    &-section {
+    &__section {
       margin-top: 2rem;
     }
 
-    & h2 {
-      text-align: center;
-      margin-bottom: 5rem;
-    }
-
     & h3 {
+      background-color: darkcyan;
       margin-bottom: 1rem;
     }
   }

@@ -40,7 +40,7 @@ const Category = () => {
 
   return (
     <div className='category'>
-      <h1 className='category__title'>{category}</h1>
+      <h2 className='category__title'>{category}</h2>
       <div className='category__product'>
         {data.products.data.map((product, index) => {
           return (

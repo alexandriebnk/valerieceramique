@@ -1,13 +1,11 @@
 .about {
   //background-color: salmon;
-  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
   max-width: 130rem;
   margin: auto;
-  margin-top: 3rem;
   margin-bottom: 5rem;
 
   @include respondTo(tablandscape) {
@@ -21,7 +19,6 @@
 
   &__biography {
     //background-color: aquamarine;
-    position: relative;
     width: 35%;
     font-size: 1.2rem;
     word-wrap: break-word;
@@ -43,16 +40,17 @@
       margin-bottom: 3rem;
     }
 
-    &--copyright {
+    &__copyright {
+      position: relative;
       font-style: italic;
       font-size: 1.2rem;
 
-      &:after {
+      &::before {
         content: '';
         background-color: $font;
         position: absolute;
         left: 0;
-        top: 54rem;
+        bottom: 3.2rem;
         height: 0.1rem;
         width: 1rem;
       }
@@ -76,7 +74,7 @@
       width: 100%;
     }
 
-    &--item {
+    img {
       height: 100%;
       width: 100%;
       object-fit: cover;

@@ -31,18 +31,18 @@ const Cgv = () => {
   return (
     <div className='cgv'>
       <div className='cgv__fr'>
-        <h2>{data?.cgv?.data?.attributes?.titleFR}</h2>
+        <h3>{data?.cgv?.data?.attributes?.titleFR}</h3>
         {data?.cgv?.data?.attributes?.sectionsFR.map((section) => (
-          <section key={section.Title} className='cgv__fr-section'>
+          <section key={section.Title} className='cgv__fr__section'>
             <h3>{section.Title}</h3>
             <ParagraphHTML content={section.Content} />
           </section>
         ))}
       </div>
       <div className='cgv__en'>
-        <h2>{data?.cgv?.data?.attributes?.titleEN}</h2>
+        <h3>{data?.cgv?.data?.attributes?.titleEN}</h3>
         {data?.cgv?.data?.attributes?.sectionsEN.map((section) => (
-          <section key={section.Title} className='cgv__en-section'>
+          <section key={section.Title} className='cgv__en__section'>
             <h3>{section.Title}</h3>
             <ParagraphHTML content={section.Content} />
           </section>

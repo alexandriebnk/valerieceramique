@@ -28,12 +28,12 @@ const Stockists = () => {
       {data.stockists.data.map((distributor) => {
         return (
           <div key={distributor.attributes.title} className='stockists__shop'>
-            <p>{distributor.attributes.title}</p>
+            <h3>{distributor.attributes.title}</h3>
             <p>{distributor.attributes.location}</p>
             <a href={`'https://www.${distributor.attributes.website}'`}>
               {distributor.attributes.website}
             </a>
-            <p className='stockists__title--country'>
+            <p className='stockists__shop__country'>
               {distributor.attributes.country}
             </p>
           </div>

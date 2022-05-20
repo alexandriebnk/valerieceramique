@@ -43,17 +43,12 @@ const Header = () => {
     <div className='header'>
       <div className='header__wrapper'>
         <Link to='/'>
-          <h1 aria-label='Valérie Céramique'>
-            <img
-              src={Logo}
-              className='header__wrapper--logo'
-              alt='logo'
-              draggable='false'
-            />
+          <h1 aria-label='Valérie Céramique' className='header__wrapper__logo'>
+            <img src={Logo} alt='logo' draggable='false' />
           </h1>
         </Link>
-        <h2 className='header__wrapper--title'>{title}</h2>
-        <div className='header__wrapper--navbar'>
+        <h2 className='header__wrapper__title'>{title}</h2>
+        <div className='header__wrapper__navbar'>
           <NavBar titles={navbarTitles} />
         </div>
       </div>

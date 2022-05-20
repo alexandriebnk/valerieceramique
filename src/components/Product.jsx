@@ -7,24 +7,19 @@ const Product = ({ category, title, images, price, id }) => {
   return (
     <div key={id} className='product'>
       <div className='product__visual'>
-        <div className='product__visual--image'>
-          <img
-            src={firstImage}
-            className='product__visual--image-item'
-            alt='product'
-            draggable='false'
-          />
+        <div className='product__visual__image'>
+          <img src={firstImage} alt='product' draggable='false' />
         </div>
         <Link
           to={`/shop/${category}/${id}`}
-          className='product__visual--button'
+          className='product__visual__button'
         >
           <Button name={'View'} theme='light' size='small' />
         </Link>
       </div>
       <div className='product__details'>
-        <h4 className='product__details--title'>{title}</h4>
-        <p className='product__details--price'>€ {price}</p>
+        <h4 className='product__details__title'>{title}</h4>
+        <p className='product__details__price'>€ {price}</p>
       </div>
     </div>
   );

@@ -6,7 +6,6 @@
   text-align: center;
   margin-top: 5rem;
   margin-bottom: 22.5rem;
-  font-size: 1.3rem;
 
   @include respondTo(mobile) {
     margin-top: 15rem;
@@ -16,6 +15,7 @@
     position: relative;
     margin-bottom: 4rem;
     text-transform: uppercase;
+    font-size: 1.3rem;
 
     &:after {
       content: '';
@@ -28,20 +28,19 @@
       width: 1rem;
     }
 
-    &--country {
+    &__country {
       margin-bottom: 1rem;
     }
   }
 
   &__shop {
     margin-bottom: 2rem;
-    & p {
-      &:nth-child(1) {
-        font-weight: bold;
-      }
-      &:last-child {
-        text-transform: uppercase;
-      }
+    h3 {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    &__country {
+      text-transform: uppercase;
     }
   }
 }

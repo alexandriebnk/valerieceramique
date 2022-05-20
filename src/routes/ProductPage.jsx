@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Button from '../components/Button';
-import DetailsProd from '../components/DetailsProd';
+import ParagraphHTML from '../components/ParagraphHTML';
 
 const PRODUCTPAGEDATA = gql`
   query Products($slug: String!) {
@@ -64,32 +64,24 @@ const ProductPage = () => {
 
   return (
     <div className='product-page'>
-      <div className='product-page__visual'>
-        <div className='product-page__visual--block'>
-          <div className='product-page__visual--block-anim'>
-            <p>céramique</p>
-            <div className='product-page__visual--block-big'>
-              <img
-                src={mainVisual}
-                className='product-page__visual--block-big-item'
-                alt='product'
-                draggable='false'
-              />
-            </div>
-            <p>contemporaine</p>
+      <div className='visual'>
+        <div className='visual__main'>
+          <p>céramique</p>
+          <div className='visual__main__image'>
+            <img src={mainVisual} alt='product' draggable='false' />
           </div>
+          <p>contemporaine</p>
         </div>
-        <div className='product-page__visual--gallery'>
+        <div className='visual__gallery'>
           {data.products.data[0].attributes.Images.map((image, index) => (
             <div
-              className='product-page__visual--gallery-wrapper'
+              className='visual__gallery__wrapper'
               key={image.Image.data.attributes.formats.large.url}
               data-image-index={index}
               onClick={updateMainVisual}
             >
               <img
                 src={image.Image.data.attributes.formats.large.url}
-                className='product-page__visual--gallery-wrapper--item'
                 alt='product'
                 draggable='false'
               />
@@ -98,39 +90,31 @@ const ProductPage = () => {
         </div>
       </div>
 
-      <div className='product-page__main'>
-        <h2 className='product-page__main--title'>
+      <div className='overview'>
+        <h3 className='overview__title'>
           {data.products.data[0].attributes.title}
-        </h2>
-        <p className='product-page__main--price'>
-          {data.products.data[0].attributes.price}
+        </h3>
+        <p className='overview__price'>
+          € {data.products.data[0].attributes.price}
         </p>
 
-        <div className='product-page__main--details'>
-          <div className='product-page__main--details-first'>
-            <DetailsProd
-              specifications={data.products.data[0].attributes.specificationsFR}
-              titleWeight='weight'
-              titleCapacity='capacity'
+        <div className='overview__details'>
+          <div>
+            <ParagraphHTML
+              content={data.products.data[0].attributes.specificationsFR}
             />
           </div>
 
-          <div className='product-page__main--details-second'>
-            <DetailsProd
-              specifications={data.products.data[0].attributes.specificationsEN}
-              titleWeight='weight'
-              titleCapacity='capacity'
+          <div>
+            <ParagraphHTML
+              content={data.products.data[0].attributes.specificationsEN}
             />
           </div>
         </div>
 
-        <div className='product-page__main--quality'>
-          <p className='product-page__main--quality-first'>
-            {data.products.data[0].attributes.descriptionFR}
-          </p>
-          <p className='product-page__main--quality-second'>
-            {data.products.data[0].attributes.descriptionEN}
-          </p>
+        <div className='overview__quality'>
+          <p>{data.products.data[0].attributes.descriptionFR}</p>
+          <p>{data.products.data[0].attributes.descriptionEN}</p>
         </div>
 
         <div>

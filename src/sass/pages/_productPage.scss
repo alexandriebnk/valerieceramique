@@ -7,7 +7,6 @@
   width: 100%;
   max-width: 130rem;
   margin: auto;
-  margin-top: 5rem;
   margin-bottom: 5rem;
 
   @include respondTo(tablandscape) {
@@ -18,206 +17,201 @@
     width: 80%;
     flex-direction: column;
   }
+}
 
-  &__visual {
-    //border: 2px solid yellow;
+.visual {
+  //border: 2px solid yellow;
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+
+  @include respondTo(mobile) {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  &__main {
+    //border: 2px solid blue;
+    position: relative;
     display: flex;
     flex-direction: column;
-    width: 55%;
+    width: 100%;
+    font-size: 3.5rem;
 
     @include respondTo(mobile) {
-      width: 100%;
-      margin-top: 2rem;
+      font-size: 2rem;
     }
 
-    &--block {
-      //border: 2px solid blue;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
+    & p {
+      position: absolute;
 
-      &-big {
-        //border: 2px solid red;
-        height: 65rem;
-        width: 90%;
-        margin-top: 1.5rem;
-        margin-left: 2rem;
-        margin-bottom: 3rem;
+      &:nth-child(1) {
+        top: -1rem;
+        left: -0.3rem;
 
         @include respondTo(tablet) {
-          height: 45rem;
+          top: -0.5rem;
+          left: -0.1rem;
         }
 
-        @include respondTo(mobile) {
-          height: 40rem;
-          width: 92%;
-          margin: 1rem auto 3rem auto;
-        }
-
-        &-item {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
+        &::first-letter {
+          text-transform: uppercase;
         }
       }
 
-      &-anim {
-        //background-color: aquamarine;
-        font-size: 3.5rem;
+      &:nth-child(3) {
+        left: 42.8rem;
+        bottom: 1.1rem;
+
+        @include respondTo(tablandscape) {
+          left: 22.6rem;
+        }
 
         @include respondTo(tablet) {
-          font-size: 3.5rem;
+          left: 12.7rem;
         }
 
         @include respondTo(mobile) {
-          font-size: 2rem;
+          left: 15.4rem;
+          bottom: 1.9rem;
         }
 
-        & p {
-          position: absolute;
-
-          &:nth-child(1) {
-            top: -1rem;
-            left: -0.3rem;
-
-            @include respondTo(tablet) {
-              top: -0.5rem;
-              left: -0.1rem;
-            }
-
-            &::first-letter {
-              text-transform: uppercase;
-            }
-          }
-
-          &:nth-child(3) {
-            left: 42.8rem;
-            bottom: 1.1rem;
-
-            @include respondTo(tablandscape) {
-              left: 22.6rem;
-            }
-
-            @include respondTo(tablet) {
-              left: 12.7rem;
-            }
-
-            @include respondTo(mobile) {
-              left: 15.4rem;
-              bottom: 1.9rem;
-            }
-
-            &::first-letter {
-              text-transform: uppercase;
-            }
-          }
+        &::first-letter {
+          text-transform: uppercase;
         }
       }
     }
 
-    &--gallery {
-      //border: 2px solid blue;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 80%;
-
-      @include respondTo(tablandscape) {
-        width: 85%;
-      }
+    &__image {
+      //border: 2px solid red;
+      height: 65rem;
+      width: 90%;
+      margin-top: 1.5rem;
+      margin-left: 2rem;
+      margin-bottom: 3rem;
 
       @include respondTo(tablet) {
-        flex-wrap: wrap;
-        width: 80%;
+        height: 45rem;
       }
 
       @include respondTo(mobile) {
-        width: 100%;
+        height: 40rem;
+        width: 92%;
+        margin: 1rem auto 3rem auto;
       }
 
-      &-wrapper {
-        height: 15rem;
-        width: 23%;
-        cursor: pointer;
-
-        @include respondTo(tablandscape) {
-          height: 12rem;
-        }
-
-        @include respondTo(tablet) {
-          width: 45%;
-          margin-bottom: 3rem;
-        }
-
-        @include respondTo(mobile) {
-          height: 15rem;
-        }
-
-        &--item {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-        }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
       }
     }
   }
 
-  &__main {
-    //background-color: red;
-    font-size: 1.1rem;
-    line-height: 1.45rem;
-    width: 45%;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-bottom: 7rem;
+  &__gallery {
+    //border: 2px solid blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+
+    @include respondTo(tablandscape) {
+      width: 85%;
+    }
+
+    @include respondTo(tablet) {
+      flex-wrap: wrap;
+      width: 80%;
+    }
 
     @include respondTo(mobile) {
       width: 100%;
-      padding-left: 0;
-      padding-right: 0;
-      padding-bottom: 1rem;
-      font-size: 1.3rem;
-      line-height: 1.55rem;
     }
 
-    &--price {
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
+    &__wrapper {
+      height: 15rem;
+      width: 23%;
+      cursor: pointer;
 
-    &--details {
-      position: relative;
-      margin-bottom: 6rem;
-
-      &:after {
-        content: '';
-        background-color: $font;
-        position: absolute;
-        left: 0;
-        top: 26.2rem;
-        height: 0.1rem;
-        width: 1rem;
-
-        @include respondTo(mobile) {
-          top: 27.6rem;
-        }
+      @include respondTo(tablandscape) {
+        height: 12rem;
       }
 
-      &-first {
+      @include respondTo(tablet) {
+        width: 45%;
         margin-bottom: 3rem;
       }
+
+      @include respondTo(mobile) {
+        height: 15rem;
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.overview {
+  line-height: 1.8rem;
+  width: 45%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 7rem;
+
+  @include respondTo(mobile) {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 1rem;
+    line-height: 1.55rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+  }
+
+  &__price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__details {
+    position: relative;
+    margin-bottom: 6rem;
+    font-size: 1.2rem;
+
+    &:after {
+      content: '';
+      background-color: $font;
+      position: absolute;
+      bottom: -3rem;
+      left: 0;
+      height: 0.1rem;
+      width: 1rem;
+
+      @include respondTo(mobile) {
+        top: 27.6rem;
+      }
     }
 
-    &--quality {
-      width: 95%;
+    div:first-child {
       margin-bottom: 3rem;
+    }
+  }
 
-      &-first {
-        margin-bottom: 3rem;
-      }
+  &__quality {
+    font-size: 1.2rem;
+    width: 95%;
+    margin-bottom: 3rem;
+
+    p:first-child {
+      margin-bottom: 3rem;
     }
   }
 }

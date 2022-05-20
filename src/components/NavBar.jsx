@@ -27,7 +27,7 @@ const NavBar = ({ titles }) => {
         }`}
       >
         {navbarTitles.map((title) => (
-          <li key={title} className='navbar__classic-title'>
+          <li key={title} className='navbar__classic__title'>
             <Link to={`/${title}`}>{title}</Link>
           </li>
         ))}
