@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import HomePage from './routes/HomePage';
@@ -15,13 +15,11 @@ import CartDropdown from './components/CartDropdown';
 import Category from './components/Category';
 import Footer from './components/Footer';
 
-import CartContext from './store/cart-context';
+import { CartProvider } from './store/cart.context';
 
 const App = () => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
   return (
-    <CartContext.Provider value={{ isCartOpen, setIsCartOpen }}>
+    <CartProvider>
       <div className='app'>
         <Header />
         <CartDropdown />
@@ -43,7 +41,7 @@ const App = () => {
         </main>
         <Footer />
       </div>
-    </CartContext.Provider>
+    </CartProvider>
   );
 };
 

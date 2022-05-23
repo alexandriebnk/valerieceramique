@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Button from '../components/Button';
 import ParagraphHTML from '../components/ParagraphHTML';
+import { CartContext } from '../store/cart.context';
 
 const PRODUCTPAGEDATA = gql`
   query Products($slug: String!) {
@@ -40,6 +41,7 @@ const ProductPage = () => {
   });
 
   const [mainVisual, setMainVisual] = useState('');
+  const { addItemToCart } = useContext(CartContext);
 
   useEffect(() => {
     if (data) {
@@ -58,6 +60,8 @@ const ProductPage = () => {
         .formats.large.url
     );
   };
+
+  const addProductToCart = () => addItemToCart(data.products);
 
   if (loading) return <p>Loading..</p>;
   if (error) return <p>Error..</p>;
@@ -121,7 +125,12 @@ const ProductPage = () => {
         </div>
 
         <div>
-          <Button name='add to cart' theme='dark' size='medium' />
+          <Button
+            onClick={addProductToCart}
+            name='add to cart'
+            theme='dark'
+            size='medium'
+          />
         </div>
       </div>
     </div>

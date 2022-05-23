@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Product from './Product';
 
-const CATEGORYDATA = gql`
-  query Category {
-    categories(sort: "createdAt:desc", pagination: { start: 1, limit: 1000 }) {
+const PRODUCTDATA = gql`
+  query Product {
+    products(sort: "createdAt:desc", pagination: { start: 1, limit: 1000 }) {
       data {
         attributes {
           category {
@@ -35,7 +35,7 @@ const CATEGORYDATA = gql`
 
 const Category = () => {
   const { category } = useParams();
-  const { loading, error, data } = useQuery(CATEGORYDATA);
+  const { loading, error, data } = useQuery(PRODUCTDATA);
   const [filteredProducts, setFilteredProducts] = useState(null);
 
   useEffect(() => {

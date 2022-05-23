@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import CartContext from '../store/cart-context';
+import { CartContext } from '../store/cart.context';
 
 const ShopCart = ({ title }) => {
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartItemCount } = useContext(CartContext);
 
   const toggleOpenCart = () => {
     setIsCartOpen(!isCartOpen);

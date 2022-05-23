@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import BurgerIcon from './ComponentsSVG/BurgerIcon';
+import CartItem from './CartItem';
 import Button from './Button';
-import Minus from '../assets/minus.png';
-import Plus from '../assets/plus.png';
-import CartContext from '../store/cart-context';
+import { CartContext } from '../store/cart.context';
 
 const CartDropdown = () => {
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartItems } = useContext(CartContext);
 
   const closeCart = () => {
     setIsCartOpen(false);
@@ -18,41 +17,21 @@ const CartDropdown = () => {
         <div className='dropdown__burger-icon'>
           <BurgerIcon />
         </div>
-        <div className='dropdown__title'>Shop Cart</div>
-
+        <h3 className='dropdown__title'>Shop Cart</h3>
         <div className='cart'>
-          <div className='list'>
-            <div className='list__article'>
-              <div className='list__article__details'>
-                <p>Nom de l'objet</p>
-                <p>Détails de l'objet</p>
-              </div>
-              <p className='remove'>Remove</p>
-            </div>
-            <div className='amount'>
-              <p className='amount__price'>50 €</p>
-              <div className='amount__choice'>
-                <span className='amount__choice__minus'>
-                  <img
-                    className='amount__choice__minus__item'
-                    src={Minus}
-                    alt='minus'
-                    draggable='false'
-                  />
-                </span>
-                1
-                <span className='amount__choice__plus'>
-                  <img
-                    className='amount__choice__plus__item'
-                    src={Plus}
-                    alt='minus'
-                    draggable='false'
-                  />
-                </span>
-              </div>
-            </div>
+          <div className='cart__item'>
+            {cartItems.length ? (
+              cartItems.map((cartItem) => (
+                <CartItem
+                  name={cartItem}
+                  price={cartItem.price}
+                  weight={cartItem.weight}
+                />
+              ))
+            ) : (
+              <span className='empty'>Your cart is empty</span>
+            )}
           </div>
-
           <div className='total'>
             <div className='total__details'>
               <p className='total__details__title'>Subtotal</p>
@@ -61,8 +40,8 @@ const CartDropdown = () => {
             </div>
             <div className='total__amount'>
               <p className='total__amount__subtotal'>50 €</p>
-              <p className='total__amount__fees'>50 €</p>
-              <p className='total__amount__final'>50 €</p>
+              <p className='total__amount__fees'>10 €</p>
+              <p className='total__amount__final'>60 €</p>
             </div>
           </div>
 
