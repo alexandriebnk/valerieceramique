@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Product from './Product';
 
-const PRODUCTDATA = gql`
-  query Products {
-    products {
+const CATEGORYDATA = gql`
+  query Category {
+    categories(sort: "createdAt:desc", pagination: { start: 1, limit: 1000 }) {
       data {
         attributes {
           category {
@@ -18,11 +18,6 @@ const PRODUCTDATA = gql`
           slug
           title
           price
-          weight
-          specificationsFR
-          specificationsEN
-          descriptionFR
-          descriptionEN
           gallery {
             image {
               data {
@@ -40,7 +35,7 @@ const PRODUCTDATA = gql`
 
 const Category = () => {
   const { category } = useParams();
-  const { loading, error, data } = useQuery(PRODUCTDATA);
+  const { loading, error, data } = useQuery(CATEGORYDATA);
   const [filteredProducts, setFilteredProducts] = useState(null);
 
   useEffect(() => {
@@ -62,7 +57,7 @@ const Category = () => {
         {filteredProducts?.map((product) => {
           return (
             <Product
-              key={`${product}`}
+              key={`${product.attributes.title}`}
               category={category}
               title={product.attributes.title}
               gallery={product.attributes.gallery}

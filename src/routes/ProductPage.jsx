@@ -97,6 +97,9 @@ const ProductPage = () => {
         <p className='overview__price'>
           € {data.products.data[0].attributes.price}
         </p>
+        <p className='overview__weight'>
+          {data.products.data[0].attributes.weight} gr
+        </p>
 
         <div className='overview__details'>
           <div>

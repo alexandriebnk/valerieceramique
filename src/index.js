@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ProductsProvider } from './store/product.context';
 import App from './App';
 import './sass/main.scss';
 
@@ -16,7 +17,9 @@ root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <BrowserRouter>
-        <App />
+        <ProductsProvider>
+          <App />
+        </ProductsProvider>
       </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>

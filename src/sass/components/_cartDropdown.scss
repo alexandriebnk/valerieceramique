@@ -58,9 +58,11 @@
 }
 
 .list {
+  //background-color: aquamarine;
   width: 100%;
 
   &__article {
+    //background-color: pink;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -78,6 +80,7 @@
 }
 
 .amount {
+  //border: 2px solid blue;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -114,25 +117,45 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin-top: 4rem;
   margin-bottom: 4rem;
 
   &__details {
     line-height: 2.2rem;
 
     &__title {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: bold;
     }
     &__fees {
       font-size: 1.2rem;
       font-style: italic;
     }
+
+    &__final {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 1.5rem;
+    }
   }
 
   &__amount {
-    font-size: 1.5rem;
-    font-weight: bold;
+    line-height: 2.2rem;
+
+    &__subtotal {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    &__fees {
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    &__final {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 1.5rem;
+    }
   }
 }
 

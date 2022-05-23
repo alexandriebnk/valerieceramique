@@ -10,4 +10,6 @@ const CartContext = createContext({
   calculateTotal: () => {},
 });
 
+const CartProvider = () => {};
+
 export default CartContext;

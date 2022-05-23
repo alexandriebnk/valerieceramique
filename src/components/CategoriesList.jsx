@@ -4,7 +4,7 @@ import { useQuery, gql } from '@apollo/client';
 
 const CATEGORYDATA = gql`
   query Category {
-    categories {
+    categories(sort: "createdAt:desc", pagination: { start: 1, limit: 1000 }) {
       data {
         attributes {
           title

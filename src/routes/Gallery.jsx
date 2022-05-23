@@ -3,7 +3,10 @@ import { useQuery, gql } from '@apollo/client';
 
 const GALLERYIMAGEDATA = gql`
   query GalleryImage {
-    galleryImages {
+    galleryImages(
+      sort: "createdAt:desc"
+      pagination: { start: 1, limit: 1000 }
+    ) {
       data {
         attributes {
           image {

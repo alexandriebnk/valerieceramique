@@ -56,9 +56,14 @@ const CartDropdown = () => {
           <div className='total'>
             <div className='total__details'>
               <p className='total__details__title'>Subtotal</p>
-              <p className='total__details__fees'>Frais de livraison offerts</p>
+              <p className='total__details__fees'>Frais de livraison</p>
+              <p className='total__details__final'>Total</p>
             </div>
-            <p className='total__amount'>50 €</p>
+            <div className='total__amount'>
+              <p className='total__amount__subtotal'>50 €</p>
+              <p className='total__amount__fees'>50 €</p>
+              <p className='total__amount__final'>50 €</p>
+            </div>
           </div>
 
           <div className='button'>
