@@ -17,8 +17,8 @@ const PRODUCTPAGEDATA = gql`
           specificationsEN
           descriptionFR
           descriptionEN
-          Images {
-            Image {
+          gallery {
+            image {
               data {
                 attributes {
                   formats
@@ -44,8 +44,8 @@ const ProductPage = () => {
   useEffect(() => {
     if (data) {
       setMainVisual(
-        data.products.data[0].attributes.Images[0].Image.data.attributes.formats
-          .large.url
+        data.products.data[0].attributes.gallery[0].image.data.attributes
+          .formats.large.url
       );
     }
   }, [data]);
@@ -54,7 +54,7 @@ const ProductPage = () => {
     event.preventDefault();
     const nextIndex = event.currentTarget.dataset.imageIndex;
     setMainVisual(
-      data.products.data[0].attributes.Images[nextIndex].Image.data.attributes
+      data.products.data[0].attributes.gallery[nextIndex].image.data.attributes
         .formats.large.url
     );
   };
@@ -73,15 +73,15 @@ const ProductPage = () => {
           <p>contemporaine</p>
         </div>
         <div className='visual__gallery'>
-          {data.products.data[0].attributes.Images.map((image, index) => (
+          {data.products.data[0].attributes.gallery.map((visual, index) => (
             <div
               className='visual__gallery__wrapper'
-              key={image.Image.data.attributes.formats.large.url}
+              key={visual.image.data.attributes.formats.large.url}
               data-image-index={index}
               onClick={updateMainVisual}
             >
               <img
-                src={image.Image.data.attributes.formats.large.url}
+                src={visual.image.data.attributes.formats.large.url}
                 alt='product'
                 draggable='false'
               />

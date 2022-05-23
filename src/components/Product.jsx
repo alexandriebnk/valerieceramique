@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 
-const Product = ({ category, title, images, price, id }) => {
-  const firstImage = images[0].Image.data.attributes.formats.large.url;
+const Product = ({ category, title, gallery, price, id }) => {
+  const firstImage = gallery[0].image.data.attributes.formats.large.url;
   return (
     <div key={id} className='product'>
       <div className='product__visual'>
