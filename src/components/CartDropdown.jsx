@@ -10,7 +10,6 @@ const CartDropdown = () => {
   const closeCart = () => {
     setIsCartOpen(false);
   };
-  console.log(cartItems);
 
   return (
     <>
@@ -28,6 +27,7 @@ const CartDropdown = () => {
                     title={cartItem.title}
                     price={cartItem.price}
                     weight={cartItem.weight}
+                    quantity={cartItem.quantity}
                   />
                 </div>
               ))

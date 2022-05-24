@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../context/cart.context';
 
 const ShopCart = ({ title }) => {
-  const { isCartOpen, setIsCartOpen, cartItemCount } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
 
   const toggleOpenCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -14,7 +14,7 @@ const ShopCart = ({ title }) => {
       onClick={toggleOpenCart}
     >
       <p className='shop-cart__title'>{title}</p>
-      <p className='shop-cart__number'>({cartItemCount})</p>
+      <p className='shop-cart__number'>({cartCount})</p>
     </div>
   );
 };

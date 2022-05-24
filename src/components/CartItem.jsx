@@ -2,8 +2,7 @@ import React from 'react';
 import Minus from '../assets/minus.png';
 import Plus from '../assets/plus.png';
 
-const CartItem = ({ title, price, weight }) => {
-  //console.log(name);
+const CartItem = ({ title, price, weight, quantity }) => {
   return (
     <div className='item'>
       <div className='item__article'>
@@ -14,7 +13,7 @@ const CartItem = ({ title, price, weight }) => {
         <p className='remove'>Remove</p>
       </div>
       <div className='amount'>
-        <p className='amount__price'>{price} €</p>
+        <p className='amount__price'>{price * quantity} €</p>
         <div className='amount__choice'>
           <span className='amount__choice__minus'>
             <img
@@ -24,7 +23,7 @@ const CartItem = ({ title, price, weight }) => {
               draggable='false'
             />
           </span>
-          1
+          {quantity}
           <span className='amount__choice__plus'>
             <img
               className='amount__choice__plus__item'

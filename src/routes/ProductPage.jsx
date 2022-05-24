@@ -10,14 +10,28 @@ const PRODUCTPAGEDATA = gql`
     products(filters: { slug: { eq: $slug } }) {
       data {
         attributes {
-          slug
           title
           price
-          weight
+          slug
+          stock
           specificationsFR
           specificationsEN
           descriptionFR
           descriptionEN
+          category {
+            data {
+              attributes {
+                title
+                visual {
+                  data {
+                    attributes {
+                      formats
+                    }
+                  }
+                }
+              }
+            }
+          }
           gallery {
             image {
               data {
@@ -124,6 +138,14 @@ const ProductPage = () => {
         <div className='overview__quality'>
           <p>{data.products.data[0].attributes.descriptionFR}</p>
           <p>{data.products.data[0].attributes.descriptionEN}</p>
+        </div>
+
+        <div className='overview__quantity'>
+          {data.products.data[0].attributes.quantity > 0 ? (
+            <p>Quantity : {data.products.data[0].attributes.quantity}</p>
+          ) : (
+            <p>Sold Out</p>
+          )}
         </div>
 
         <div>
