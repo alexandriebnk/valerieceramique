@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Button from '../components/Button';
 import ParagraphHTML from '../components/ParagraphHTML';
-import { CartContext } from '../store/cart.context';
+import { CartContext } from '../context/cart.context';
 
 const PRODUCTPAGEDATA = gql`
   query Products($slug: String!) {
@@ -41,6 +41,7 @@ const ProductPage = () => {
   });
 
   const [mainVisual, setMainVisual] = useState('');
+
   const { addItemToCart } = useContext(CartContext);
 
   useEffect(() => {
@@ -61,7 +62,8 @@ const ProductPage = () => {
     );
   };
 
-  const addProductToCart = () => addItemToCart(data.products);
+  const addProductToCart = () =>
+    addItemToCart(data.products.data[0].attributes);
 
   if (loading) return <p>Loading..</p>;
   if (error) return <p>Error..</p>;
@@ -126,7 +128,7 @@ const ProductPage = () => {
 
         <div>
           <Button
-            onClick={addProductToCart}
+            event={addProductToCart}
             name='add to cart'
             theme='dark'
             size='medium'

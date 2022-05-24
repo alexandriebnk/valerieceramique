@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import BurgerIcon from './ComponentsSVG/BurgerIcon';
 import CartItem from './CartItem';
 import Button from './Button';
-import { CartContext } from '../store/cart.context';
+import { CartContext } from '../context/cart.context';
 
 const CartDropdown = () => {
   const { isCartOpen, setIsCartOpen, cartItems } = useContext(CartContext);
@@ -10,6 +10,7 @@ const CartDropdown = () => {
   const closeCart = () => {
     setIsCartOpen(false);
   };
+  console.log(cartItems);
 
   return (
     <>
@@ -21,12 +22,14 @@ const CartDropdown = () => {
         <div className='cart'>
           <div className='cart__item'>
             {cartItems.length ? (
-              cartItems.map((cartItem) => (
-                <CartItem
-                  name={cartItem}
-                  price={cartItem.price}
-                  weight={cartItem.weight}
-                />
+              cartItems.map((cartItem, index) => (
+                <div key={`${cartItem}-${index}`}>
+                  <CartItem
+                    title={cartItem.title}
+                    price={cartItem.price}
+                    weight={cartItem.weight}
+                  />
+                </div>
               ))
             ) : (
               <span className='empty'>Your cart is empty</span>

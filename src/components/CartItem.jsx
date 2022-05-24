@@ -2,13 +2,14 @@ import React from 'react';
 import Minus from '../assets/minus.png';
 import Plus from '../assets/plus.png';
 
-const CartItem = ({ name, price, weight }) => {
+const CartItem = ({ title, price, weight }) => {
+  //console.log(name);
   return (
     <div className='item'>
       <div className='item__article'>
         <div className='item__article__details'>
-          <p>{name}</p>
-          <p>{weight}</p>
+          <p>{title}</p>
+          <p>{weight} gr</p>
         </div>
         <p className='remove'>Remove</p>
       </div>

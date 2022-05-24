@@ -15,7 +15,7 @@ import CartDropdown from './components/CartDropdown';
 import Category from './components/Category';
 import Footer from './components/Footer';
 
-import { CartProvider } from './store/cart.context';
+import { CartProvider } from './context/cart.context';
 
 const App = () => {
   return (
