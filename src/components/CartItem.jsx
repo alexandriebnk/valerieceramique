@@ -4,7 +4,10 @@ import Plus from '../assets/plus.png';
 import { CartContext } from '../context/cart.context';
 
 const CartItem = ({ product, title, price, weight, quantity }) => {
-  const { addItemToCart, removeItemFromCart } = useContext(CartContext);
+  const { addItemToCart, removeItemFromCart, clearItemFromCart } =
+    useContext(CartContext);
+
+  const clearItemHandler = () => clearItemFromCart(product);
 
   return (
     <div className='item'>
@@ -13,7 +16,9 @@ const CartItem = ({ product, title, price, weight, quantity }) => {
           <p>{title}</p>
           <p>{weight} gr</p>
         </div>
-        <p className='remove'>Remove</p>
+        <p className='remove' onClick={() => clearItemHandler(product)}>
+          Remove
+        </p>
       </div>
       <div className='amount'>
         <p className='amount__price'>{price * quantity} €</p>

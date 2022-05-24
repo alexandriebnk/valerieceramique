@@ -1,15 +1,40 @@
 import React, { useContext } from 'react';
+import { useQuery, gql } from '@apollo/client';
 import BurgerIcon from './ComponentsSVG/BurgerIcon';
 import CartItem from './CartItem';
 import Button from './Button';
 import { CartContext } from '../context/cart.context';
 
+const FRAISDELIVRAISONDATA = gql`
+  query FraisDeLivraison {
+    fraisDeLivraison {
+      data {
+        attributes {
+          frais
+        }
+      }
+    }
+  }
+`;
+
 const CartDropdown = () => {
-  const { isCartOpen, setIsCartOpen, cartItems } = useContext(CartContext);
+  const { loading, error, data } = useQuery(FRAISDELIVRAISONDATA);
+  const { isCartOpen, setIsCartOpen, cartItems, cartSubTotal } =
+    useContext(CartContext);
 
   const closeCart = () => {
     setIsCartOpen(false);
   };
+
+  const calculateFees = () =>
+    (data.fraisDeLivraison.data.attributes.frais * cartSubTotal).toFixed(2);
+
+  const calculateTotal = () => {
+    return parseFloat(calculateFees()) + cartSubTotal;
+  };
+
+  if (loading) return <p>Loading..</p>;
+  if (error) return <p>Error..</p>;
 
   return (
     <>
@@ -43,9 +68,9 @@ const CartDropdown = () => {
               <p className='total__details__final'>Total</p>
             </div>
             <div className='total__amount'>
-              <p className='total__amount__subtotal'>50 €</p>
-              <p className='total__amount__fees'>10 €</p>
-              <p className='total__amount__final'>60 €</p>
+              <p className='total__amount__subtotal'>{cartSubTotal} €</p>
+              <p className='total__amount__fees'>{calculateFees()} €</p>
+              <p className='total__amount__final'>{calculateTotal()} €</p>
             </div>
           </div>
 
