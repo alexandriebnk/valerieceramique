@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Minus from '../assets/minus.png';
 import Plus from '../assets/plus.png';
+import { CartContext } from '../context/cart.context';
 
-const CartItem = ({ title, price, weight, quantity }) => {
+const CartItem = ({ product, title, price, weight, quantity }) => {
+  const { addItemToCart, removeItemFromCart } = useContext(CartContext);
+
   return (
     <div className='item'>
       <div className='item__article'>
@@ -15,7 +18,10 @@ const CartItem = ({ title, price, weight, quantity }) => {
       <div className='amount'>
         <p className='amount__price'>{price * quantity} €</p>
         <div className='amount__choice'>
-          <span className='amount__choice__minus'>
+          <span
+            className='amount__choice__minus'
+            onClick={() => removeItemFromCart(product)}
+          >
             <img
               className='amount__choice__minus__item'
               src={Minus}
@@ -24,7 +30,10 @@ const CartItem = ({ title, price, weight, quantity }) => {
             />
           </span>
           {quantity}
-          <span className='amount__choice__plus'>
+          <span
+            className='amount__choice__plus'
+            onClick={() => addItemToCart(product)}
+          >
             <img
               className='amount__choice__plus__item'
               src={Plus}

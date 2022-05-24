@@ -24,6 +24,7 @@ const CartDropdown = () => {
               cartItems.map((cartItem, index) => (
                 <div key={`${cartItem}-${index}`}>
                   <CartItem
+                    product={cartItem}
                     title={cartItem.title}
                     price={cartItem.price}
                     weight={cartItem.weight}

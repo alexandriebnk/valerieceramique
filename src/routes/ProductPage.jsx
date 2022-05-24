@@ -12,6 +12,7 @@ const PRODUCTPAGEDATA = gql`
         attributes {
           title
           price
+          weight
           slug
           stock
           specificationsFR
