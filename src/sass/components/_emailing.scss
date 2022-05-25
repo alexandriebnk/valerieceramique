@@ -1,28 +1,38 @@
 .emailing {
-  //background-color: darkgrey;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  @include respondTo(mobile) {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  & input[type='email'] {
-    height: 5rem;
-    width: 25rem;
-    padding-left: 1.5rem;
-    font-size: 1.5rem;
-    border: 0.1rem solid $emailing;
-    border-radius: 0.5rem;
+  &__user {
+    //background-color: darkgrey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
     @include respondTo(mobile) {
-      margin-bottom: 2rem;
+      flex-direction: column;
+      align-items: center;
     }
+    & input[type='email'] {
+      height: 5rem;
+      width: 25rem;
+      padding-left: 1.5rem;
+      font-size: 1.5rem;
+      border: 0.1rem solid $emailing;
+      border-radius: 0.5rem;
 
-    &:focus {
-      outline: none;
+      @include respondTo(mobile) {
+        margin-bottom: 2rem;
+      }
+
+      &:focus {
+        outline: none;
+      }
     }
+  }
+
+  &__confirmation {
+    display: none;
+    color: white;
+    font-style: italic;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 2rem;
   }
 }

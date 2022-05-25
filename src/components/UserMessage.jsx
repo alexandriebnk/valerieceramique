@@ -10,8 +10,8 @@ const UserMessage = ({ title, subtitle }) => {
         className='message__brush'
         style={{ backgroundImage: `url(${Brush})` }}
       >
-        <p className='message__brush__title'>{title}</p>
-        <p className='message__brush__subtitle'>{subtitle}</p>
+        <p>{title}</p>
+        <p>{subtitle}</p>
       </div>
       <Link to='/' className='message__redirection'>
         <Button name={'Go to home'} theme='dark' size='medium' />

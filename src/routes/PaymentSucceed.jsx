@@ -1,5 +1,5 @@
 import React from 'react';
-import UserMessage from './UserMessage';
+import UserMessage from '../components/UserMessage';
 
 const PaymentSucceed = () => {
   return (
