@@ -1,15 +1,10 @@
 import React from 'react';
+import UserMessage from '../components/UserMessage';
 
 const PageNotFound = () => {
   return (
-    <div className='page'>
-      <p className='page__404'>404</p>
-      <div className='page__message'>
-        <p className='page__message-text'>This page is not found</p>
-        <p className='page__message-link'>
-          <a href='/'>GO TO HOME</a>
-        </p>
-      </div>
+    <div>
+      <UserMessage title={'404'} subtitle={'Page not found !'} />
     </div>
   );
 };

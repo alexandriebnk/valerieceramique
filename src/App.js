@@ -5,7 +5,8 @@ import HomePage from './routes/HomePage';
 import About from './routes/About';
 import Shop from './routes/Shop';
 import ProductPage from './routes/ProductPage';
-import Gallery from './routes/Gallery';
+//import Gallery from './routes/Gallery';
+import Payment from './components/PaymentSucceed';
 import Contact from './routes/Contact';
 import Stockists from './routes/Stockists';
 import LegalInfos from './routes/LegalInfos';
@@ -30,7 +31,7 @@ const App = () => {
             <Route path='/shop' element={<Shop />} />
             <Route path='/shop/:category' element={<Category />} />
             <Route path='/shop/:category/:slug' element={<ProductPage />} />
-            <Route path='/gallery' element={<Gallery />} />
+            <Route path='/gallery' element={<Payment />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/stockists' element={<Stockists />} />
             <Route path='/mentions-legales' element={<LegalInfos />} />
