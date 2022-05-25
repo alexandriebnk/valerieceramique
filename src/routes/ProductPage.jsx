@@ -55,7 +55,9 @@ const ProductPage = () => {
     variables: { slug },
   });
 
-  const [mainVisual, setMainVisual] = useState('');
+  const [mainVisual, setMainVisual] = useState(null);
+  const [productQuantity, setProductQuantity] = useState(null);
+  const [fullProduct, setFullProduct] = useState(null);
 
   const { addItemToCart } = useContext(CartContext);
 
@@ -65,6 +67,8 @@ const ProductPage = () => {
         data.products.data[0].attributes.gallery[0].image.data.attributes
           .formats.large.url
       );
+      setProductQuantity(data.products.data[0].attributes.stock);
+      setFullProduct(data.products.data[0].attributes);
     }
   }, [data]);
 
@@ -77,8 +81,7 @@ const ProductPage = () => {
     );
   };
 
-  const addProductToCart = () =>
-    addItemToCart(data.products.data[0].attributes);
+  const addProductToCart = () => addItemToCart(fullProduct);
 
   if (loading) return <p>Loading..</p>;
   if (error) return <p>Error..</p>;
@@ -142,20 +145,21 @@ const ProductPage = () => {
         </div>
 
         <div className='overview__quantity'>
-          {data.products.data[0].attributes.quantity > 0 ? (
-            <p>Quantity : {data.products.data[0].attributes.quantity}</p>
+          {productQuantity > 0 ? (
+            <p>Quantity : {productQuantity}</p>
           ) : (
             <p>Sold Out</p>
           )}
         </div>
-
-        <div>
-          <Button
-            event={addProductToCart}
-            name='add to cart'
-            theme='dark'
-            size='medium'
-          />
+        <div className='product-page__button'>
+          {productQuantity > 0 && (
+            <Button
+              name='add to cart'
+              theme='dark'
+              size='medium'
+              event={addProductToCart}
+            />
+          )}
         </div>
       </div>
     </div>

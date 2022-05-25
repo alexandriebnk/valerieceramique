@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
 const HOMEDATA = gql`
@@ -23,14 +23,22 @@ const HOMEDATA = gql`
 
 const HomePage = () => {
   const { loading, error, data } = useQuery(HOMEDATA);
+  const [url, setUrl] = useState(null);
+  const [name, setName] = useState(null);
+  const [mainTitle, setMainTitle] = useState(null);
+
+  useEffect(() => {
+    if (data) {
+      setUrl(
+        data.home.data.attributes.visual.data.attributes.formats.large.url
+      );
+      setName(data.home.data.attributes.name);
+      setMainTitle(data.home.data.attributes.title);
+    }
+  }, [data]);
 
   if (loading) return <p>Loading..</p>;
   if (error) return <p>Error..</p>;
-
-  const url =
-    data.home.data.attributes.visual.data.attributes.formats.large.url;
-  const name = data.home.data.attributes.name;
-  const title = data.home.data.attributes.title;
 
   return (
     <div className='home-page'>
@@ -40,7 +48,7 @@ const HomePage = () => {
         </div>
         <div className='hero__title'>
           <h3>{name}</h3>
-          <h3>{title}</h3>
+          <h3>{mainTitle}</h3>
         </div>
       </div>
     </div>

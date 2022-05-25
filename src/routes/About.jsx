@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
 const ABOUTDATA = gql`
@@ -24,15 +24,22 @@ const ABOUTDATA = gql`
 
 const About = () => {
   const { loading, error, data } = useQuery(ABOUTDATA);
+  const [descriptionFR, setDescriptionFR] = useState(null);
+  const [descriptionEN, setDescriptionEN] = useState(null);
+  const [copyright, setCopyright] = useState(null);
+  const [visual, setVisual] = useState(null);
+
+  useEffect(() => {
+    if (data) {
+      setDescriptionFR(data.about.data.attributes.descriptionFR);
+      setDescriptionEN(data.about.data.attributes.descriptionEN);
+      setCopyright(data.about.data.attributes.copyright);
+      setVisual(data.about.data.attributes.formats.large.url);
+    }
+  }, [data]);
 
   if (loading) return <p>Loading..</p>;
   if (error) return <p>Error..</p>;
-
-  const descriptionFR = data.about.data.attributes.descriptionFR;
-  const descriptionEN = data.about.data.attributes.descriptionEN;
-  const copyright = data.about.data.attributes.copyright;
-  const visual =
-    data.about.data.attributes.visual.data.attributes.formats.large.url;
 
   return (
     <div className='about'>

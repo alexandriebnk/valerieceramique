@@ -17,6 +17,10 @@
     width: 80%;
     flex-direction: column;
   }
+
+  &__button {
+    display: block;
+  }
 }
 
 .visual {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
 const CONTACTDATA = gql`
@@ -24,19 +24,28 @@ const CONTACTDATA = gql`
 
 const Contact = () => {
   const { loading, error, data } = useQuery(CONTACTDATA);
+  const [mainTitle, setMainTitle] = useState(null);
+  const [location, setLocation] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [visual, setVisual] = useState(null);
+
+  useEffect(() => {
+    if (data) {
+      setMainTitle(data.contact.data.attributes.title);
+      setLocation(data.contact.data.attributes.location);
+      setEmail(data.contact.data.attributes.email);
+      setVisual(
+        data.contact.data.attributes.visual.data.attributes.formats.large.url
+      );
+    }
+  }, [data]);
 
   if (loading) return <p>Loading..</p>;
   if (error) return <p>Error..</p>;
 
-  const title = data.contact.data.attributes.title;
-  const location = data.contact.data.attributes.location;
-  const email = data.contact.data.attributes.email;
-  const visual =
-    data.contact.data.attributes.visual.data.attributes.formats.large.url;
-
   return (
     <div className='contact'>
-      <h3 className='contact__title'>{title}</h3>
+      <h3 className='contact__title'>{mainTitle}</h3>
       <div className='contact__address'>
         <p>{location}</p>
         <p>{email}</p>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import NavBar from './NavBar';
@@ -24,20 +24,25 @@ const HEADERDATA = gql`
 
 const Header = () => {
   const { loading, error, data } = useQuery(HEADERDATA);
+  const [mainTitle, setMainTitle] = useState(null);
+  const [navbarTitles, setNavbarTitles] = useState(null);
+  const [shopcartTitle, setShopcartTitle] = useState(null);
+
+  useEffect(() => {
+    if (data) {
+      setMainTitle(data.header.data.attributes.title);
+      setNavbarTitles({
+        about: data.header.data.attributes.about,
+        shop: data.header.data.attributes.shop,
+        gallery: data.header.data.attributes.gallery,
+        contact: data.header.data.attributes.contact,
+      });
+      setShopcartTitle(data.header.data.attributes.shopcart);
+    }
+  }, [data]);
 
   if (loading) return <p>Loading..</p>;
   if (error) return <p>Error..</p>;
-
-  const title = data.header.data.attributes.title;
-
-  const navbarTitles = {
-    about: data.header.data.attributes.about,
-    shop: data.header.data.attributes.shop,
-    gallery: data.header.data.attributes.gallery,
-    contact: data.header.data.attributes.contact,
-  };
-
-  const shopcartTitle = data.header.data.attributes.shopcart;
 
   return (
     <div className='header'>
@@ -47,14 +52,14 @@ const Header = () => {
             <img src={Logo} alt='logo' draggable='false' />
           </h1>
         </Link>
-        <h2 className='header__wrapper__title'>{title}</h2>
+        <h2 className='header__wrapper__title'>{mainTitle}</h2>
         <div className='header__wrapper__navbar'>
-          <NavBar titles={navbarTitles} />
+          {navbarTitles && <NavBar titles={navbarTitles} />}
         </div>
       </div>
 
       <div className='header__shop-cart'>
-        <ShopCart title={shopcartTitle} />
+        {shopcartTitle && <ShopCart title={shopcartTitle} />}
       </div>
     </div>
   );

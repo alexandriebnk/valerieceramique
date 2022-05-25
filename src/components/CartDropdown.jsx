@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import BurgerIcon from './ComponentsSVG/BurgerIcon';
 import CartItem from './CartItem';
@@ -21,13 +21,17 @@ const CartDropdown = () => {
   const { loading, error, data } = useQuery(FRAISDELIVRAISONDATA);
   const { isCartOpen, setIsCartOpen, cartItems, cartSubTotal } =
     useContext(CartContext);
+  const [feesData, setFeesData] = useState(null);
+
+  useEffect(() => {
+    if (data) setFeesData(data.fraisDeLivraison.data.attributes.frais);
+  }, [data]);
 
   const closeCart = () => {
     setIsCartOpen(false);
   };
 
-  const calculateFees = () =>
-    (data.fraisDeLivraison.data.attributes.frais * cartSubTotal).toFixed(2);
+  const calculateFees = () => (feesData * cartSubTotal).toFixed(2);
 
   const calculateTotal = () => {
     return parseFloat(calculateFees()) + cartSubTotal;
