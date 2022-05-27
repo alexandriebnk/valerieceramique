@@ -1,6 +1,7 @@
 import React from 'react';
-import CategoryPreview from './CategoryPreview';
 import { useQuery, gql } from '@apollo/client';
+import CategoryPreview from './CategoryPreview';
+import Loader from './Loader';
 
 const CATEGORYDATA = gql`
   query Category {
@@ -24,7 +25,7 @@ const CATEGORYDATA = gql`
 const CategoriesList = () => {
   const { loading, error, data } = useQuery(CATEGORYDATA);
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error..</p>;
 
   return (

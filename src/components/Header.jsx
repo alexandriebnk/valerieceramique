@@ -4,6 +4,7 @@ import { useQuery, gql } from '@apollo/client';
 import NavBar from './NavBar';
 import ShopCart from './ShopCart';
 import Logo from '../assets/logo.svg';
+import Loader from './Loader';
 
 const HEADERDATA = gql`
   query Header {
@@ -41,7 +42,7 @@ const Header = () => {
     }
   }, [data]);
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error..</p>;
 
   return (

@@ -3,6 +3,7 @@ import { useQuery, gql } from '@apollo/client';
 import Subscription from './Subscription';
 import Social from './Social';
 import FooterLinks from './FooterLinks';
+import Loader from './Loader';
 
 const FOOTERDATA = gql`
   query Footer {
@@ -58,7 +59,7 @@ const Footer = () => {
     }
   }, [data]);
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error..</p>;
   return (
     <footer className='footer'>

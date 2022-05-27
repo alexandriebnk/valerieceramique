@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import Loader from '../components/Loader';
 
 const CONTACTDATA = gql`
   query Contact {
@@ -40,7 +41,7 @@ const Contact = () => {
     }
   }, [data]);
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error..</p>;
 
   return (

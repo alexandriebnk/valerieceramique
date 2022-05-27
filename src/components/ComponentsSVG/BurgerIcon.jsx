@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../context/cart.context';
 
 const BurgerIcon = () => {
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isNavbarOpen, setIsNavbarOpen } = useContext(CartContext);
 
-  const toggleIconCart = () => {
-    setIsCartOpen(false);
+  const toggleNavbarIcon = () => {
+    setIsNavbarOpen(!isNavbarOpen);
   };
 
   return (
@@ -16,11 +16,11 @@ const BurgerIcon = () => {
       viewBox='0 0 22 20'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      onClick={toggleIconCart}
+      onClick={toggleNavbarIcon}
     >
       <rect
         className={`burger-icon__top burger-icon__top${
-          isCartOpen ? '--cross' : ''
+          isNavbarOpen ? '--cross' : ''
         }`}
         x='1'
         y='16'
@@ -30,7 +30,7 @@ const BurgerIcon = () => {
       />
       <rect
         className={`burger-icon__middle burger-icon__middle${
-          isCartOpen ? '--cross' : ''
+          isNavbarOpen ? '--cross' : ''
         }`}
         x='1'
         y='9'
@@ -40,7 +40,7 @@ const BurgerIcon = () => {
       />
       <rect
         className={`burger-icon__bottom burger-icon__bottom${
-          isCartOpen ? '--cross' : ''
+          isNavbarOpen ? '--cross' : ''
         }`}
         x='1'
         y='2'

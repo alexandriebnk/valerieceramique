@@ -38,6 +38,8 @@ export const clearCartItem = (cartItems, productToClear) =>
   cartItems.filter((cartItem) => cartItem.slug !== productToClear.slug);
 
 export const CartContext = createContext({
+  isNavbarOpen: false,
+  setIsNavbarOpen: () => {},
   isCartOpen: false,
   setIsOpen: () => {},
   cartItems: [],
@@ -49,6 +51,7 @@ export const CartContext = createContext({
 });
 
 export const CartProvider = ({ children }) => {
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
@@ -80,6 +83,8 @@ export const CartProvider = ({ children }) => {
     setCartItems(clearCartItem(cartItems, productToClear));
 
   const value = {
+    isNavbarOpen,
+    setIsNavbarOpen,
     isCartOpen,
     setIsCartOpen,
     cartItems,

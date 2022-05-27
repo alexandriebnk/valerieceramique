@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Button from '../components/Button';
 import ParagraphHTML from '../components/ParagraphHTML';
+import Loader from '../components/Loader';
 import { CartContext } from '../context/cart.context';
 
 const PRODUCTPAGEDATA = gql`
@@ -83,7 +84,7 @@ const ProductPage = () => {
 
   const addProductToCart = () => addItemToCart(fullProduct);
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error..</p>;
 
   return (

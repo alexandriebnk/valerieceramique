@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import Loader from '../components/Loader';
 
 const HOMEDATA = gql`
   query Home {
@@ -37,7 +38,7 @@ const HomePage = () => {
     }
   }, [data]);
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error..</p>;
 
   return (

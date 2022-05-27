@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import Loader from '../components/Loader';
 
 const ABOUTDATA = gql`
   query About {
@@ -34,11 +35,13 @@ const About = () => {
       setDescriptionFR(data.about.data.attributes.descriptionFR);
       setDescriptionEN(data.about.data.attributes.descriptionEN);
       setCopyright(data.about.data.attributes.copyright);
-      setVisual(data.about.data.attributes.formats.large.url);
+      setVisual(
+        data.about.data.attributes.visual.data.attributes.formats.large.url
+      );
     }
   }, [data]);
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error..</p>;
 
   return (

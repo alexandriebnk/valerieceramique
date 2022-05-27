@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
+import Loader from '../components/Loader';
 
 const GALLERYIMAGEDATA = gql`
   query GalleryImage {
@@ -25,7 +26,7 @@ const GALLERYIMAGEDATA = gql`
 const Gallery = () => {
   const { loading, error, data } = useQuery(GALLERYIMAGEDATA);
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error..</p>;
 
   return (

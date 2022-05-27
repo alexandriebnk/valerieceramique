@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import HomePage from './routes/HomePage';
-import About from './routes/About';
+//import About from './routes/About';
 import Shop from './routes/Shop';
 import ProductPage from './routes/ProductPage';
 import Gallery from './routes/Gallery';
@@ -12,6 +12,7 @@ import Stockists from './routes/Stockists';
 import LegalInfos from './routes/LegalInfos';
 import PageNotFound from './routes/PageNotFound';
 import Header from './components/Header';
+import Loader from './components/Loader';
 import CartDropdown from './components/CartDropdown';
 import Category from './components/Category';
 import Footer from './components/Footer';
@@ -27,7 +28,8 @@ const App = () => {
         <main>
           <Routes>
             <Route path='/' exact element={<HomePage />} />
-            <Route path='/about' element={<About />} />
+            {/*<Route path='/about' element={<About />} />*/}
+            <Route path='/about' element={<Loader />} />
             <Route path='/shop' element={<Shop />} />
             <Route path='/shop/:category' element={<Category />} />
             <Route path='/shop/:category/:slug' element={<ProductPage />} />

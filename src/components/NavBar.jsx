@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import BurgerIcon from './ComponentsSVG/BurgerIcon';
+import { CartContext } from '../context/cart.context';
 
 const NavBar = ({ titles }) => {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const { isNavbarOpen, setIsNavbarOpen } = useContext(CartContext);
   const navbarTitles = Object.values(titles);
 
   const openNavToggle = () => {
@@ -28,7 +29,9 @@ const NavBar = ({ titles }) => {
       >
         {navbarTitles.map((title) => (
           <li key={title} className='navbar__classic__title'>
-            <Link to={`/${title}`}>{title}</Link>
+            <Link to={`/${title}`} onClick={openNavToggle}>
+              {title}
+            </Link>
           </li>
         ))}
       </ul>

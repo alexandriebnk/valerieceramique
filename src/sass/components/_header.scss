@@ -11,6 +11,7 @@
   }
 
   @include respondTo(mobile) {
+    background-color: rgba(white, 0.7);
     height: 7rem;
     position: fixed;
     top: 0;

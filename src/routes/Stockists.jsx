@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
+import Loader from '../components/Loader';
 
 const STOCKISTSDATA = gql`
   query Stokists {
@@ -19,7 +20,7 @@ const STOCKISTSDATA = gql`
 const Stockists = () => {
   const { loading, error, data } = useQuery(STOCKISTSDATA);
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error..</p>;
 
   return (

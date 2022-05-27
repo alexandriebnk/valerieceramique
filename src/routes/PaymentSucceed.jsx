@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { gql, useMutation } from '@apollo/client';
 import UserMessage from '../components/UserMessage';
+import Loader from '../components/Loader';
 
 const CREATEORDER = gql`
   mutation CreateOrder($address: String!) {
@@ -26,7 +27,7 @@ const PaymentSucceed = () => {
     if (data) console.log(data);
   }, [data]);
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error..</p>;
 
   return (

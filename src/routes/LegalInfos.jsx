@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import ParagraphHTML from '../components/ParagraphHTML';
+import Loader from '../components/Loader';
 
 const LEGALINFOS = gql`
   query Informations($slug: String!) {
@@ -33,7 +34,7 @@ const LegalInfos = () => {
     variables: { slug },
   });
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error..</p>;
 
   return (

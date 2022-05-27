@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Product from './Product';
+import Loader from './Loader';
 
 const PRODUCTDATA = gql`
   query Product {
@@ -47,7 +48,7 @@ const Category = () => {
     }
   }, [data, category]);
 
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error..</p>;
 
   return (

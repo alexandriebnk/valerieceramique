@@ -1,0 +1,67 @@
+.loader {
+  background-color: white;
+  width: 100%;
+  max-width: 130rem;
+  margin: auto;
+  padding-top: 10rem;
+  padding-bottom: 20rem;
+
+  &__container {
+    //background-color: pink;
+    position: relative;
+    height: 7rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & p {
+      position: absolute;
+      color: $font;
+      font-size: 8rem;
+      text-transform: uppercase;
+
+      &:nth-child(1) {
+        opacity: 0;
+        left: 10rem;
+        animation: fromTop 1s ease;
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+        right: 10rem;
+        animation: fromBottom 1s ease;
+      }
+    }
+  }
+}
+
+@keyframes fromTop {
+  0% {
+    opacity: 0;
+    top: -5rem;
+  }
+  50% {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: 5rem;
+  }
+}
+
+@keyframes fromBottom {
+  0% {
+    opacity: 0;
+    bottom: -5rem;
+  }
+  50% {
+    opacity: 1;
+    bottom: 0;
+  }
+  100% {
+    opacity: 0;
+    bottom: 5rem;
+  }
+}
