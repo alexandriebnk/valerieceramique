@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useQuery, gql } from '@apollo/client';
-import BurgerIcon from './ComponentsSVG/BurgerIcon';
+import ClosingIcon from './ComponentsSVG/ClosingIcon';
 import CartItem from './CartItem';
 import Button from './Button';
 import { CartContext } from '../context/cart.context';
@@ -43,8 +43,8 @@ const CartDropdown = () => {
   return (
     <>
       <div className={`dropdown dropdown${isCartOpen ? '--is-open' : ''}`}>
-        <div className='dropdown__burger-icon'>
-          <BurgerIcon />
+        <div className='dropdown__closing-icon'>
+          <ClosingIcon />
         </div>
         <h3 className='dropdown__title'>Shop Cart</h3>
         <div className='cart'>

@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import BurgerIcon from './ComponentsSVG/BurgerIcon';
 
 const NavBar = ({ titles }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const navbarTitles = Object.values(titles);
 
   const openNavToggle = () => {
-    setIsOpen(!isOpen);
-    if (isOpen) {
+    setIsNavbarOpen(!isNavbarOpen);
+    if (isNavbarOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
@@ -18,12 +18,12 @@ const NavBar = ({ titles }) => {
   return (
     <div className='navbar'>
       <div className='navbar__burger' onClick={openNavToggle}>
-        <BurgerIcon isOpen={isOpen} />
+        <BurgerIcon />
       </div>
 
       <ul
         className={`navbar__classic navbar__classic${
-          isOpen ? '--is-open' : ''
+          isNavbarOpen ? '--is-open' : ''
         }`}
       >
         {navbarTitles.map((title) => (

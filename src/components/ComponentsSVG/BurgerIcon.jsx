@@ -4,7 +4,7 @@ import { CartContext } from '../../context/cart.context';
 const BurgerIcon = () => {
   const { isCartOpen, setIsCartOpen } = useContext(CartContext);
 
-  const closeCart = () => {
+  const toggleIconCart = () => {
     setIsCartOpen(false);
   };
 
@@ -16,7 +16,7 @@ const BurgerIcon = () => {
       viewBox='0 0 22 20'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      onClick={closeCart}
+      onClick={toggleIconCart}
     >
       <rect
         className={`burger-icon__top burger-icon__top${

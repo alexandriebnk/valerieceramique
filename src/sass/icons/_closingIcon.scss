@@ -1,0 +1,12 @@
+.closing-icon {
+  height: 3rem;
+  width: 3rem;
+  font-weight: bold;
+  color: $font;
+  opacity: 0;
+
+  &--is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
