@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Loader from '../components/Loader';
+import ErrorMessage from '../components/ErrorMessage';
 
 const CONTACTDATA = gql`
   query Contact {
@@ -29,6 +31,7 @@ const Contact = () => {
   const [location, setLocation] = useState(null);
   const [email, setEmail] = useState(null);
   const [visual, setVisual] = useState(null);
+  const { contact } = useParams();
 
   useEffect(() => {
     if (data) {
@@ -42,7 +45,7 @@ const Contact = () => {
   }, [data]);
 
   if (loading) return <Loader />;
-  if (error) return <p>Error..</p>;
+  if (error) return <ErrorMessage page={`/${contact}`} />;
 
   return (
     <div className='contact'>

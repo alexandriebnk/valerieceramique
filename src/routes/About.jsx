@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Loader from '../components/Loader';
+import ErrorMessage from '../components/ErrorMessage';
 
 const ABOUTDATA = gql`
   query About {
@@ -29,6 +31,7 @@ const About = () => {
   const [descriptionEN, setDescriptionEN] = useState(null);
   const [copyright, setCopyright] = useState(null);
   const [visual, setVisual] = useState(null);
+  const { about } = useParams();
 
   useEffect(() => {
     if (data) {
@@ -42,7 +45,7 @@ const About = () => {
   }, [data]);
 
   if (loading) return <Loader />;
-  if (error) return <p>Error..</p>;
+  if (error) return <ErrorMessage page={`/${about}`} />;
 
   return (
     <div className='about'>

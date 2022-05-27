@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Product from './Product';
 import Loader from './Loader';
+import ErrorMessage from './ErrorMessage';
 
 const PRODUCTDATA = gql`
   query Product {
@@ -49,7 +50,7 @@ const Category = () => {
   }, [data, category]);
 
   if (loading) return <Loader />;
-  if (error) return <p>Error..</p>;
+  if (error) return <ErrorMessage page={`/shop/${category}`} />;
 
   return (
     <div className='category'>

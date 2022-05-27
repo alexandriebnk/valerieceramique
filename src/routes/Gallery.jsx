@@ -1,6 +1,8 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Loader from '../components/Loader';
+import ErrorMessage from '../components/ErrorMessage';
 
 const GALLERYIMAGEDATA = gql`
   query GalleryImage {
@@ -25,9 +27,10 @@ const GALLERYIMAGEDATA = gql`
 
 const Gallery = () => {
   const { loading, error, data } = useQuery(GALLERYIMAGEDATA);
+  const { gallery } = useParams();
 
   if (loading) return <Loader />;
-  if (error) return <p>Error..</p>;
+  if (error) return <ErrorMessage page={`/${gallery}`} />;
 
   return (
     <div className='gallery'>

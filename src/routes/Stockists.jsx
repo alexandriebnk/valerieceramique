@@ -1,6 +1,8 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Loader from '../components/Loader';
+import ErrorMessage from '../components/ErrorMessage';
 
 const STOCKISTSDATA = gql`
   query Stokists {
@@ -19,9 +21,10 @@ const STOCKISTSDATA = gql`
 
 const Stockists = () => {
   const { loading, error, data } = useQuery(STOCKISTSDATA);
+  const { stockists } = useParams();
 
   if (loading) return <Loader />;
-  if (error) return <p>Error..</p>;
+  if (error) return <ErrorMessage page={`/${stockists}`} />;
 
   return (
     <div className='stockists'>

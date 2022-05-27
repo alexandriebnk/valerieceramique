@@ -4,6 +4,7 @@ import { useQuery, gql } from '@apollo/client';
 import Button from '../components/Button';
 import ParagraphHTML from '../components/ParagraphHTML';
 import Loader from '../components/Loader';
+import ErrorMessage from '../components/ErrorMessage';
 import { CartContext } from '../context/cart.context';
 
 const PRODUCTPAGEDATA = gql`
@@ -50,7 +51,7 @@ const PRODUCTPAGEDATA = gql`
 `;
 
 const ProductPage = () => {
-  const { slug } = useParams();
+  const { category, slug } = useParams();
 
   const { loading, error, data } = useQuery(PRODUCTPAGEDATA, {
     variables: { slug },
@@ -85,7 +86,7 @@ const ProductPage = () => {
   const addProductToCart = () => addItemToCart(fullProduct);
 
   if (loading) return <Loader />;
-  if (error) return <p>Error..</p>;
+  if (error) return <ErrorMessage page={`shop/${category}/${slug}`} />;
 
   return (
     <div className='product-page'>

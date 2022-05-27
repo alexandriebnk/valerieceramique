@@ -1,7 +1,9 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import CategoryPreview from './CategoryPreview';
 import Loader from './Loader';
+import ErrorMessage from './ErrorMessage';
 
 const CATEGORYDATA = gql`
   query Category {
@@ -24,9 +26,10 @@ const CATEGORYDATA = gql`
 
 const CategoriesList = () => {
   const { loading, error, data } = useQuery(CATEGORYDATA);
+  const { shop } = useParams();
 
   if (loading) return <Loader />;
-  if (error) return <p>Error..</p>;
+  if (error) return <ErrorMessage page={`/${shop}`} />;
 
   return (
     <div className='list'>

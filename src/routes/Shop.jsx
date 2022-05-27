@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import CategoriesList from '../components/CategoriesList';
 import Loader from '../components/Loader';
+import ErrorMessage from '../components/ErrorMessage';
 
 const SHOPDATA = gql`
   query Shop {
@@ -23,6 +25,7 @@ const Shop = () => {
   const [descriptionFR, setDescriptionFR] = useState(null);
   const [descriptionEN, setDescriptionEN] = useState(null);
   const [mainTitle, setMainTitle] = useState(null);
+  const { shop } = useParams();
 
   useEffect(() => {
     if (data) {
@@ -33,7 +36,7 @@ const Shop = () => {
   }, [data]);
 
   if (loading) return <Loader />;
-  if (error) return <p>Error..</p>;
+  if (error) return <ErrorMessage page={`/${shop}`} />;
 
   return (
     <div className='shop'>
