@@ -1,35 +1,25 @@
-import React, { useRef } from 'react';
-import mailchimp from '@mailchimp/mailchimp_marketing';
-import Button from './Button';
+import React from 'react';
+import MailchimpSubscribe from 'react-mailchimp-subscribe';
+import CustomForm from './CustomForm';
 
-mailchimp.setConfig({
-  apiKey: process.env.REACT_APP_MAILCHIMP_API_KEY,
-  server: process.env.REACT_APP_MAILCHIMP_SERVER_PREFIX,
-});
-
-const Emailing = ({ data }) => {
-  const confirmation = useRef();
-
-  const confirmMessage = () => {
-    confirmation.current.style.display = 'block';
-  };
+const Emailing = () => {
+  const postUrl = `https://gmail.us14.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_U}&id=${process.env.REACT_APP_MAILCHIMP_ID}`;
 
   return (
     <div className='emailing'>
       <div className='emailing__user'>
-        <input type='email' placeholder={data.emailPlaceholder} required />
         <div>
-          <Button
-            name={data.subscribeButton}
-            theme='neutral'
-            size='large'
-            event={confirmMessage}
+          <MailchimpSubscribe
+            url={postUrl}
+            render={({ subscribe, status }) => (
+              <CustomForm
+                status={status}
+                onValidated={(formData) => subscribe(formData)}
+              />
+            )}
           />
         </div>
       </div>
-      <p className='emailing__confirmation' ref={confirmation}>
-        Email address recorded !
-      </p>
     </div>
   );
 };

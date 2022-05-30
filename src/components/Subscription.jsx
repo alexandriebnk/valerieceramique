@@ -9,7 +9,7 @@ const Subscription = ({ data }) => {
         <p>{data.newsletterEN}</p>
       </div>
       <div className='subscription__emailing'>
-        <Emailing data={data} />
+        <Emailing />
       </div>
       <div className='subscription__privacy subscription__text'>
         <p>{data.privacyFR}</p>
