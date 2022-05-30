@@ -1,5 +1,5 @@
 .dropdown {
-  background-color: white;
+  background-color: $neutral;
   display: block;
   position: fixed;
   top: 4rem;
@@ -127,7 +127,7 @@
   width: 100vw;
   top: 0;
   left: 0;
-  background-color: rgba(antiquewhite, 0.5);
+  background-color: rgba($overlay, 0.5);
   z-index: 30;
   pointer-events: none;
   opacity: 0;

@@ -9,11 +9,11 @@
 
   &--dark {
     background-color: $emailing;
-    border: 0.19rem solid white;
-    color: white;
+    border: 0.19rem solid $neutral;
+    color: $neutral;
 
     &:hover {
-      background-color: white;
+      background-color: $neutral;
       color: $emailing;
       border-color: $emailing;
     }
@@ -26,19 +26,19 @@
 
     &:hover {
       background-color: $font;
-      color: white;
+      color: $neutral;
       border: none;
     }
   }
 
   &--light {
-    background-color: white;
+    background-color: $neutral;
     color: $font;
     border: none;
 
     &:hover {
       background-color: $emailing;
-      color: white;
+      color: $neutral;
     }
   }
 

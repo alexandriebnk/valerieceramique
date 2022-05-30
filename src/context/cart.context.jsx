@@ -58,7 +58,19 @@ export const CartProvider = ({ children }) => {
   const [cartSubTotal, setCartSubTotal] = useState(0);
 
   useEffect(() => {
-    const newCartCount = cartItems.reduce(
+    if (sessionStorage.getItem('shopCart')) {
+      setCartItems(JSON.parse(sessionStorage.getItem('shopCart')));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      sessionStorage.setItem('shopCart', JSON.stringify(cartItems));
+    }
+  }, [cartItems]);
+
+  useEffect(() => {
+    const newCartCount = cartItems?.reduce(
       (total, cartItem) => total + cartItem.quantity,
       0
     );
@@ -66,7 +78,7 @@ export const CartProvider = ({ children }) => {
   }, [cartItems]);
 
   useEffect(() => {
-    const newCartSubTotal = cartItems.reduce(
+    const newCartSubTotal = cartItems?.reduce(
       (total, cartItem) => total + cartItem.quantity * cartItem.price,
       0
     );
