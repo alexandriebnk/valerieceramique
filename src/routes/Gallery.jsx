@@ -1,5 +1,4 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import Loader from '../components/Loader';
 import ErrorMessage from '../components/ErrorMessage';
@@ -27,14 +26,18 @@ const GALLERYIMAGEDATA = gql`
 
 const Gallery = () => {
   const { loading, error, data } = useQuery(GALLERYIMAGEDATA);
-  const { gallery } = useParams();
+  const [galleryData, setGalleryData] = useState([]);
+
+  useEffect(() => {
+    if (data) setGalleryData(data.galleryImages.data);
+  }, [data]);
 
   if (loading) return <Loader />;
-  if (error) return <ErrorMessage page={`/${gallery}`} />;
+  if (error) return <ErrorMessage page={'/gallery'} />;
 
   return (
     <div className='gallery'>
-      {data.galleryImages.data.map((image) => {
+      {galleryData.map((image) => {
         return (
           <div
             key={image.attributes.image.data.attributes.formats.large.url}

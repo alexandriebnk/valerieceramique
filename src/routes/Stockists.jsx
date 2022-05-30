@@ -1,5 +1,4 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import Loader from '../components/Loader';
 import ErrorMessage from '../components/ErrorMessage';
@@ -21,15 +20,19 @@ const STOCKISTSDATA = gql`
 
 const Stockists = () => {
   const { loading, error, data } = useQuery(STOCKISTSDATA);
-  const { stockists } = useParams();
+  const [stockistsData, setStockistsData] = useState([]);
+
+  useEffect(() => {
+    if (data) setStockistsData(data.stockists.data);
+  }, [data]);
 
   if (loading) return <Loader />;
-  if (error) return <ErrorMessage page={`/${stockists}`} />;
+  if (error) return <ErrorMessage page={'/stockists'} />;
 
   return (
     <div className='stockists'>
       <p className='stockists__title'>Stockists</p>
-      {data.stockists.data.map((distributor) => {
+      {stockistsData.map((distributor) => {
         return (
           <div key={distributor.attributes.title} className='stockists__shop'>
             <h3>{distributor.attributes.title}</h3>

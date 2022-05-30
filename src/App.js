@@ -5,8 +5,7 @@ import HomePage from './routes/HomePage';
 import About from './routes/About';
 import Shop from './routes/Shop';
 import ProductPage from './routes/ProductPage';
-import ErrorMessage from './components/ErrorMessage';
-//import Gallery from './routes/Gallery';
+import Gallery from './routes/Gallery';
 import Contact from './routes/Contact';
 import PaymentSucceed from './routes/PaymentSucceed';
 import Stockists from './routes/Stockists';
@@ -32,8 +31,7 @@ const App = () => {
             <Route path='/shop' element={<Shop />} />
             <Route path='/shop/:category' element={<Category />} />
             <Route path='/shop/:category/:slug' element={<ProductPage />} />
-            {/*<Route path='/gallery' element={<Gallery />} />*/}
-            <Route path='/gallery' element={<ErrorMessage />} />
+            <Route path='/gallery' element={<Gallery />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/payment-succeed' element={<PaymentSucceed />} />
             <Route path='/stockists' element={<Stockists />} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import ParagraphHTML from '../components/ParagraphHTML';
 import Loader from '../components/Loader';

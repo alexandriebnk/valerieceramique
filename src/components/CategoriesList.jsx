@@ -1,5 +1,4 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import CategoryPreview from './CategoryPreview';
 import Loader from './Loader';
@@ -26,16 +25,20 @@ const CATEGORYDATA = gql`
 
 const CategoriesList = () => {
   const { loading, error, data } = useQuery(CATEGORYDATA);
-  const { shop } = useParams();
+  const [categoryData, setCategoryData] = useState([]);
+
+  useEffect(() => {
+    if (data) setCategoryData(data.categories.data);
+  }, [data]);
 
   if (loading) return <Loader />;
-  if (error) return <ErrorMessage page={`/${shop}`} />;
+  if (error) return <ErrorMessage page={`/shop`} />;
 
   return (
     <div className='list'>
       <div className='categories'>
         <ul className='categories__left'>
-          {data.categories.data.map((category, index) => {
+          {categoryData.map((category, index) => {
             if (index % 2 === 0) {
               return (
                 <li
@@ -50,7 +53,7 @@ const CategoriesList = () => {
           })}
         </ul>
         <ul className='categories__right'>
-          {data.categories.data.map((category, index) => {
+          {categoryData.map((category, index) => {
             if (index % 2 !== 0) {
               return (
                 <li

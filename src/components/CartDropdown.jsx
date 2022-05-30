@@ -3,6 +3,8 @@ import { useQuery, gql } from '@apollo/client';
 import ClosingIcon from './ComponentsSVG/ClosingIcon';
 import CartItem from './CartItem';
 import Button from './Button';
+import Loader from './Loader';
+import ErrorMessage from './ErrorMessage';
 import { CartContext } from '../context/cart.context';
 
 const FRAISDELIVRAISONDATA = gql`
@@ -37,8 +39,8 @@ const CartDropdown = () => {
     return parseFloat(calculateFees()) + cartSubTotal;
   };
 
-  if (loading) return <p>Loading..</p>;
-  if (error) return <p>Error..</p>;
+  if (loading) return <Loader />;
+  if (error) return <ErrorMessage page={'/'} />;
 
   return (
     <>

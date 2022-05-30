@@ -31,9 +31,14 @@ const PaymentSucceed = () => {
   if (error) return <p>Error..</p>;
 
   return (
-    <div>
-      <UserMessage title={'Payment succeed'} subtitle={'Thank you !'} />
-    </div>
+    <>
+      <UserMessage
+        title={'Payment succeed'}
+        subtitle={'Thank you !'}
+        page={'/'}
+        message={'Go to home'}
+      />
+    </>
   );
 };
 

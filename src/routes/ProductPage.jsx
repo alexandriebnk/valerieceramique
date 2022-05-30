@@ -61,7 +61,7 @@ const ProductPage = () => {
   const [productQuantity, setProductQuantity] = useState(null);
   const [fullProduct, setFullProduct] = useState(null);
 
-  const { addItemToCart } = useContext(CartContext);
+  const { addItemToCart, setIsCartOpen } = useContext(CartContext);
 
   useEffect(() => {
     if (data) {
@@ -83,7 +83,10 @@ const ProductPage = () => {
     );
   };
 
-  const addProductToCart = () => addItemToCart(fullProduct);
+  const addProductToCart = () => {
+    addItemToCart(fullProduct);
+    setIsCartOpen(true);
+  };
 
   if (loading) return <Loader />;
   if (error) return <ErrorMessage page={`shop/${category}/${slug}`} />;

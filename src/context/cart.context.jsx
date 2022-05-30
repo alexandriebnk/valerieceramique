@@ -41,7 +41,7 @@ export const CartContext = createContext({
   isNavbarOpen: false,
   setIsNavbarOpen: () => {},
   isCartOpen: false,
-  setIsOpen: () => {},
+  setIsCartOpen: () => {},
   cartItems: [],
   addItemToCart: () => {},
   removeItemFromCart: () => {},

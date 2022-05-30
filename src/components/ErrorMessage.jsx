@@ -1,11 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import UserMessage from '../components/UserMessage';
 
 const ErrorMessage = ({ page }) => {
   return (
-    <div>
-      <p>Oups !</p>
-      <Link to={page}>Refresh</Link>
+    <div className='error-message'>
+      <UserMessage
+        title={'Oups !'}
+        subtitle={'Refresh Page !'}
+        page={page}
+        message={'Refresh'}
+      />
     </div>
   );
 };

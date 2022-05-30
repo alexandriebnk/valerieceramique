@@ -46,7 +46,7 @@ const Header = () => {
   if (error) return <p>Error..</p>;
 
   return (
-    <div className='header'>
+    <header className='header'>
       <div className='header__wrapper'>
         <Link to='/'>
           <h1 aria-label='Valérie Céramique' className='header__wrapper__logo'>
@@ -62,7 +62,7 @@ const Header = () => {
       <div className='header__shop-cart'>
         {shopcartTitle && <ShopCart title={shopcartTitle} />}
       </div>
-    </div>
+    </header>
   );
 };
 
