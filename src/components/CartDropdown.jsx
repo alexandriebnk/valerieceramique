@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import ClosingIcon from './ComponentsSVG/ClosingIcon';
 import CartItem from './CartItem';
@@ -37,6 +38,24 @@ const CartDropdown = () => {
 
   const calculateTotal = () => {
     return parseFloat(calculateFees()) + cartSubTotal;
+  };
+
+  const onPayment = async () => {
+    const results = await fetch('http://localhost:1337/api/payment', {
+      method: 'POST',
+      body: JSON.stringify({
+        products: [
+          { id: 'plat-flower-white', quantity: 2 },
+          { id: 'flower-glass-beige', quantity: 3 },
+        ],
+        amount: calculateTotal(),
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    const data = await results.json();
+    console.log(data);
   };
 
   if (loading) return <Loader />;
@@ -81,7 +100,14 @@ const CartDropdown = () => {
           </div>
 
           <div className='button'>
-            <Button name={'payment'} theme='dark' size='medium' />
+            <Link to='/checkout'>
+              <Button
+                name={'payment'}
+                theme='dark'
+                size='medium'
+                event={onPayment}
+              />
+            </Link>
           </div>
         </div>
       </div>

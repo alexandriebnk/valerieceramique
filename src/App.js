@@ -7,6 +7,7 @@ import Shop from './routes/Shop';
 import ProductPage from './routes/ProductPage';
 import Gallery from './routes/Gallery';
 import Contact from './routes/Contact';
+import CheckoutPage from './routes/CheckoutPage';
 import PaymentSucceed from './routes/PaymentSucceed';
 import Stockists from './routes/Stockists';
 import LegalInfos from './routes/LegalInfos';
@@ -33,6 +34,7 @@ const App = () => {
             <Route path='/shop/:category/:slug' element={<ProductPage />} />
             <Route path='/gallery' element={<Gallery />} />
             <Route path='/contact' element={<Contact />} />
+            <Route path='/checkout' element={<CheckoutPage />} />
             <Route path='/payment-succeed' element={<PaymentSucceed />} />
             <Route path='/stockists' element={<Stockists />} />
             <Route path='/mentions-legales' element={<LegalInfos />} />

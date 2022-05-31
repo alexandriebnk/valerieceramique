@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 const CustomForm = ({ status, onValidated }) => {
+  const inputToClear = useRef();
   const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
@@ -13,13 +14,20 @@ const CustomForm = ({ status, onValidated }) => {
     const email = e.target.email.value;
     if (validateEmail(email)) {
       onValidated({ EMAIL: email });
+      inputToClear.current.value = '';
     }
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type='email' name='email' placeholder='Email Address' required />
+        <input
+          type='email'
+          name='email'
+          placeholder='Email Address'
+          ref={inputToClear}
+          required
+        />
         <input label='Subscribe' type='submit' value='Subscribe' />
       </form>
       {status === 'sending' && <div className='status'>Sending...</div>}

@@ -2,9 +2,4 @@
   position: relative;
   color: $font;
   z-index: 0;
-  overflow-x: hidden;
-
-  @include respondTo(mobile) {
-    overflow-x: hidden;
-  }
 }
