@@ -16,7 +16,7 @@ const CREATEORDER = gql`
   }
 `;
 
-const PaymentSucceed = () => {
+const PaymentSuccess = () => {
   const [mutateFunction, { data, loading, error }] = useMutation(CREATEORDER, {
     variables: { address: 'super order' },
   });
@@ -31,15 +31,15 @@ const PaymentSucceed = () => {
   if (error) return <p>Error..</p>;
 
   return (
-    <>
+    <div>
       <UserMessage
-        title={'Payment succeed'}
+        title={'Payment success'}
         subtitle={'Thank you !'}
         page={'/'}
         message={'Go to home'}
       />
-    </>
+    </div>
   );
 };
 
-export default PaymentSucceed;
+export default PaymentSuccess;
