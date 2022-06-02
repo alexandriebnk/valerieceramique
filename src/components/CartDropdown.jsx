@@ -36,7 +36,7 @@ const CartDropdown = () => {
     setIsCartOpen(false);
   };
 
-  const calculateFees = () => (feesData * cartSubTotal).toFixed(2);
+  const calculateFees = () => Math.ceil((feesData * cartSubTotal).toFixed(2));
 
   const calculateTotal = () => {
     return parseFloat(calculateFees()) + cartSubTotal;
@@ -46,29 +46,30 @@ const CartDropdown = () => {
     const products = cartItems.map((product) => {
       return { id: product.slug, quantity: product.quantity };
     });
+    console.log(products);
+
+    const prodURL = 'https://murmuring-sea-64341.herokuapp.com';
+    const localURL = 'http://localhost:1337';
+
     try {
-      const results = await fetch(
-        'https://murmuring-sea-64341.herokuapp.com/api/payment',
-        {
-          method: 'POST',
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
-          body: JSON.stringify({
-            products,
-            total: calculateTotal(),
-          }),
-        }
-      );
+      const results = await fetch(`${localURL}/api/payment`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+          products,
+          total: calculateTotal(),
+        }),
+      });
 
-      const { status, message } = await results.json();
+      const { status, message, url } = await results.json();
 
-      if (status === 200 && message === 'Payment succeed') {
-        closeCart();
-        navigate('/payment-succeed');
+      if (status === 200 && message === 'Checkout ready') {
+        window.location.href = url;
       }
     } catch (err) {
-      console.log(err);
+      console.log('😡', err);
     }
   };
 
