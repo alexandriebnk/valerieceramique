@@ -47,16 +47,19 @@ const CartDropdown = () => {
       return { id: product.slug, quantity: product.quantity };
     });
     try {
-      const results = await fetch('http://localhost:1337/api/payment', {
-        method: 'POST',
-        body: JSON.stringify({
-          products,
-          total: calculateTotal(),
-        }),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      });
+      const results = await fetch(
+        'https://murmuring-sea-64341.herokuapp.com/api/payment',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            products,
+            total: calculateTotal(),
+          }),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        }
+      );
       const { status, message } = await results.json();
       if (status === 200 && message === 'Payment succeed') {
         closeCart();
