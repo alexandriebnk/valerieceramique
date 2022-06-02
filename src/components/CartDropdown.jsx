@@ -51,16 +51,18 @@ const CartDropdown = () => {
         'https://murmuring-sea-64341.herokuapp.com/api/payment',
         {
           method: 'POST',
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
           body: JSON.stringify({
             products,
             total: calculateTotal(),
           }),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
         }
       );
+
       const { status, message } = await results.json();
+
       if (status === 200 && message === 'Payment succeed') {
         closeCart();
         navigate('/payment-succeed');
