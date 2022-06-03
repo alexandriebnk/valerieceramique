@@ -70,6 +70,12 @@ export const CartProvider = ({ children }) => {
   }, [cartItems]);
 
   useEffect(() => {
+    if (cartItems.length === 0) {
+      sessionStorage.removeItem('shopCart');
+    }
+  }, [cartItems]);
+
+  useEffect(() => {
     const newCartCount = cartItems?.reduce(
       (total, cartItem) => total + cartItem.quantity,
       0
