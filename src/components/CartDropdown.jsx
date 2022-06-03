@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-
 import { useQuery, gql } from '@apollo/client';
 import ClosingIcon from './ComponentsSVG/ClosingIcon';
 import CartItem from './CartItem';
@@ -26,7 +24,6 @@ const CartDropdown = () => {
   const { isCartOpen, setIsCartOpen, cartItems, cartSubTotal } =
     useContext(CartContext);
   const [feesData, setFeesData] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (data) setFeesData(data.fraisDeLivraison.data.attributes.frais);
@@ -46,7 +43,6 @@ const CartDropdown = () => {
     const products = cartItems.map((product) => {
       return { id: product.slug, quantity: product.quantity };
     });
-    console.log(products);
 
     const prodURL = 'https://murmuring-sea-64341.herokuapp.com';
     const localURL = 'http://localhost:1337';
