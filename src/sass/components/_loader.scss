@@ -13,23 +13,22 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 
     & p {
       position: absolute;
       color: $font;
-      font-size: 8rem;
+      font-size: 3rem;
       text-transform: uppercase;
 
       &:nth-child(1) {
         opacity: 0;
-        left: 10rem;
         animation: fromTop 2s ease;
       }
 
       &:nth-child(2) {
         opacity: 0;
-        right: 10rem;
         animation: fromBottom 3s ease;
       }
     }

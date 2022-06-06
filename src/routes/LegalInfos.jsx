@@ -44,7 +44,7 @@ const LegalInfos = () => {
         <h3>{data.informations.data[0].attributes.titleFR}</h3>
         {data.informations.data[0].attributes.sectionFR.map((section) => (
           <section key={section.title} className='infos__fr__section'>
-            {section.title && <h3>{section.title}</h3>}
+            {section.title && <h4>{section.title}</h4>}
             {section.content && <ParagraphHTML content={section.content} />}
           </section>
         ))}
@@ -53,7 +53,7 @@ const LegalInfos = () => {
         <h3>{data.informations.data[0].attributes.titleEN}</h3>
         {data.informations.data[0].attributes.sectionEN.map((section) => (
           <section key={section.title} className='infos__en__section'>
-            {section.title && <h3>{section.title}</h3>}
+            {section.title && <h4>{section.title}</h4>}
             {section.content && <ParagraphHTML content={section.content} />}
           </section>
         ))}

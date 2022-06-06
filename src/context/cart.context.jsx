@@ -48,6 +48,11 @@ export const CartContext = createContext({
   clearItemFromCart: () => {},
   cartCount: 0,
   cartSubTotal: 0,
+  descriptionFR: null,
+  descriptionEN: null,
+  setDescriptionFR: () => {},
+  setDescriptionEN: () => {},
+  scrollTop: () => {},
 });
 
 export const CartProvider = ({ children }) => {
@@ -56,6 +61,8 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [cartSubTotal, setCartSubTotal] = useState(0);
+  const [descriptionFR, setDescriptionFR] = useState(null);
+  const [descriptionEN, setDescriptionEN] = useState(null);
 
   useEffect(() => {
     if (sessionStorage.getItem('shopCart')) {
@@ -100,6 +107,10 @@ export const CartProvider = ({ children }) => {
   const clearItemFromCart = (productToClear) =>
     setCartItems(clearCartItem(cartItems, productToClear));
 
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const value = {
     isNavbarOpen,
     setIsNavbarOpen,
@@ -111,6 +122,11 @@ export const CartProvider = ({ children }) => {
     clearItemFromCart,
     cartCount,
     cartSubTotal,
+    descriptionFR,
+    descriptionEN,
+    setDescriptionFR,
+    setDescriptionEN,
+    scrollTop,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

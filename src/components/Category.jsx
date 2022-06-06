@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Product from './Product';
 import Loader from './Loader';
 import ErrorMessage from './ErrorMessage';
+
+import { CartContext } from '../context/cart.context';
 
 const PRODUCTDATA = gql`
   query Product {
@@ -40,6 +42,8 @@ const Category = () => {
   const { loading, error, data } = useQuery(PRODUCTDATA);
   const [filteredProducts, setFilteredProducts] = useState(null);
 
+  const { descriptionFR, descriptionEN } = useContext(CartContext);
+
   useEffect(() => {
     if (data) {
       const products = data.products.data.filter((product) => {
@@ -54,6 +58,10 @@ const Category = () => {
 
   return (
     <div className='category'>
+      <div className='category__description'>
+        <p>{descriptionFR}</p>
+        <p>{descriptionEN}</p>
+      </div>
       <h2 className='category__title'>{category}</h2>
       <div className='category__product'>
         {filteredProducts?.map((product) => {

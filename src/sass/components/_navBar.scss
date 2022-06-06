@@ -47,7 +47,12 @@
       //background-color: lightgreen;
       font-size: 1.3rem;
       text-transform: uppercase;
-      cursor: pointer;
+
+      a {
+        color: $font;
+        text-decoration: none;
+        cursor: pointer;
+      }
 
       &:not(:last-child) {
         margin-bottom: 3rem;

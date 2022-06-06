@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import CategoriesList from '../components/CategoriesList';
 import Loader from '../components/Loader';
 import ErrorMessage from '../components/ErrorMessage';
+
+import { CartContext } from '../context/cart.context';
 
 const SHOPDATA = gql`
   query Shop {
@@ -20,10 +22,10 @@ const SHOPDATA = gql`
 
 const Shop = () => {
   const { loading, error, data } = useQuery(SHOPDATA);
-
-  const [descriptionFR, setDescriptionFR] = useState(null);
-  const [descriptionEN, setDescriptionEN] = useState(null);
   const [mainTitle, setMainTitle] = useState(null);
+
+  const { descriptionFR, descriptionEN, setDescriptionFR, setDescriptionEN } =
+    useContext(CartContext);
 
   useEffect(() => {
     if (data) {
@@ -31,7 +33,7 @@ const Shop = () => {
       setDescriptionEN(data.shop.data.attributes.descriptionEN);
       setMainTitle(data.shop.data.attributes.title);
     }
-  }, [data]);
+  }, [data, setDescriptionFR, setDescriptionEN]);
 
   if (loading) return <Loader />;
   if (error) return <ErrorMessage page={'/shop'} />;

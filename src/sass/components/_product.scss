@@ -42,7 +42,6 @@
   }
 
   &__details {
-    font-size: 1.2rem;
     margin-top: 1rem;
     width: 100%;
 
@@ -55,6 +54,10 @@
     &__title {
       font-weight: 100;
       margin-bottom: 0.5rem;
+    }
+
+    &__price {
+      font-size: 1.3rem;
     }
   }
 }

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import NavBar from './NavBar';
 import ShopCart from './ShopCart';
+import ErrorDatas from './ErrorDatas';
 import Logo from '../assets/logo.svg';
-import Loader from './Loader';
 
 const HEADERDATA = gql`
   query Header {
@@ -24,7 +24,7 @@ const HEADERDATA = gql`
 `;
 
 const Header = () => {
-  const { loading, error, data } = useQuery(HEADERDATA);
+  const { error, data } = useQuery(HEADERDATA);
   const [mainTitle, setMainTitle] = useState(null);
   const [navbarTitles, setNavbarTitles] = useState(null);
   const [shopcartTitle, setShopcartTitle] = useState(null);
@@ -42,8 +42,7 @@ const Header = () => {
     }
   }, [data]);
 
-  if (loading) return <Loader />;
-  if (error) return <p>Error..</p>;
+  if (error) return <ErrorDatas />;
 
   return (
     <header className='header'>
@@ -53,7 +52,7 @@ const Header = () => {
             <img src={Logo} alt='logo' draggable='false' />
           </h1>
         </Link>
-        <h2 className='header__wrapper__title'>{mainTitle}</h2>
+        <h3 className='header__wrapper__title'>{mainTitle}</h3>
         <div className='header__wrapper__navbar'>
           {navbarTitles && <NavBar titles={navbarTitles} />}
         </div>

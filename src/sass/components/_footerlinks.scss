@@ -15,8 +15,15 @@
     text-align: center;
   }
 
-  &__item:not(:last-child) {
-    margin-right: 3rem;
+  &__item {
+    a {
+      color: $font;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    &:not(:last-child) {
+      margin-right: 3rem;
+    }
 
     @include respondTo(mobile) {
       //margin-right: 2rem;

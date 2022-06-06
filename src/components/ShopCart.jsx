@@ -13,7 +13,7 @@ const ShopCart = ({ title }) => {
       className={`shop-cart shop-cart${isCartOpen ? '--is-open' : ''}`}
       onClick={toggleOpenCart}
     >
-      <p className='shop-cart__title'>{title}</p>
+      <h4 className='shop-cart__title'>{title}</h4>
       <p className='shop-cart__number'>({cartCount})</p>
     </div>
   );

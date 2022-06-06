@@ -3,7 +3,7 @@ import { useQuery, gql } from '@apollo/client';
 import Subscription from './Subscription';
 import Social from './Social';
 import FooterLinks from './FooterLinks';
-import Loader from './Loader';
+import ErrorDatas from './ErrorDatas';
 
 const FOOTERDATA = gql`
   query Footer {
@@ -31,7 +31,7 @@ const FOOTERDATA = gql`
 `;
 
 const Footer = () => {
-  const { loading, error, data } = useQuery(FOOTERDATA);
+  const { error, data } = useQuery(FOOTERDATA);
   const [subscriptionData, setSubscriptionData] = useState(null);
   const [linksData, setLinksData] = useState(null);
   const [copyright, setCopyright] = useState(null);
@@ -59,8 +59,7 @@ const Footer = () => {
     }
   }, [data]);
 
-  if (loading) return <Loader />;
-  if (error) return <p>Error..</p>;
+  if (error) return <ErrorDatas />;
   return (
     <footer className='footer'>
       <div className='footer__content'>

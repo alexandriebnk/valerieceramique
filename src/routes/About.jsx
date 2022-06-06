@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import ParagraphHTML from '../components/ParagraphHTML';
 import Loader from '../components/Loader';
 import ErrorMessage from '../components/ErrorMessage';
 
@@ -48,8 +49,12 @@ const About = () => {
   return (
     <div className='about'>
       <div className='about__biography'>
-        <p className='about__biography--fr'>{descriptionFR}</p>
-        <p className='about__biography--en'>{descriptionEN}</p>
+        <div className='about__biography--fr'>
+          {descriptionFR && <ParagraphHTML content={descriptionFR} />}
+        </div>
+        <div className='about__biography--en'>
+          {descriptionEN && <ParagraphHTML content={descriptionEN} />}
+        </div>
         <div className='about__biography__copyright'>{copyright}</div>
       </div>
       <div className='about__portrait'>

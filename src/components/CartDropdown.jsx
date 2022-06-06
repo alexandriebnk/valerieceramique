@@ -111,12 +111,14 @@ const CartDropdown = () => {
           </div>
 
           <div className='button'>
-            <Button
-              name={'payment'}
-              theme='dark'
-              size='medium'
-              event={onPayment}
-            />
+            {cartItems.length > 0 && (
+              <Button
+                name={'payment'}
+                theme='dark'
+                size='medium'
+                event={onPayment}
+              />
+            )}
           </div>
         </div>
       </div>

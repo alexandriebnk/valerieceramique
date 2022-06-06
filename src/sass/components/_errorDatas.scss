@@ -1,0 +1,21 @@
+.error-datas {
+  //background-color: pink;
+  width: 100%;
+  text-align: center;
+  color: $font;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  & p {
+    &:nth-child(1) {
+      font-size: 2rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    &:nth-child(2) {
+      font-size: 1.5rem;
+      font-style: italic;
+    }
+  }
+}
