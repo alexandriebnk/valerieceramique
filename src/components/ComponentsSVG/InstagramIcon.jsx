@@ -1,12 +1,8 @@
 import React from 'react';
 
-const InstagramIcon = () => {
+const InstagramIcon = ({ instagram }) => {
   return (
-    <a
-      href='https://www.instagram.com/paumes_pigalle/'
-      target='_blank'
-      rel='noopener noreferrer'
-    >
+    <a href={instagram} target='_blank' rel='noopener noreferrer'>
       <svg
         className='instagram-icon'
         xmlns='http://www.w3.org/2000/svg'

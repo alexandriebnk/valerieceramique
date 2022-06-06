@@ -23,6 +23,8 @@ const FOOTERDATA = gql`
           conditionsEN
           confidentialiteFR
           confidentialiteEN
+          instagram
+          mail
           copyright
         }
       }
@@ -35,6 +37,8 @@ const Footer = () => {
   const [subscriptionData, setSubscriptionData] = useState(null);
   const [linksData, setLinksData] = useState(null);
   const [copyright, setCopyright] = useState(null);
+  const [instagram, setInstagram] = useState(null);
+  const [mail, setMail] = useState(null);
 
   useEffect(() => {
     if (data) {
@@ -55,6 +59,8 @@ const Footer = () => {
         confidentialiteFR: data.footer.data.attributes.confidentialiteFR,
         confidentialiteEN: data.footer.data.attributes.confidentialiteEN,
       });
+      setInstagram(data.footer.data.attributes.instagram);
+      setMail(data.footer.data.attributes.mail);
       setCopyright(data.footer.data.attributes.copyright);
     }
   }, [data]);
@@ -67,7 +73,7 @@ const Footer = () => {
           {subscriptionData && <Subscription data={subscriptionData} />}
         </div>
         <div className='footer__content__social item'>
-          <Social />
+          <Social instagram={instagram} mail={mail} />
         </div>
         <div className='footer__content__informations item'>
           {linksData && <FooterLinks data={linksData} />}

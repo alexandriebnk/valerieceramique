@@ -1,12 +1,13 @@
 import React from 'react';
+
 import InstagramIcon from './ComponentsSVG/InstagramIcon';
 import MailIcon from './ComponentsSVG/MailIcon';
 
-const Social = () => {
+const Social = ({ instagram, mail }) => {
   return (
     <div className='social'>
-      <InstagramIcon />
-      <MailIcon />
+      <InstagramIcon instagram={instagram} />
+      <MailIcon mail={mail} />
     </div>
   );
 };

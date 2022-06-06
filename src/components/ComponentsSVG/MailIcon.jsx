@@ -1,8 +1,8 @@
 import React from 'react';
 
-const MailIcon = () => {
+const MailIcon = ({ mail }) => {
   return (
-    <a href='mailto:toto@gmail.com' target='_blank' rel='noopener noreferrer'>
+    <a href={mail} target='_blank' rel='noopener noreferrer'>
       <svg
         className='mail-icon'
         xmlns='http://www.w3.org/2000/svg'
