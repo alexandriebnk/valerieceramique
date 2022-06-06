@@ -1,7 +1,8 @@
 .gallery {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  grid-template-rows: repeat(auto-fill, 13.5rem);
+  grid-gap: 3rem;
   flex-wrap: wrap;
   width: 100%;
   max-width: 130rem;

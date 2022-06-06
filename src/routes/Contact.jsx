@@ -37,7 +37,7 @@ const Contact = () => {
       setLocation(data.contact.data.attributes.location);
       setEmail(data.contact.data.attributes.email);
       setVisual(
-        data.contact.data.attributes.visual.data.attributes.formats.large.url
+        data.contact.data.attributes.visual.data.attributes.formats.small.url
       );
     }
   }, [data]);

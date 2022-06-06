@@ -113,10 +113,11 @@
   }
 
   &__gallery {
-    //border: 2px solid blue;
+    border: 2px solid blue;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    grid-template-rows: repeat(auto-fill, 13.5rem);
+    grid-gap: 3rem;
     width: 80%;
 
     @include respondTo(tablandscape) {
@@ -130,6 +131,7 @@
 
     @include respondTo(mobile) {
       width: 100%;
+      grid-gap: 2rem;
     }
 
     &__wrapper {

@@ -5,7 +5,7 @@ import { CartContext } from '../context/cart.context';
 
 const Product = ({ category, title, gallery, price, id }) => {
   const { scrollTop } = useContext(CartContext);
-  const firstImage = gallery[0].image.data.attributes.formats.large.url;
+  const firstImage = gallery[0].image.data.attributes.formats.small.url;
 
   return (
     <div key={id} className='product'>
