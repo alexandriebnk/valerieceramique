@@ -67,7 +67,7 @@ const ProductPage = () => {
     if (data) {
       setMainVisual(
         data.products.data[0].attributes.gallery[0].image.data.attributes
-          .formats.large.url
+          .formats.medium.url
       );
       setProductQuantity(data.products.data[0].attributes.stock);
       setFullProduct(data.products.data[0].attributes);
@@ -79,7 +79,7 @@ const ProductPage = () => {
     const nextIndex = event.currentTarget.dataset.imageIndex;
     setMainVisual(
       data.products.data[0].attributes.gallery[nextIndex].image.data.attributes
-        .formats.large.url
+        .formats.medium.url
     );
   };
 
@@ -105,12 +105,12 @@ const ProductPage = () => {
           {data.products.data[0].attributes.gallery.map((visual, index) => (
             <div
               className='visual__gallery__wrapper'
-              key={visual.image.data.attributes.formats.large.url}
+              key={visual.image.data.attributes.formats.medium.url}
               data-image-index={index}
               onClick={updateMainVisual}
             >
               <img
-                src={visual.image.data.attributes.formats.large.url}
+                src={visual.image.data.attributes.formats.medium.url}
                 alt='product'
                 draggable='false'
               />

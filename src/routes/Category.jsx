@@ -1,15 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
-import Product from './Product';
-import Loader from './Loader';
-import ErrorMessage from './ErrorMessage';
+import Product from '../components/Product';
+import ParagraphHTML from '../components/ParagraphHTML';
+import Loader from '../components/Loader';
+import ErrorMessage from '../components/ErrorMessage';
 
 import { CartContext } from '../context/cart.context';
 
 const PRODUCTDATA = gql`
-  query Product {
-    products(sort: "createdAt:desc", pagination: { start: 1, limit: 1000 }) {
+  query Product($category: String!) {
+    products(
+      sort: "createdAt:desc"
+      pagination: { start: 1, limit: 1000 }
+      filters: { category: { title: { contains: $category } } }
+    ) {
       data {
         attributes {
           category {
@@ -39,7 +44,9 @@ const PRODUCTDATA = gql`
 
 const Category = () => {
   const { category } = useParams();
-  const { loading, error, data } = useQuery(PRODUCTDATA);
+  const { loading, error, data } = useQuery(PRODUCTDATA, {
+    variables: { category },
+  });
   const [filteredProducts, setFilteredProducts] = useState(null);
 
   const { descriptionFR, descriptionEN } = useContext(CartContext);
@@ -59,8 +66,8 @@ const Category = () => {
   return (
     <div className='category'>
       <div className='category__description'>
-        <p>{descriptionFR}</p>
-        <p>{descriptionEN}</p>
+        {descriptionFR && <ParagraphHTML content={descriptionFR} />}
+        {descriptionEN && <ParagraphHTML content={descriptionEN} />}
       </div>
       <h2 className='category__title'>{category}</h2>
       <div className='category__product'>

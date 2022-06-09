@@ -40,11 +40,11 @@ const Gallery = () => {
       {galleryData.map((image) => {
         return (
           <div
-            key={image.attributes.image.data.attributes.formats.large.url}
+            key={image.attributes.image.data.attributes.formats.medium.url}
             className='gallery__image'
           >
             <img
-              src={image.attributes.image.data.attributes.formats.large.url}
+              src={image.attributes.image.data.attributes.formats.medium.url}
               alt='gallery-item'
               draggable='false'
             />

@@ -38,7 +38,7 @@ const About = () => {
       setDescriptionEN(data.about.data.attributes.descriptionEN);
       setCopyright(data.about.data.attributes.copyright);
       setVisual(
-        data.about.data.attributes.visual.data.attributes.formats.large.url
+        data.about.data.attributes.visual.data.attributes.formats.medium.url
       );
     }
   }, [data]);

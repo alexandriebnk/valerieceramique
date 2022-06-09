@@ -6,7 +6,7 @@ const CategoryPreview = ({ category, reverse }) => {
   const { scrollTop } = useContext(CartContext);
 
   const title = category.attributes.title;
-  const visual = category.attributes.visual.data.attributes.formats.small.url;
+  const visual = category.attributes.visual.data.attributes.formats.medium.url;
 
   return (
     <Link

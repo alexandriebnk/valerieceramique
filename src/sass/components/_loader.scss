@@ -1,4 +1,14 @@
 .loader {
+  background-color: $background;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  height: 100vh;
+  width: 100vw;
+}
+
+/*.loader {
   background-color: $neutral;
   width: 100%;
   max-width: 130rem;
@@ -23,13 +33,13 @@
       text-transform: uppercase;
 
       &:nth-child(1) {
-        opacity: 0;
-        animation: fromTop 2s ease;
+        //opacity: 0;
+        //animation: fromTop 2s ease;
       }
 
       &:nth-child(2) {
-        opacity: 0;
-        animation: fromBottom 3s ease;
+        //opacity: 0;
+        //animation: fromBottom 3s ease;
       }
     }
   }
@@ -67,4 +77,4 @@
     opacity: 0;
     bottom: 5rem;
   }
-}
+}*/

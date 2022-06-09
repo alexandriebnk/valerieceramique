@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from './routes/HomePage';
 import About from './routes/About';
 import Shop from './routes/Shop';
+import Category from './routes/Category';
 import ProductPage from './routes/ProductPage';
 import Gallery from './routes/Gallery';
 import Contact from './routes/Contact';
@@ -13,7 +14,7 @@ import LegalInfos from './routes/LegalInfos';
 import PageNotFound from './routes/PageNotFound';
 import Header from './components/Header';
 import CartDropdown from './components/CartDropdown';
-import Category from './components/Category';
+
 import Footer from './components/Footer';
 
 import { CartProvider } from './context/cart.context';
