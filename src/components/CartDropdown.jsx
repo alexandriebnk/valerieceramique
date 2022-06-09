@@ -44,20 +44,25 @@ const CartDropdown = () => {
       return { id: product.slug, quantity: product.quantity };
     });
 
-    //const prodURL = 'https://murmuring-sea-64341.herokuapp.com';
+    const prodURL = 'https://murmuring-sea-64341.herokuapp.com';
     const localURL = 'http://localhost:1337';
 
     try {
-      const results = await fetch(`${localURL}/api/payment`, {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-        body: JSON.stringify({
-          products,
-          total: calculateTotal(),
-        }),
-      });
+      const results = await fetch(
+        `${
+          process.env.NODE_ENV === 'production' ? prodURL : localURL
+        }/api/payment`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+          body: JSON.stringify({
+            products,
+            total: calculateTotal(),
+          }),
+        }
+      );
 
       const { status, message, url } = await results.json();
 
