@@ -5,8 +5,11 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import App from './App';
 import './sass/main.scss';
 
+const prodURL = 'https://murmuring-sea-64341.herokuapp.com/graphql';
+const localURL = 'http://localhost:1337/graphql';
+
 const client = new ApolloClient({
-  uri: 'http://localhost:1337/graphql',
+  uri: process.env.NODE_ENV === 'production' ? prodURL : localURL,
 
   cache: new InMemoryCache(),
 });
