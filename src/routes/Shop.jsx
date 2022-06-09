@@ -5,7 +5,7 @@ import ParagraphHTML from '../components/ParagraphHTML';
 import Loader from '../components/Loader';
 import ErrorMessage from '../components/ErrorMessage';
 
-import { CartContext } from '../context/cart.context';
+import { DescriptionContext } from '../context/description.context';
 
 const SHOPDATA = gql`
   query Shop {
@@ -41,7 +41,7 @@ const Shop = () => {
   const [categoriesList, setCategoriesList] = useState(null);
 
   const { descriptionFR, descriptionEN, setDescriptionFR, setDescriptionEN } =
-    useContext(CartContext);
+    useContext(DescriptionContext);
 
   useEffect(() => {
     if (data) {

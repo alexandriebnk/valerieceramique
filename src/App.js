@@ -18,32 +18,35 @@ import CartDropdown from './components/CartDropdown';
 import Footer from './components/Footer';
 
 import { CartProvider } from './context/cart.context';
+import { DescriptionProvider } from './context/description.context';
 
 const App = () => {
   return (
     <CartProvider>
-      <div className='app'>
-        <Header />
-        <CartDropdown />
-        <main>
-          <Routes>
-            <Route path='/' exact element={<HomePage />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/shop' element={<Shop />} />
-            <Route path='/shop/:category' element={<Category />} />
-            <Route path='/shop/:category/:slug' element={<ProductPage />} />
-            <Route path='/gallery' element={<Gallery />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/payment-success' element={<PaymentSuccess />} />
-            <Route path='/stockists' element={<Stockists />} />
-            <Route path='/mentions-legales' element={<LegalInfos />} />
-            <Route path='/cgv' element={<LegalInfos />} />
-            <Route path='/confidentialite' element={<LegalInfos />} />
-            <Route path='*' element={<PageNotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <DescriptionProvider>
+        <div className='app'>
+          <Header />
+          <CartDropdown />
+          <main>
+            <Routes>
+              <Route path='/' exact element={<HomePage />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/shop' element={<Shop />} />
+              <Route path='/shop/:category' element={<Category />} />
+              <Route path='/shop/:category/:slug' element={<ProductPage />} />
+              <Route path='/gallery' element={<Gallery />} />
+              <Route path='/contact' element={<Contact />} />
+              <Route path='/payment-success' element={<PaymentSuccess />} />
+              <Route path='/stockists' element={<Stockists />} />
+              <Route path='/mentions-legales' element={<LegalInfos />} />
+              <Route path='/cgv' element={<LegalInfos />} />
+              <Route path='/confidentialite' element={<LegalInfos />} />
+              <Route path='*' element={<PageNotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </DescriptionProvider>
     </CartProvider>
   );
 };
