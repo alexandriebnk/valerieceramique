@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BurgerIcon from './ComponentsSVG/BurgerIcon';
 import { CartContext } from '../context/cart.context';
@@ -9,12 +9,20 @@ const NavBar = ({ titles }) => {
 
   const openNavToggle = () => {
     setIsNavbarOpen(!isNavbarOpen);
+  };
+
+  const removeNavbar = () => {
+    document.body.style.overflow = 'auto';
+    setIsNavbarOpen(false);
+  };
+
+  useEffect(() => {
     if (isNavbarOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
-  };
+  }, [isNavbarOpen]);
 
   return (
     <div className='navbar'>
@@ -29,7 +37,7 @@ const NavBar = ({ titles }) => {
       >
         {navbarTitles.map((title) => (
           <li key={title} className='navbar__classic__title'>
-            <Link to={`/${title}`} onClick={openNavToggle}>
+            <Link to={`/${title}`} onClick={removeNavbar}>
               {title}
             </Link>
           </li>

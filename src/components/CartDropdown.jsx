@@ -44,7 +44,7 @@ const CartDropdown = () => {
       return { id: product.slug, quantity: product.quantity };
     });
 
-    const prodURL = 'https://murmuring-sea-64341.herokuapp.com';
+    //const prodURL = 'https://murmuring-sea-64341.herokuapp.com';
     const localURL = 'http://localhost:1337';
 
     try {
