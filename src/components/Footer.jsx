@@ -16,7 +16,6 @@ const FOOTERDATA = gql`
           subscribeButton
           privacyFR
           privacyEN
-          stockists
           legalFR
           legalEN
           conditionsFR
@@ -53,7 +52,6 @@ const Footer = () => {
         privacyEN: data.footer.data.attributes.privacyEN,
       });
       setLinksData({
-        stockists: data.footer.data.attributes.stockists,
         legalFR: data.footer.data.attributes.legalFR,
         legalEN: data.footer.data.attributes.legalEN,
         conditionsFR: data.footer.data.attributes.conditionsFR,
