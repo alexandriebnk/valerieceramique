@@ -36,7 +36,7 @@ const CartDropdown = () => {
   const calculateFees = () => {
     let totalWeight = 0;
     cartItems.forEach((product) => {
-      totalWeight += product.weight;
+      totalWeight += product.weight * product.quantity;
     });
     return Math.ceil(feesData * totalWeight);
   };
