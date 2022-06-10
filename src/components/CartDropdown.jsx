@@ -52,11 +52,11 @@ const CartDropdown = () => {
 
     const prodURL = 'https://murmuring-sea-64341.herokuapp.com';
     const localURL = 'http://localhost:1337';
-    console.log(process.env.NODE_ENV);
+    console.log(process.env.REACT_APP_NODE_ENV);
     try {
       const results = await fetch(
         `${
-          process.env.NODE_ENV === 'production' ? prodURL : localURL
+          process.env.REACT_APP_NODE_ENV === 'production' ? prodURL : localURL
         }/api/payment`,
         {
           method: 'POST',
