@@ -41,7 +41,9 @@ const Footer = () => {
   const [mail, setMail] = useState(null);
 
   useEffect(() => {
+    console.log('no');
     if (data) {
+      console.log(data);
       setSubscriptionData({
         newsletterFR: data.footer.data.attributes.newsletterFR,
         newsletterEN: data.footer.data.attributes.newsletterEN,
@@ -78,7 +80,9 @@ const Footer = () => {
         <div className='footer__content__informations item'>
           {linksData && <FooterLinks data={linksData} />}
         </div>
-        <div className='footer__content__copyright item'>{copyright}</div>
+        <div className='footer__content__copyright item'>
+          {copyright && copyright}
+        </div>
       </div>
     </footer>
   );

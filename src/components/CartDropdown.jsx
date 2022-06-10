@@ -33,7 +33,13 @@ const CartDropdown = () => {
     setIsCartOpen(false);
   };
 
-  const calculateFees = () => Math.ceil((feesData * cartSubTotal).toFixed(2));
+  const calculateFees = () => {
+    let totalWeight = 0;
+    cartItems.forEach((product) => {
+      totalWeight += product.weight;
+    });
+    return Math.ceil(feesData * totalWeight);
+  };
 
   const calculateTotal = () => {
     return parseFloat(calculateFees()) + cartSubTotal;
