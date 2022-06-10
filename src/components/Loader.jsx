@@ -4,8 +4,8 @@ const Loader = () => {
   return (
     <div className='loader'>
       <div className='loader__container'>
-        <p>céramique</p>
-        <p>contemporaine</p>
+        <p>Céramique</p>
+        <p>Contemporaine</p>
       </div>
     </div>
   );

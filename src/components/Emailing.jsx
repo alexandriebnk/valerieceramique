@@ -3,7 +3,7 @@ import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import CustomForm from './CustomForm';
 
 const Emailing = () => {
-  const postUrl = `https://gmail.us14.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_U}&id=${process.env.REACT_APP_MAILCHIMP_ID}`;
+  const postUrl = `https://gmail.us13.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_U}&id=${process.env.REACT_APP_MAILCHIMP_ID}`;
 
   return (
     <div className='emailing'>

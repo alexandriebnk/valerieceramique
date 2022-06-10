@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 
 const CustomForm = ({ status, onValidated }) => {
+  console.log(status);
   const inputToClear = useRef();
   const validateEmail = (email) => {
     return String(email)
