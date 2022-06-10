@@ -8,11 +8,6 @@ const FooterLinks = ({ data }) => {
   return (
     <div className='footer-links'>
       <p className='footer-links__item'>
-        <Link to='/stockists' onClick={scrollTop}>
-          {data.stockists}
-        </Link>
-      </p>
-      <p className='footer-links__item'>
         <Link to='/mentions-legales' onClick={scrollTop}>
           {data.legalFR} - {data.legalEN}
         </Link>

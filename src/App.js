@@ -9,7 +9,6 @@ import ProductPage from './routes/ProductPage';
 import Gallery from './routes/Gallery';
 import Contact from './routes/Contact';
 import PaymentSuccess from './routes/PaymentSuccess';
-import Stockists from './routes/Stockists';
 import LegalInfos from './routes/LegalInfos';
 import PageNotFound from './routes/PageNotFound';
 import Header from './components/Header';
@@ -39,7 +38,6 @@ const App = () => {
               <Route path='/gallery' element={<Gallery />} />
               <Route path='/contact' element={<Contact />} />
               <Route path='/payment-success' element={<PaymentSuccess />} />
-              <Route path='/stockists' element={<Stockists />} />
               <Route path='/mentions-legales' element={<LegalInfos />} />
               <Route path='/cgv' element={<LegalInfos />} />
               <Route path='/confidentialite' element={<LegalInfos />} />
