@@ -1,5 +1,5 @@
 .loader {
-  background-color: $background;
+  background-color: $overlay;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,9 +10,9 @@
   justify-content: center;
   align-items: center;
   font-size: 24px;
+  pointer-events: none;
 
   &__container {
-    //background-color: pink;
     position: relative;
     height: 7rem;
     width: 100%;
@@ -29,50 +29,26 @@
 
       &:nth-child(1) {
         opacity: 0;
-        animation: fromTopIntro 1s ease forwards;
       }
 
       &:nth-child(2) {
         opacity: 0;
-        animation: fromBottomIntro 1s ease forwards;
       }
     }
   }
 }
 
-/*.loader {
-  background-color: $neutral;
-  width: 100%;
-  max-width: 130rem;
-  margin: auto;
-  padding-top: 10rem;
-  padding-bottom: 20rem;
+.loader--loaded {
+  opacity: 0;
+  pointer-events: none;
 
-  &__container {
-    //background-color: pink;
-    position: relative;
-    height: 7rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  p {
+    &:nth-child(1) {
+      animation: fromTopOutro 0.5s ease forwards;
+    }
 
-    & p {
-      position: absolute;
-      color: $font;
-      font-size: 3rem;
-      text-transform: uppercase;
-
-      &:nth-child(1) {
-        //opacity: 0;
-        //animation: fromTop 2s ease;
-      }
-
-      &:nth-child(2) {
-        //opacity: 0;
-        //animation: fromBottom 3s ease;
-      }
+    &:nth-child(2) {
+      animation: fromBottomOutro 0.5s ease forwards;
     }
   }
 }
@@ -119,4 +95,13 @@
     opacity: 0;
     bottom: 5rem;
   }
-}*/
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
+import Gsap from 'gsap';
 import Button from '../components/Button';
 import ParagraphHTML from '../components/ParagraphHTML';
-import Loader from '../components/Loader';
 import ErrorMessage from '../components/ErrorMessage';
 import { CartContext } from '../context/cart.context';
 
@@ -53,13 +53,14 @@ const PRODUCTPAGEDATA = gql`
 const ProductPage = () => {
   const { category, slug } = useParams();
 
-  const { loading, error, data } = useQuery(PRODUCTPAGEDATA, {
+  const { error, data } = useQuery(PRODUCTPAGEDATA, {
     variables: { slug },
   });
 
   const [mainVisual, setMainVisual] = useState(null);
   const [productQuantity, setProductQuantity] = useState(null);
   const [fullProduct, setFullProduct] = useState(null);
+  const [animationEnd, setAnimationEnd] = useState(false);
 
   const { addItemToCart, setIsCartOpen } = useContext(CartContext);
 
@@ -88,7 +89,46 @@ const ProductPage = () => {
     setIsCartOpen(true);
   };
 
-  if (loading) return <Loader />;
+  useEffect(() => {
+    // animate loader in
+    const tl = new Gsap.timeline({ onComplete: () => setAnimationEnd(true) });
+    tl.set('.loader', { opacity: 1 });
+    tl.fromTo(
+      '.loader__top',
+      0.5,
+      { opacity: 0, top: '-10rem' },
+      { opacity: 1, top: '-2rem' }
+    );
+    tl.fromTo(
+      '.loader__bottom',
+      0.5,
+      { opacity: 0, top: '10rem' },
+      { opacity: 1, top: '2rem' },
+      '-=0.5'
+    );
+  }, []);
+
+  useEffect(() => {
+    if (data && animationEnd) {
+      // animate loader out
+      const tl = new Gsap.timeline();
+      tl.fromTo(
+        '.loader__top',
+        0.5,
+        { opacity: 1, top: '-2rem' },
+        { opacity: 0, top: '-10rem' }
+      );
+      tl.fromTo(
+        '.loader__bottom',
+        0.5,
+        { opacity: 1, top: '2rem' },
+        { opacity: 0, top: '10rem' },
+        '-=0.5'
+      );
+      tl.fromTo('.loader', 0.5, { opacity: 1 }, { opacity: 0 }, '-=0.25');
+    }
+  }, [data, animationEnd]);
+
   if (error) return <ErrorMessage page={`shop/${category}/${slug}`} />;
 
   return (

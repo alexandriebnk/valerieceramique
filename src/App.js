@@ -14,6 +14,7 @@ import LegalInfos from './routes/LegalInfos';
 import PageNotFound from './routes/PageNotFound';
 import Header from './components/Header';
 import CartDropdown from './components/CartDropdown';
+import Loader from './components/Loader';
 
 import Footer from './components/Footer';
 
@@ -25,6 +26,7 @@ const App = () => {
     <CartProvider>
       <DescriptionProvider>
         <div className='app'>
+          <Loader />
           <Header />
           <CartDropdown />
           <main>

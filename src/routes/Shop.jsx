@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import Gsap from 'gsap';
 import CategoriesList from '../components/CategoriesList';
 import ParagraphHTML from '../components/ParagraphHTML';
-import Loader from '../components/Loader';
 import ErrorMessage from '../components/ErrorMessage';
 
 import { DescriptionContext } from '../context/description.context';
@@ -36,9 +36,10 @@ const SHOPDATA = gql`
 `;
 
 const Shop = () => {
-  const { loading, error, data } = useQuery(SHOPDATA);
+  const { error, data } = useQuery(SHOPDATA);
   const [mainTitle, setMainTitle] = useState(null);
   const [categoriesList, setCategoriesList] = useState(null);
+  const [animationEnd, setAnimationEnd] = useState(false);
 
   const { descriptionFR, descriptionEN, setDescriptionFR, setDescriptionEN } =
     useContext(DescriptionContext);
@@ -52,7 +53,46 @@ const Shop = () => {
     }
   }, [data, setDescriptionFR, setDescriptionEN]);
 
-  if (loading) return <Loader />;
+  useEffect(() => {
+    // animate loader in
+    const tl = new Gsap.timeline({ onComplete: () => setAnimationEnd(true) });
+    tl.set('.loader', { opacity: 1 });
+    tl.fromTo(
+      '.loader__top',
+      0.5,
+      { opacity: 0, top: '-10rem' },
+      { opacity: 1, top: '-2rem' }
+    );
+    tl.fromTo(
+      '.loader__bottom',
+      0.5,
+      { opacity: 0, top: '10rem' },
+      { opacity: 1, top: '2rem' },
+      '-=0.5'
+    );
+  }, []);
+
+  useEffect(() => {
+    if (data && animationEnd) {
+      // animate loader out
+      const tl = new Gsap.timeline();
+      tl.fromTo(
+        '.loader__top',
+        0.5,
+        { opacity: 1, top: '-2rem' },
+        { opacity: 0, top: '-10rem' }
+      );
+      tl.fromTo(
+        '.loader__bottom',
+        0.5,
+        { opacity: 1, top: '2rem' },
+        { opacity: 0, top: '10rem' },
+        '-=0.5'
+      );
+      tl.fromTo('.loader', 0.5, { opacity: 1 }, { opacity: 0 }, '-=0.25');
+    }
+  }, [data, animationEnd]);
+
   if (error) return <ErrorMessage page={'/shop'} />;
 
   return (
