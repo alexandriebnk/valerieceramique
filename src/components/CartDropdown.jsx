@@ -50,9 +50,9 @@ const CartDropdown = () => {
       return { id: product.slug, quantity: product.quantity };
     });
 
-    const prodURL = 'https://murmuring-sea-64341.herokuapp.com';
+    const prodURL = 'https://ceramique-vm-back.herokuapp.com';
     const localURL = 'http://localhost:1337';
-    console.log(process.env.REACT_APP_NODE_ENV);
+
     try {
       const results = await fetch(
         `${
