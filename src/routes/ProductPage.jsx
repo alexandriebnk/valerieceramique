@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
+import Gsap from 'gsap';
 import Button from '../components/Button';
 import ParagraphHTML from '../components/ParagraphHTML';
-import Loader from '../components/Loader';
 import ErrorMessage from '../components/ErrorMessage';
 import { CartContext } from '../context/cart.context';
 
@@ -53,13 +53,14 @@ const PRODUCTPAGEDATA = gql`
 const ProductPage = () => {
   const { category, slug } = useParams();
 
-  const { loading, error, data } = useQuery(PRODUCTPAGEDATA, {
+  const { error, data } = useQuery(PRODUCTPAGEDATA, {
     variables: { slug },
   });
 
   const [mainVisual, setMainVisual] = useState(null);
   const [productQuantity, setProductQuantity] = useState(null);
   const [fullProduct, setFullProduct] = useState(null);
+  const [animationEnd, setAnimationEnd] = useState(false);
 
   const { addItemToCart, setIsCartOpen } = useContext(CartContext);
 
@@ -73,6 +74,46 @@ const ProductPage = () => {
       setFullProduct(data.products.data[0].attributes);
     }
   }, [data]);
+
+  useEffect(() => {
+    // animate loader in
+    const tl = new Gsap.timeline({ onComplete: () => setAnimationEnd(true) });
+    tl.set('.loader', { opacity: 1 });
+    tl.fromTo(
+      '.loader__top',
+      0.5,
+      { opacity: 0, top: '-10rem' },
+      { opacity: 1, top: '-2rem' }
+    );
+    tl.fromTo(
+      '.loader__bottom',
+      0.5,
+      { opacity: 0, top: '10rem' },
+      { opacity: 1, top: '2rem' },
+      '-=0.5'
+    );
+  }, []);
+
+  useEffect(() => {
+    if (data && animationEnd) {
+      // animate loader out
+      const tl = new Gsap.timeline();
+      tl.fromTo(
+        '.loader__top',
+        0.5,
+        { opacity: 1, top: '-2rem' },
+        { opacity: 0, top: '-10rem' }
+      );
+      tl.fromTo(
+        '.loader__bottom',
+        0.5,
+        { opacity: 1, top: '2rem' },
+        { opacity: 0, top: '10rem' },
+        '-=0.5'
+      );
+      tl.fromTo('.loader', 0.5, { opacity: 1 }, { opacity: 0 }, '-=0.25');
+    }
+  }, [data, animationEnd]);
 
   const updateMainVisual = (event) => {
     event.preventDefault();
@@ -88,7 +129,6 @@ const ProductPage = () => {
     setIsCartOpen(true);
   };
 
-  if (loading) return <Loader />;
   if (error) return <ErrorMessage page={`shop/${category}/${slug}`} />;
 
   return (
@@ -102,7 +142,7 @@ const ProductPage = () => {
           <p>contemporaine</p>
         </div>
         <div className='visual__gallery'>
-          {data.products.data[0].attributes.gallery.map((visual, index) => (
+          {data?.products.data[0].attributes.gallery.map((visual, index) => (
             <div
               className='visual__gallery__wrapper'
               key={visual.image.data.attributes.formats.medium.url}
@@ -121,32 +161,36 @@ const ProductPage = () => {
 
       <div className='overview'>
         <h3 className='overview__title'>
-          {data.products.data[0].attributes.title}
+          {data?.products.data[0].attributes.title}
         </h3>
         <p className='overview__price'>
-          € {data.products.data[0].attributes.price}
+          € {data?.products.data[0].attributes.price}
         </p>
         <p className='overview__weight'>
-          {data.products.data[0].attributes.weight} gr
+          {data?.products.data[0].attributes.weight} gr
         </p>
 
         <div className='overview__details'>
           <div>
-            <ParagraphHTML
-              content={data.products.data[0].attributes.specificationsFR}
-            />
+            {data && (
+              <ParagraphHTML
+                content={data?.products.data[0].attributes.specificationsFR}
+              />
+            )}
           </div>
 
           <div>
-            <ParagraphHTML
-              content={data.products.data[0].attributes.specificationsEN}
-            />
+            {data && (
+              <ParagraphHTML
+                content={data?.products.data[0].attributes.specificationsEN}
+              />
+            )}
           </div>
         </div>
 
         <div className='overview__quality'>
-          <p>{data.products.data[0].attributes.descriptionFR}</p>
-          <p>{data.products.data[0].attributes.descriptionEN}</p>
+          <p>{data?.products.data[0].attributes.descriptionFR}</p>
+          <p>{data?.products.data[0].attributes.descriptionEN}</p>
         </div>
 
         <div className='overview__quantity'>
