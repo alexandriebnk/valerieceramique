@@ -103,7 +103,8 @@ const Shop = () => {
       </div>
       <h2 className='shop__title'>{mainTitle}</h2>
       <div className='shop__content'>
-        {categoriesList && <CategoriesList list={categoriesList} />}
+        <p className='shop__in-progress'>Collections en cours .. </p>
+        {/*categoriesList && <CategoriesList list={categoriesList} />*/}
       </div>
     </div>
   );
