@@ -51,7 +51,6 @@ const CartDropdown = () => {
     });
 
     const backendEndpoint = 'https://murmuring-sea-64341.herokuapp.com';
-    //const localURL = 'http://localhost:1337';
 
     try {
       const results = await fetch(`${backendEndpoint}/api/payment`, {

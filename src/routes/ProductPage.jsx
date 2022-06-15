@@ -58,11 +58,11 @@ const ProductPage = () => {
   });
 
   const [mainVisual, setMainVisual] = useState(null);
-  const [productQuantity, setProductQuantity] = useState(null);
   const [fullProduct, setFullProduct] = useState(null);
   const [animationEnd, setAnimationEnd] = useState(false);
 
-  const { addItemToCart, setIsCartOpen } = useContext(CartContext);
+  const { addItemToCart, setIsCartOpen, productStock, setProductStock } =
+    useContext(CartContext);
 
   useEffect(() => {
     if (data) {
@@ -70,10 +70,10 @@ const ProductPage = () => {
         data.products.data[0].attributes.gallery[0].image.data.attributes
           .formats.medium.url
       );
-      setProductQuantity(data.products.data[0].attributes.stock);
+      setProductStock(data.products.data[0].attributes.stock);
       setFullProduct(data.products.data[0].attributes);
     }
-  }, [data]);
+  }, [data, setProductStock]);
 
   useEffect(() => {
     // animate loader in
@@ -194,14 +194,14 @@ const ProductPage = () => {
         </div>
 
         <div className='overview__quantity'>
-          {productQuantity > 0 ? (
-            <p>Quantity : {productQuantity}</p>
+          {productStock > 0 ? (
+            <p>Quantity : {productStock}</p>
           ) : (
             <p>Sold Out</p>
           )}
         </div>
         <div className='product-page__button'>
-          {productQuantity > 0 && (
+          {productStock > 0 && (
             <Button
               name='add to cart'
               theme='dark'

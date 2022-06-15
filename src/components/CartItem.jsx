@@ -4,10 +4,13 @@ import Plus from '../assets/plus.png';
 import { CartContext } from '../context/cart.context';
 
 const CartItem = ({ product, title, price, weight, quantity }) => {
-  const { addItemToCart, removeItemFromCart, clearItemFromCart } =
+  const { addItemToCart, removeItemFromCart, clearItemFromCart, productStock } =
     useContext(CartContext);
 
   const clearItemHandler = () => clearItemFromCart(product);
+
+  console.log('quantité du meme produit', quantity);
+  console.log('stock', productStock);
 
   return (
     <div className='item'>
@@ -35,17 +38,20 @@ const CartItem = ({ product, title, price, weight, quantity }) => {
             />
           </span>
           {quantity}
-          <span
-            className='amount__choice__plus'
-            onClick={() => addItemToCart(product)}
-          >
-            <img
-              className='amount__choice__plus__item'
-              src={Plus}
-              alt='minus'
-              draggable='false'
-            />
-          </span>
+
+          {quantity < productStock && (
+            <span
+              className='amount__choice__plus'
+              onClick={() => addItemToCart(product)}
+            >
+              <img
+                className='amount__choice__plus__item'
+                src={Plus}
+                alt='minus'
+                draggable='false'
+              />
+            </span>
+          )}
         </div>
       </div>
     </div>
