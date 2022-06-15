@@ -1,5 +1,4 @@
 .category {
-  //background-color: lightblue;
   width: 100%;
   max-width: 130rem;
   margin: auto;
@@ -7,7 +6,6 @@
   margin-bottom: 5rem;
 
   @include respondTo(tablandscape) {
-    //background-color: salmon;
     grid-template-columns: repeat(auto-fill, 13.5rem);
     grid-gap: 3rem;
   }
@@ -21,7 +19,6 @@
   }
 
   &__description {
-    //background-color: pink;
     width: 100%;
     text-align: center;
     font-size: 1.2rem;
@@ -71,7 +68,6 @@
   }
 
   &__title {
-    //background-color: pink;
     font-weight: bold;
     margin-top: 5rem;
     margin-bottom: 4rem;
@@ -82,7 +78,6 @@
   }
 
   &__product {
-    //border: 2px solid blue;
     display: grid;
     grid-template-columns: repeat(auto-fill, 20rem);
     grid-gap: 5rem;

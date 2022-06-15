@@ -13,12 +13,10 @@
   }
 
   @include respondTo(mobile) {
-    //background-color: aquamarine;
     width: 90%;
   }
 
   &__content {
-    //background-color: yellow;
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -32,6 +30,5 @@
 }
 
 .item:not(:last-child) {
-  //background-color: blue;
   align-items: center;
 }

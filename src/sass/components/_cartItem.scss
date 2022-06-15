@@ -1,10 +1,8 @@
 .item {
-  //background-color: aquamarine;
   width: 100%;
   margin-bottom: 3rem;
 
   &__article {
-    //background-color: pink;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -23,7 +21,6 @@
 }
 
 .amount {
-  //border: 2px solid blue;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -32,7 +29,6 @@
   font-size: 1.3rem;
 
   &__choice {
-    //background-color: cadetblue;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -41,7 +37,6 @@
 
     &__minus,
     &__plus {
-      //background-color: darkgreen;
       height: 1.7rem;
       width: 1.7rem;
 

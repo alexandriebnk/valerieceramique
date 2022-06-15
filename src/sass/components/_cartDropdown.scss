@@ -28,13 +28,11 @@
   }
 
   &__title {
-    //background-color: yellow;
     margin-top: 4.5rem;
     font-size: 2rem;
   }
 
   &__closing-icon {
-    //background-color: aquamarine;
     position: absolute;
     top: 2rem;
     right: 2rem;
@@ -43,7 +41,6 @@
 }
 
 .cart {
-  //background-color: pink;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -62,7 +59,6 @@
 }
 
 .total {
-  //background-color: chartreuse;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

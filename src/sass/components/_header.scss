@@ -32,7 +32,6 @@
     align-items: center;
 
     @include respondTo(mobile) {
-      //background-color: aquamarine;
       position: relative;
       height: 100%;
       width: 90%;
@@ -79,7 +78,6 @@
   }
 
   &__shop-cart {
-    //background-color: yellow;
     position: absolute;
     top: 17.8rem;
     right: 5%;

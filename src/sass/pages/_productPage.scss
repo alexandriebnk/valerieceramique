@@ -1,5 +1,4 @@
 .product-page {
-  //background-color: pink;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -25,7 +24,6 @@
 }
 
 .visual {
-  //border: 2px solid yellow;
   display: flex;
   flex-direction: column;
   width: 55%;
@@ -36,7 +34,6 @@
   }
 
   &__main {
-    //border: 2px solid blue;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -88,7 +85,6 @@
     }
 
     &__image {
-      //border: 2px solid red;
       height: 65rem;
       width: 90%;
       margin-top: 1.5rem;
@@ -114,7 +110,6 @@
   }
 
   &__gallery {
-    //border: 2px solid blue;
     display: flex;
     flex-direction: row;
     grid-template-rows: repeat(auto-fill, 13.5rem);
@@ -163,7 +158,6 @@
 }
 
 .overview {
-  //border: 2px solid red;
   line-height: 1.8rem;
   width: 45%;
   padding-left: 1rem;
