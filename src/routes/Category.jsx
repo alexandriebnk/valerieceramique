@@ -12,7 +12,7 @@ const PRODUCTDATA = gql`
   query Product($category: String!) {
     products(
       sort: "createdAt:desc"
-      pagination: { start: 1, limit: 1000 }
+      pagination: { start: 0, limit: 1000 }
       filters: { category: { title: { contains: $category } } }
     ) {
       data {

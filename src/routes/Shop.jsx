@@ -18,7 +18,7 @@ const SHOPDATA = gql`
         }
       }
     }
-    categories(sort: "createdAt:desc", pagination: { start: 1, limit: 1000 }) {
+    categories(sort: "createdAt:desc", pagination: { start: 0, limit: 1000 }) {
       data {
         attributes {
           title

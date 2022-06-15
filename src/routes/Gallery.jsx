@@ -7,7 +7,7 @@ const GALLERYIMAGEDATA = gql`
   query GalleryImage {
     galleryImages(
       sort: "createdAt:desc"
-      pagination: { start: 1, limit: 1000 }
+      pagination: { start: 0, limit: 1000 }
     ) {
       data {
         attributes {
