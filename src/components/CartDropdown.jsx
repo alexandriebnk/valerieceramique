@@ -21,8 +21,10 @@ const FRAISDELIVRAISONDATA = gql`
 
 const CartDropdown = () => {
   const { loading, error, data } = useQuery(FRAISDELIVRAISONDATA);
+
   const { isCartOpen, setIsCartOpen, cartItems, cartSubTotal } =
     useContext(CartContext);
+
   const [feesData, setFeesData] = useState(null);
 
   useEffect(() => {
@@ -70,7 +72,7 @@ const CartDropdown = () => {
         window.location.href = url;
       }
     } catch (err) {
-      console.log('😡', err);
+      console.log(err);
     }
   };
 
@@ -116,7 +118,7 @@ const CartDropdown = () => {
           </div>
 
           <div className='button'>
-            {cartItems.length > 0 && (
+            {cartItems.length > 0 && isCartOpen && (
               <Button
                 name={'payment'}
                 theme='dark'

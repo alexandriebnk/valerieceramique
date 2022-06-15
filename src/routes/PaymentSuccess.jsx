@@ -5,8 +5,8 @@ const PaymentSuccess = () => {
   return (
     <div>
       <UserMessage
-        title={'Payment success'}
-        subtitle={'Thank you !'}
+        title={'Payment success !'}
+        subtitle={'Un mail de confirmation vous a été envoyé'}
         page={'/'}
         message={'Go to home'}
       />

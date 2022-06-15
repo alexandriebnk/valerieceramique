@@ -8,6 +8,12 @@
   @include respondTo(mobile) {
     margin-bottom: 3rem;
   }
+
+  &__empty {
+    color: $font;
+    font-size: 2rem;
+    text-align: center;
+  }
 }
 
 .categories {
