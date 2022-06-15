@@ -37,7 +37,6 @@ const SHOPDATA = gql`
 
 const Shop = () => {
   const { error, data } = useQuery(SHOPDATA);
-  const [mainTitle, setMainTitle] = useState(null);
   const [categoriesList, setCategoriesList] = useState(null);
   const [animationEnd, setAnimationEnd] = useState(false);
 
@@ -48,7 +47,6 @@ const Shop = () => {
     if (data) {
       setDescriptionFR(data.shop.data.attributes.descriptionFR);
       setDescriptionEN(data.shop.data.attributes.descriptionEN);
-      setMainTitle(data.shop.data.attributes.title);
       setCategoriesList(data.categories.data);
     }
   }, [data, setDescriptionFR, setDescriptionEN]);
@@ -101,10 +99,9 @@ const Shop = () => {
         {descriptionFR && <ParagraphHTML content={descriptionFR} />}
         {descriptionEN && <ParagraphHTML content={descriptionEN} />}
       </div>
-      <h2 className='shop__title'>{mainTitle}</h2>
+      <h2 className='shop__title'>Printemps - été</h2>
       <div className='shop__content'>
-        <p className='shop__in-progress'>Collections en cours .. </p>
-        {/*categoriesList && <CategoriesList list={categoriesList} />*/}
+        {categoriesList && <CategoriesList list={categoriesList} />}
       </div>
     </div>
   );
