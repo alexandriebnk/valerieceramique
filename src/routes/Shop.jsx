@@ -32,12 +32,20 @@ const SHOPDATA = gql`
         }
       }
     }
+    collection {
+      data {
+        attributes {
+          title
+        }
+      }
+    }
   }
 `;
 
 const Shop = () => {
   const { error, data } = useQuery(SHOPDATA);
   const [categoriesList, setCategoriesList] = useState(null);
+  const [collectionTitle, setCollectionTitle] = useState(null);
   const [animationEnd, setAnimationEnd] = useState(false);
 
   const { descriptionFR, descriptionEN, setDescriptionFR, setDescriptionEN } =
@@ -48,6 +56,7 @@ const Shop = () => {
       setDescriptionFR(data.shop.data.attributes.descriptionFR);
       setDescriptionEN(data.shop.data.attributes.descriptionEN);
       setCategoriesList(data.categories.data);
+      setCollectionTitle(data.collection.data.attributes.title);
     }
   }, [data, setDescriptionFR, setDescriptionEN]);
 
@@ -99,7 +108,7 @@ const Shop = () => {
         {descriptionFR && <ParagraphHTML content={descriptionFR} />}
         {descriptionEN && <ParagraphHTML content={descriptionEN} />}
       </div>
-      <h2 className='shop__title'>Printemps - été</h2>
+      <h2 className='shop__title'>{collectionTitle}</h2>
       <div className='shop__content'>
         {categoriesList && <CategoriesList list={categoriesList} />}
       </div>
