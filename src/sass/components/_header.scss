@@ -1,10 +1,14 @@
 .header {
-  //background-color: antiquewhite;
+  background-color: antiquewhite;
   height: 20rem;
   width: 100%;
   max-width: 130rem;
   margin: auto;
   margin-bottom: 5rem;
+
+  @include respondTo(xlarge) {
+    width: 90%;
+  }
 
   @include respondTo(tablandscape) {
     width: 90%;

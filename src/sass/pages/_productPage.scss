@@ -16,6 +16,7 @@
   @include respondTo(mobile) {
     width: 80%;
     flex-direction: column;
+    margin-top: 5rem;
   }
 
   &__button {
@@ -162,10 +163,10 @@
 }
 
 .overview {
+  //border: 2px solid red;
   line-height: 1.8rem;
   width: 45%;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding-left: 1rem;
   padding-bottom: 7rem;
 
   @include respondTo(mobile) {
