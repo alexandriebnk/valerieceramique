@@ -9,9 +9,6 @@ const CartItem = ({ product, title, price, weight, quantity }) => {
 
   const clearItemHandler = () => clearItemFromCart(product);
 
-  console.log('quantité du meme produit', quantity);
-  console.log('stock', productStock);
-
   return (
     <div className='item'>
       <div className='item__article'>
