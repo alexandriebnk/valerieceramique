@@ -6,11 +6,6 @@
   margin-bottom: 5rem;
 
   @include respondTo(tablandscape) {
-    grid-template-columns: repeat(auto-fill, 13.5rem);
-    grid-gap: 3rem;
-  }
-
-  @include respondTo(tablet) {
     width: 90%;
   }
 
@@ -57,7 +52,7 @@
         width: 1rem;
 
         @include respondTo(tablandscape) {
-          top: 9.1rem;
+          top: 10.2rem;
         }
 
         @include respondTo(mobile) {
@@ -84,9 +79,13 @@
     justify-content: space-between;
     width: 100%;
 
+    @include respondTo(tablandscape) {
+      grid-template-columns: repeat(auto-fill, 19rem);
+      gap: 1.5rem;
+    }
+
     @include respondTo(mobile) {
       grid-template-columns: repeat(auto-fill, 17rem);
-      gap: 1.5rem;
     }
   }
 }

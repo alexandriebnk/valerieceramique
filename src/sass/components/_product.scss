@@ -1,6 +1,10 @@
 .product {
   text-align: center;
 
+  @include respondTo(tablandscape) {
+    margin-bottom: 2rem;
+  }
+
   &__visual {
     position: relative;
 

@@ -25,7 +25,7 @@
   }
 
   @include respondTo(tablet) {
-    grid-gap: 5.3rem;
+    gap: 5.3rem;
   }
 
   @include respondTo(mobile) {
