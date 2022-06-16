@@ -5,6 +5,7 @@
   width: 100%;
   max-width: 130rem;
   margin: auto;
+  margin-top: 5rem;
   margin-bottom: 5rem;
 
   @include respondTo(tablandscape) {
@@ -22,6 +23,7 @@
     line-height: 1.8rem;
     padding-left: 30rem;
     padding-right: 30rem;
+    margin-bottom: 3rem;
 
     @include respondTo(tablandscape) {
       padding-left: 20rem;
@@ -54,10 +56,6 @@
         width: 1rem;
 
         @include respondTo(tablandscape) {
-          top: 9.1rem;
-        }
-
-        @include respondTo(tablet) {
           top: 10.1rem;
         }
 
@@ -71,7 +69,7 @@
   &__title {
     font-weight: bold;
     margin-top: 5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
 
     @include respondTo(tablandscape) {
       margin-top: 3rem;
@@ -80,6 +78,7 @@
 
     @include respondTo(mobile) {
       font-size: 3.5em;
+      margin-bottom: 15rem;
     }
   }
 

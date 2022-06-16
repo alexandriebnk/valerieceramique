@@ -15,10 +15,6 @@
   @include respondTo(mobile) {
     flex-direction: column-reverse;
     width: 95%;
-
-    &:not(:last-child) {
-      margin-bottom: 7rem;
-    }
   }
 
   &--reverse {
@@ -31,18 +27,18 @@
 
     .preview__brand {
       position: absolute;
-      top: 30.9rem;
-      left: 31.6rem;
+      top: 27.6rem;
+      left: 28.6rem;
       transform: rotate(90deg);
 
       @include respondTo(tablandscape) {
-        top: 21.04rem;
-        left: 21.5rem;
+        top: 18.8rem;
+        left: 19.4rem;
       }
 
       @include respondTo(tablet) {
-        top: 15.15rem;
-        left: 16.7rem;
+        top: 14.45rem;
+        left: 15rem;
       }
 
       @include respondTo(mobile) {
@@ -53,10 +49,21 @@
     }
 
     .preview__title {
-      margin-right: -2rem;
+      width: 100%;
+      margin-right: -49rem;
+      text-align: start;
+
+      @include respondTo(tablandscape) {
+        margin-right: -34rem;
+      }
+
+      @include respondTo(tablet) {
+        margin-right: -26rem;
+      }
 
       @include respondTo(mobile) {
         margin-right: 0rem;
+        text-align: end;
       }
     }
   }
@@ -65,22 +72,22 @@
     height: fit-content;
     width: 100%;
     position: absolute;
-    bottom: 30.9rem;
-    left: -31.7rem;
+    bottom: 27.65rem;
+    left: -28.5rem;
     font-size: 2.5rem;
     font-weight: 100;
     transform: rotate(-90deg);
     cursor: pointer;
 
     @include respondTo(tablandscape) {
-      bottom: 21.05rem;
-      left: -21.5rem;
+      bottom: 18.8rem;
+      left: -19.3rem;
       font-size: 2rem;
     }
 
     @include respondTo(tablet) {
-      bottom: 15.16rem;
-      left: -16.7rem;
+      bottom: 14.5rem;
+      left: -15rem;
     }
 
     @include respondTo(mobile) {
@@ -93,16 +100,20 @@
   }
 
   &__image {
-    width: 50rem;
     height: 60rem;
+    width: 50rem;
+    min-width: 50rem;
 
     @include respondTo(tablandscape) {
       height: 50rem;
+      width: 35rem;
+      min-width: 35rem;
     }
 
     @include respondTo(tablet) {
-      height: 40rem;
-      width: 80%;
+      height: 35rem;
+      width: 27rem;
+      min-width: 27rem;
     }
 
     @include respondTo(mobile) {
@@ -120,12 +131,25 @@
   &__title {
     position: sticky;
     top: 5rem;
-    margin-left: -2rem;
+    margin-left: -15rem;
     height: fit-content;
-    width: fit-content;
+    width: 100%;
     font-style: italic;
     font-size: 3rem;
     text-decoration: none;
+    text-align: end;
+
+    @include respondTo(xlarge) {
+      top: 10rem;
+    }
+
+    @include respondTo(tablandscape) {
+      margin-left: -30rem;
+    }
+
+    @include respondTo(tablet) {
+      margin-left: -20rem;
+    }
 
     &:first-letter {
       text-transform: uppercase;

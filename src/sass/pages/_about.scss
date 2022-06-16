@@ -8,6 +8,11 @@
   margin-top: 5rem;
   margin-bottom: 5rem;
 
+  @include respondTo(xlarge) {
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
   @include respondTo(tablandscape) {
     width: 90%;
   }

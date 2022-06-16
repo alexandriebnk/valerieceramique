@@ -80,8 +80,13 @@
   &__product {
     display: grid;
     grid-template-columns: repeat(auto-fill, 20rem);
-    grid-gap: 5rem;
+    gap: 5rem;
     justify-content: space-between;
     width: 100%;
+
+    @include respondTo(mobile) {
+      grid-template-columns: repeat(auto-fill, 17rem);
+      gap: 1.5rem;
+    }
   }
 }
