@@ -1,16 +1,24 @@
 .infos {
-  max-width: 100rem;
-  margin: auto;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
   font-size: 1.2rem;
+  padding-left: 15rem;
+
+  @include position;
+
+  @include respondTo(mobile) {
+    width: 80%;
+    margin-top: 10rem;
+    padding-left: 0rem;
+  }
 
   &__fr,
   &__en {
     width: 60%;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin: 4rem auto;
     padding-bottom: 4rem;
+
+    @include respondTo(mobile) {
+      width: 100%;
+    }
 
     &:not(:last-child) {
       border-bottom: 1px solid $font;

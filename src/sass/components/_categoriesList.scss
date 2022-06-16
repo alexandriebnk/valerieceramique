@@ -1,8 +1,5 @@
 .list {
-  width: 100%;
-  max-width: 130rem;
-  margin-top: 3rem;
-  margin-bottom: 5rem;
+  @include position;
 
   @include respondTo(mobile) {
     margin-bottom: 3rem;
@@ -16,10 +13,10 @@
 }
 
 .categories {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   width: 100%;
+  justify-content: space-between;
+
+  @include flexRow;
 
   @include respondTo(mobile) {
     display: block;
@@ -27,11 +24,11 @@
 
   &__left,
   &__right {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     width: 45%;
     list-style: none;
+
+    @include flexColumn;
 
     &__category {
       width: 100%;
@@ -62,8 +59,7 @@
 
     @include respondTo(mobile) {
       margin-top: 7rem;
-      padding-left: 1.7rem;
-      padding-right: 0;
+      padding: 0 0 0 1.7rem;
     }
 
     &__category {

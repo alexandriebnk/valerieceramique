@@ -1,9 +1,9 @@
 .shop-cart {
   position: relative;
-  display: flex;
-  flex-direction: row;
   font-size: 1.3rem;
   cursor: pointer;
+
+  @include flexRow;
 
   @include respondTo(mobile) {
     margin-top: 1.6rem;

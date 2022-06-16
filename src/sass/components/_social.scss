@@ -1,12 +1,10 @@
 .social {
-  display: flex;
-  flex-direction: row;
   justify-content: center;
-  margin-top: 8rem;
-  margin-bottom: 8rem;
+  margin: 8rem auto;
+
+  @include flexRow;
 
   @include respondTo(mobile) {
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    margin: 6rem auto;
   }
 }

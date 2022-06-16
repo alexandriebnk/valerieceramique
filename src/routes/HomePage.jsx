@@ -84,14 +84,12 @@ const HomePage = () => {
 
   return (
     <div className='home-page'>
-      <div className='hero'>
-        <div className='hero__image'>
-          <img src={url} alt='hero' draggable='false' />
-        </div>
-        <div className='hero__title'>
-          <h3>{name}</h3>
-          <h3>{mainTitle}</h3>
-        </div>
+      <div className='home-page__image'>
+        <img src={url} alt='hero' draggable='false' />
+      </div>
+      <div className='home-page__title'>
+        <h3>{name}</h3>
+        <h3>{mainTitle}</h3>
       </div>
     </div>
   );

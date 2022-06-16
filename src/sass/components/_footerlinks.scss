@@ -1,10 +1,10 @@
 .footer-links {
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   width: 55rem;
   margin: auto;
   font-size: 1.2rem;
+
+  @include flexRow;
 
   @include respondTo(mobile) {
     flex-wrap: wrap;

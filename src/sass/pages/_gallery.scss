@@ -1,27 +1,18 @@
 .gallery {
-  display: flex;
-  flex-direction: row;
   grid-template-rows: repeat(auto-fill, 13.5rem);
   gap: 6.4rem;
   flex-wrap: wrap;
-  width: 100%;
-  max-width: 130rem;
-  margin: auto;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+
+  @include position;
+  @include flexRow;
 
   @include respondTo(xlarge) {
     width: 90%;
-    margin-top: 7rem;
-    margin-bottom: 7rem;
+    margin: 7rem auto;
   }
 
   @include respondTo(tablandscape) {
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 7rem;
-    margin-bottom: 7rem;
   }
 
   @include respondTo(tablet) {
@@ -40,14 +31,12 @@
     height: 40rem;
 
     @include respondTo(tablandscape) {
-      max-width: 30%;
       width: 28.55%;
       height: 26.8rem;
     }
 
     @include respondTo(tablet) {
       max-width: 28.5%;
-      width: 28.5%;
       height: 20rem;
     }
 
@@ -58,9 +47,7 @@
     }
 
     img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+      @include image;
     }
   }
 }

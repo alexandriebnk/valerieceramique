@@ -1,12 +1,12 @@
 .footer {
   background-color: $background;
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   bottom: 1.5rem;
   width: 100%;
   max-width: 138rem;
   padding-top: 8rem;
+
+  @include leftTransform;
 
   @include respondTo(tablandscape) {
     width: 96%;
@@ -17,14 +17,13 @@
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
     width: 90%;
     margin: auto;
 
+    @include flexColumn;
+
     &__copyright {
-      margin-top: 6rem;
-      margin-bottom: 2rem;
+      margin: 6rem auto 2rem auto;
     }
   }
 }

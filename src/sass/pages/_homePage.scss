@@ -1,20 +1,12 @@
 .home-page {
   position: relative;
-  max-width: 130rem;
-  margin: auto;
-}
-
-.hero {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 5rem;
+
+  @include position;
+  @include flexColumn;
 
   @include respondTo(tablandscape) {
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   @include respondTo(mobile) {
@@ -33,19 +25,17 @@
     }
 
     img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+      @include image;
     }
   }
 
   &__title {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 1.3rem;
     text-transform: uppercase;
+
+    @include flexColumn;
 
     h3:first-child {
       margin-bottom: 0.8rem;
