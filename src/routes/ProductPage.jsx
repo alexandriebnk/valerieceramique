@@ -200,7 +200,7 @@ const ProductPage = () => {
             <p>Sold Out</p>
           )}
         </div>
-        <div className='product-page__button'>
+        {/*<div className='product-page__button'>
           {productStock > 0 && (
             <Button
               name='add to cart'
@@ -209,7 +209,7 @@ const ProductPage = () => {
               event={addProductToCart}
             />
           )}
-        </div>
+        </div>*/}
       </div>
     </div>
   );
