@@ -34,7 +34,6 @@ const CartDropdown = () => {
   const closeCart = () => {
     setIsCartOpen(false);
   };
-
   const calculateFees = () => {
     let totalWeight = 0;
     cartItems.forEach((product) => {
@@ -42,11 +41,9 @@ const CartDropdown = () => {
     });
     return Math.ceil(feesData * totalWeight);
   };
-
   const calculateTotal = () => {
     return parseFloat(calculateFees()) + cartSubTotal;
   };
-
   const onPayment = async () => {
     const products = cartItems.map((product) => {
       return { id: product.slug, quantity: product.quantity };
@@ -65,20 +62,16 @@ const CartDropdown = () => {
           total: calculateTotal(),
         }),
       });
-
       const { status, message, url } = await results.json();
-
       if (status === 200 && message === 'Checkout ready') {
         window.location.href = url;
       }
     } catch (err) {
-      console.log(err);
+      console.log('😡', err);
     }
   };
-
   if (loading) return <Loader />;
   if (error) return <ErrorMessage page={'/'} />;
-
   return (
     <>
       <div className={`dropdown dropdown${isCartOpen ? '--is-open' : ''}`}>
@@ -116,9 +109,8 @@ const CartDropdown = () => {
               <p className='total__amount__final'>{calculateTotal()} €</p>
             </div>
           </div>
-
           <div className='button'>
-            {cartItems.length > 0 && isCartOpen && (
+            {cartItems.length > 0 && (
               <Button
                 name={'payment'}
                 theme='dark'
@@ -136,5 +128,4 @@ const CartDropdown = () => {
     </>
   );
 };
-
 export default CartDropdown;

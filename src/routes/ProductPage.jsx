@@ -75,6 +75,20 @@ const ProductPage = () => {
     }
   }, [data, setProductStock]);
 
+  const updateMainVisual = (event) => {
+    event.preventDefault();
+    const nextIndex = event.currentTarget.dataset.imageIndex;
+    setMainVisual(
+      data.products.data[0].attributes.gallery[nextIndex].image.data.attributes
+        .formats.medium.url
+    );
+  };
+
+  const addProductToCart = () => {
+    addItemToCart(fullProduct);
+    setIsCartOpen(true);
+  };
+
   useEffect(() => {
     // animate loader in
     const tl = new Gsap.timeline({ onComplete: () => setAnimationEnd(true) });
@@ -114,20 +128,6 @@ const ProductPage = () => {
       tl.fromTo('.loader', 0.5, { opacity: 1 }, { opacity: 0 }, '-=0.25');
     }
   }, [data, animationEnd]);
-
-  const updateMainVisual = (event) => {
-    event.preventDefault();
-    const nextIndex = event.currentTarget.dataset.imageIndex;
-    setMainVisual(
-      data.products.data[0].attributes.gallery[nextIndex].image.data.attributes
-        .formats.medium.url
-    );
-  };
-
-  const addProductToCart = () => {
-    addItemToCart(fullProduct);
-    setIsCartOpen(true);
-  };
 
   if (error) return <ErrorMessage page={`shop/${category}/${slug}`} />;
 
@@ -200,7 +200,7 @@ const ProductPage = () => {
             <p>Sold Out</p>
           )}
         </div>
-        {/*<div className='product-page__button'>
+        <div className='product-page__button'>
           {productStock > 0 && (
             <Button
               name='add to cart'
@@ -209,7 +209,7 @@ const ProductPage = () => {
               event={addProductToCart}
             />
           )}
-        </div>*/}
+        </div>
       </div>
     </div>
   );
