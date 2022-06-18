@@ -61,8 +61,13 @@ const ProductPage = () => {
   const [fullProduct, setFullProduct] = useState(null);
   const [animationEnd, setAnimationEnd] = useState(false);
 
-  const { addItemToCart, setIsCartOpen, productStock, setProductStock } =
-    useContext(CartContext);
+  const {
+    addItemToCart,
+    setIsCartOpen,
+    productStock,
+    setProductStock,
+    isAddButtonRemoved,
+  } = useContext(CartContext);
 
   useEffect(() => {
     if (data) {
@@ -201,7 +206,7 @@ const ProductPage = () => {
           )}
         </div>
         <div className='product-page__button'>
-          {productStock > 0 && (
+          {productStock > 0 && isAddButtonRemoved === false && (
             <Button
               name='add to cart'
               theme='dark'

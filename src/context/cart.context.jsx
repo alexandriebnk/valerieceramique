@@ -50,6 +50,8 @@ export const CartContext = createContext({
   cartSubTotal: 0,
   productStock: 0,
   setProductStock: () => {},
+  isAddButtonRemoved: false,
+  setIsAddButtonRemoved: () => {},
   scrollTop: () => {},
 });
 
@@ -60,6 +62,7 @@ export const CartProvider = ({ children }) => {
   const [cartCount, setCartCount] = useState(0);
   const [cartSubTotal, setCartSubTotal] = useState(0);
   const [productStock, setProductStock] = useState(null);
+  const [isAddButtonRemoved, setIsAddButtonRemoved] = useState(false);
 
   useEffect(() => {
     if (sessionStorage.getItem('shopCart')) {
@@ -121,6 +124,8 @@ export const CartProvider = ({ children }) => {
     cartSubTotal,
     productStock,
     setProductStock,
+    isAddButtonRemoved,
+    setIsAddButtonRemoved,
     scrollTop,
   };
 

@@ -1,49 +1,53 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useQuery, gql } from '@apollo/client';
+import React, { useContext } from 'react';
 import ClosingIcon from './ComponentsSVG/ClosingIcon';
 import CartItem from './CartItem';
 import Button from './Button';
-import Loader from './Loader';
-import ErrorMessage from './ErrorMessage';
+
 import { CartContext } from '../context/cart.context';
 
-const FRAISDELIVRAISONDATA = gql`
-  query FraisDeLivraison {
-    fraisDeLivraison {
-      data {
-        attributes {
-          frais
-        }
-      }
-    }
-  }
-`;
-
 const CartDropdown = () => {
-  const { loading, error, data } = useQuery(FRAISDELIVRAISONDATA);
-
   const { isCartOpen, setIsCartOpen, cartItems, cartSubTotal } =
     useContext(CartContext);
-
-  const [feesData, setFeesData] = useState(null);
-
-  useEffect(() => {
-    if (data) setFeesData(data.fraisDeLivraison.data.attributes.frais);
-  }, [data]);
 
   const closeCart = () => {
     setIsCartOpen(false);
   };
+
   const calculateFees = () => {
     let totalWeight = 0;
+    let fees = 0;
+
     cartItems.forEach((product) => {
       totalWeight += product.weight * product.quantity;
     });
-    return Math.ceil(feesData * totalWeight);
+
+    if (cartItems.length === 0) {
+      fees = 0;
+    } else if (totalWeight === 0) {
+      fees = 0;
+    } else if (totalWeight <= 250) {
+      fees = 4.95;
+    } else if (totalWeight > 250 && totalWeight <= 500) {
+      fees = 6.55;
+    } else if (totalWeight > 500 && totalWeight <= 750) {
+      fees = 7.45;
+    } else if (totalWeight > 750 && totalWeight <= 1000) {
+      fees = 8.1;
+    } else if (totalWeight > 1000 && totalWeight <= 2000) {
+      fees = 9.35;
+    } else if (totalWeight > 2000 && totalWeight <= 5000) {
+      fees = 14.35;
+    } else if (totalWeight > 5000) {
+      fees = 20.85;
+    }
+
+    return Math.ceil(fees);
   };
+
   const calculateTotal = () => {
     return parseFloat(calculateFees()) + cartSubTotal;
   };
+
   const onPayment = async () => {
     const products = cartItems.map((product) => {
       return { id: product.slug, quantity: product.quantity };
@@ -70,8 +74,7 @@ const CartDropdown = () => {
       console.log('😡', err);
     }
   };
-  if (loading) return <Loader />;
-  if (error) return <ErrorMessage page={'/'} />;
+
   return (
     <>
       <div className={`dropdown dropdown${isCartOpen ? '--is-open' : ''}`}>
