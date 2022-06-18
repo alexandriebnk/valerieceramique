@@ -6,11 +6,13 @@
   right: 5%;
   width: 41.5rem;
   padding-left: 2.5rem;
+  max-height: 80vh;
   border-radius: 2%;
   z-index: 40;
   pointer-events: none;
   opacity: 0;
   transition: all 0.35s linear;
+  padding-bottom: 1rem;
 
   @include respondTo(xlarge) {
     right: 16.1%;
@@ -38,6 +40,12 @@
     right: 2rem;
     cursor: pointer;
   }
+}
+
+.cart-wrapper {
+  width: 95%;
+  max-height: 70vh;
+  overflow-y: scroll;
 }
 
 .cart {

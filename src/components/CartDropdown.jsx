@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import ClosingIcon from './ComponentsSVG/ClosingIcon';
 import CartItem from './CartItem';
 import Button from './Button';
+import LoadingIcon from './LoadingIcon';
 
 import { CartContext } from '../context/cart.context';
 
 const CartDropdown = () => {
+  const [isOnPayment, setIsOnPayment] = useState(false);
+  const [errorOnPayment, setErrorOnPayment] = useState(false);
+
   const { isCartOpen, setIsCartOpen, cartItems, cartSubTotal } =
     useContext(CartContext);
 
@@ -49,6 +53,8 @@ const CartDropdown = () => {
   };
 
   const onPayment = async () => {
+    setIsOnPayment(true);
+
     const products = cartItems.map((product) => {
       return { id: product.slug, quantity: product.quantity };
     });
@@ -68,9 +74,13 @@ const CartDropdown = () => {
       });
       const { status, message, url } = await results.json();
       if (status === 200 && message === 'Checkout ready') {
+        setIsOnPayment(false);
+
         window.location.href = url;
       }
     } catch (err) {
+      setIsOnPayment(false);
+      setErrorOnPayment(true);
       console.log('😡', err);
     }
   };
@@ -82,46 +92,51 @@ const CartDropdown = () => {
           <ClosingIcon />
         </div>
         <h3 className='dropdown__title'>Shop Cart</h3>
-        <div className='cart'>
-          <div className='cart__item'>
-            {cartItems.length ? (
-              cartItems.map((cartItem, index) => (
-                <div key={`${cartItem}-${index}`}>
-                  <CartItem
-                    product={cartItem}
-                    title={cartItem.title}
-                    price={cartItem.price}
-                    weight={cartItem.weight}
-                    quantity={cartItem.quantity}
-                    stock={cartItem.stock}
-                  />
-                </div>
-              ))
-            ) : (
-              <span className='empty'>Your cart is empty</span>
-            )}
-          </div>
-          <div className='total'>
-            <div className='total__details'>
-              <p className='total__details__title'>Subtotal</p>
-              <p className='total__details__fees'>Frais de livraison</p>
-              <p className='total__details__final'>Total</p>
+        <div className='cart-wrapper'>
+          <div className='cart'>
+            <div className='cart__item'>
+              {cartItems.length ? (
+                cartItems.map((cartItem, index) => (
+                  <div key={`${cartItem}-${index}`}>
+                    <CartItem
+                      product={cartItem}
+                      title={cartItem.title}
+                      price={cartItem.price}
+                      weight={cartItem.weight}
+                      quantity={cartItem.quantity}
+                      stock={cartItem.stock}
+                    />
+                  </div>
+                ))
+              ) : (
+                <span className='empty'>Your cart is empty</span>
+              )}
             </div>
-            <div className='total__amount'>
-              <p className='total__amount__subtotal'>{cartSubTotal} €</p>
-              <p className='total__amount__fees'>{calculateFees()} €</p>
-              <p className='total__amount__final'>{calculateTotal()} €</p>
+            <div className='total'>
+              <div className='total__details'>
+                <p className='total__details__title'>Subtotal</p>
+                <p className='total__details__fees'>Frais de livraison</p>
+                <p className='total__details__final'>Total</p>
+              </div>
+              <div className='total__amount'>
+                <p className='total__amount__subtotal'>{cartSubTotal} €</p>
+                <p className='total__amount__fees'>{calculateFees()} €</p>
+                <p className='total__amount__final'>{calculateTotal()} €</p>
+              </div>
             </div>
-          </div>
-          <div className='button'>
-            {cartItems.length > 0 && (
-              <Button
-                name={'payment'}
-                theme='dark'
-                size='medium'
-                event={onPayment}
-              />
-            )}
+            <div className='button'>
+              {isOnPayment ? (
+                <LoadingIcon />
+              ) : cartItems.length > 0 ? (
+                <Button
+                  name={'payment'}
+                  theme='dark'
+                  size='medium'
+                  event={onPayment}
+                />
+              ) : null}
+            </div>
+            {errorOnPayment && <p>Error during payment. Please try again.</p>}
           </div>
         </div>
       </div>
