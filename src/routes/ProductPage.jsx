@@ -60,14 +60,9 @@ const ProductPage = () => {
   const [mainVisual, setMainVisual] = useState(null);
   const [fullProduct, setFullProduct] = useState(null);
   const [animationEnd, setAnimationEnd] = useState(false);
+  const [itemFromContext, setItemFromContext] = useState(false);
 
-  const {
-    addItemToCart,
-    setIsCartOpen,
-    productStock,
-    setProductStock,
-    isAddButtonRemoved,
-  } = useContext(CartContext);
+  const { addItemToCart, setIsCartOpen, cartItems } = useContext(CartContext);
 
   useEffect(() => {
     if (data) {
@@ -75,10 +70,22 @@ const ProductPage = () => {
         data.products.data[0].attributes.gallery[0].image.data.attributes
           .formats.medium.url
       );
-      setProductStock(data.products.data[0].attributes.stock);
       setFullProduct(data.products.data[0].attributes);
+      setItemFromContext(
+        cartItems.find(
+          (item) => item.slug === data.products.data[0].attributes.slug
+        )
+      );
     }
-  }, [data, setProductStock]);
+  }, [data]);
+
+  useEffect(() => {
+    setItemFromContext(
+      cartItems.find(
+        (item) => item.slug === data?.products.data[0].attributes.slug
+      )
+    );
+  }, [cartItems]);
 
   const updateMainVisual = (event) => {
     event.preventDefault();
@@ -199,14 +206,16 @@ const ProductPage = () => {
         </div>
 
         <div className='overview__quantity'>
-          {productStock > 0 ? (
-            <p>Quantity : {productStock}</p>
+          {data?.products.data[0].attributes.stock > 0 ? (
+            <p>Quantity : {data?.products.data[0].attributes.stock}</p>
           ) : (
             <p>Sold Out</p>
           )}
         </div>
         <div className='product-page__button'>
-          {productStock > 0 && isAddButtonRemoved === false && (
+          {(itemFromContext === undefined ||
+            itemFromContext?.quantity <
+              data?.products.data[0].attributes.stock) && (
             <Button
               name='add to cart'
               theme='dark'

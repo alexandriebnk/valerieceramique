@@ -93,6 +93,7 @@ const CartDropdown = () => {
                     price={cartItem.price}
                     weight={cartItem.weight}
                     quantity={cartItem.quantity}
+                    stock={cartItem.stock}
                   />
                 </div>
               ))

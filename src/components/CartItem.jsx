@@ -3,31 +3,11 @@ import Minus from '../assets/minus.png';
 import Plus from '../assets/plus.png';
 import { CartContext } from '../context/cart.context';
 
-const CartItem = ({ product, title, price, weight, quantity }) => {
-  const {
-    addItemToCart,
-    removeItemFromCart,
-    clearItemFromCart,
-    productStock,
-    isAddButtonRemoved,
-    setIsAddButtonRemoved,
-  } = useContext(CartContext);
+const CartItem = ({ product, title, price, weight, quantity, stock }) => {
+  const { addItemToCart, removeItemFromCart, clearItemFromCart } =
+    useContext(CartContext);
 
   const clearItemHandler = () => clearItemFromCart(product);
-
-  const activateAddButton = () => {
-    removeItemFromCart(product);
-    if (quantity > 0 && quantity <= productStock) {
-      setIsAddButtonRemoved(false);
-    }
-  };
-
-  const desactivateAddButton = () => {
-    addItemToCart(product);
-    if (quantity >= productStock - 1) {
-      setIsAddButtonRemoved(true);
-    }
-  };
 
   return (
     <div className='item'>
@@ -43,25 +23,23 @@ const CartItem = ({ product, title, price, weight, quantity }) => {
       <div className='amount'>
         <p className='amount__price'>{price * quantity} €</p>
         <div className='amount__choice'>
-          {isAddButtonRemoved === true && (
-            <span
-              className='amount__choice__minus'
-              onClick={() => activateAddButton()}
-            >
-              <img
-                className='amount__choice__minus__item'
-                src={Minus}
-                alt='minus'
-                draggable='false'
-              />
-            </span>
-          )}
+          <span
+            className='amount__choice__minus'
+            onClick={() => removeItemFromCart(product)}
+          >
+            <img
+              className='amount__choice__minus__item'
+              src={Minus}
+              alt='minus'
+              draggable='false'
+            />
+          </span>
           {quantity}
 
-          {isAddButtonRemoved === false && (
+          {quantity < stock && (
             <span
               className='amount__choice__plus'
-              onClick={() => desactivateAddButton()}
+              onClick={() => addItemToCart(product)}
             >
               <img
                 className='amount__choice__plus__item'
