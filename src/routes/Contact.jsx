@@ -48,7 +48,6 @@ const Contact = () => {
   }, [data]);
 
   useEffect(() => {
-    // animate loader in
     const tl = new Gsap.timeline({ onComplete: () => setAnimationEnd(true) });
     tl.set('.loader', { opacity: 1 });
     tl.fromTo(
@@ -68,7 +67,6 @@ const Contact = () => {
 
   useEffect(() => {
     if (data && animationEnd) {
-      // animate loader out
       const tl = new Gsap.timeline();
       tl.fromTo(
         '.loader__top',
