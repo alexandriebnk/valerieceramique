@@ -23,10 +23,11 @@
     @include respondTo(mobile) {
       background-color: $background;
       position: fixed;
+      width: 100vw;
       top: 0;
       left: -100vw;
       justify-content: flex-start;
-      padding: 5rem 0 0 3rem;
+      padding: 8rem 0 0 5rem;
       z-index: 20;
       opacity: 0;
       transition: 0.5s ease-in-out;
@@ -36,7 +37,7 @@
       @include flexColumn;
 
       &--is-open {
-        left: -3.4rem;
+        left: 0;
         opacity: 1;
         transition: 0.5s ease-in-out;
       }
@@ -45,6 +46,10 @@
     &__title {
       font-size: 1.3rem;
       text-transform: uppercase;
+
+      @include respondTo(mobile) {
+        font-size: 1.8rem;
+      }
 
       a {
         color: $font;
