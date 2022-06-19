@@ -20,7 +20,7 @@ const CustomForm = ({ status, onValidated }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className='subscribe__form' onSubmit={handleSubmit}>
         <input
           type='email'
           name='email'
@@ -28,12 +28,19 @@ const CustomForm = ({ status, onValidated }) => {
           ref={inputToClear}
           required
         />
-        <input label='Subscribe' type='submit' value='Subscribe' />
+        <input
+          className='subscribe__submit'
+          label='Subscribe'
+          type='submit'
+          value='Subscribe'
+        />
       </form>
-      {status === 'sending' && <div className='status'>Sending...</div>}
-      {status === 'error' && <div className='status'>Error !</div>}
+      {status === 'sending' && (
+        <div className='subscribe__status'>Sending...</div>
+      )}
+      {status === 'error' && <div className='subscribe__status'>Error !</div>}
       {status === 'success' && (
-        <p className='status'>Email address recorded !</p>
+        <p className='subscribe__status'>Email address recorded !</p>
       )}
     </>
   );
