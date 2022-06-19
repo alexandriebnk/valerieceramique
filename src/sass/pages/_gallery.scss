@@ -26,7 +26,6 @@
   }
 
   &__image {
-    max-width: 30%;
     width: 30%;
     height: 40rem;
 
@@ -36,13 +35,12 @@
     }
 
     @include respondTo(tablet) {
-      max-width: 28.5%;
+      width: 28.5%;
       height: 20rem;
     }
 
     @include respondTo(mobile) {
-      max-width: 44%;
-      width: 44%;
+      width: 43.45%;
       height: 13.4rem;
     }
 
