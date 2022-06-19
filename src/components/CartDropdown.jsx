@@ -59,7 +59,7 @@ const CartDropdown = () => {
       return { id: product.slug, quantity: product.quantity };
     });
 
-    const backendEndpoint = 'https://murmuring-sea-64341.herokuapp.com';
+    const backendEndpoint = 'https://murmuring-sea-64341.herokuapp.co';
 
     try {
       const results = await fetch(`${backendEndpoint}/api/payment`, {
@@ -136,7 +136,11 @@ const CartDropdown = () => {
                 />
               ) : null}
             </div>
-            {errorOnPayment && <p>Error during payment. Please try again.</p>}
+            {errorOnPayment && (
+              <p className='total__error-stripe'>
+                Error during payment. Please try again.
+              </p>
+            )}
           </div>
         </div>
       </div>
