@@ -74,7 +74,7 @@
     }
 
     @include respondTo(mobile) {
-      grid-template-columns: repeat(auto-fill, 17rem);
+      grid-template-columns: repeat(auto-fill, 16rem);
     }
   }
 }
