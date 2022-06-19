@@ -11,6 +11,9 @@
     align-items: center;
     width: 27rem;
     text-align: center;
+    justify-content: center;
+
+    @include flexColumn;
   }
 
   &__item {
@@ -24,7 +27,11 @@
     }
 
     @include respondTo(mobile) {
-      margin-right: 0;
+      width: 100%;
+
+      &:not(:last-child) {
+        margin: 0 0 1rem 0;
+      }
     }
   }
 }
