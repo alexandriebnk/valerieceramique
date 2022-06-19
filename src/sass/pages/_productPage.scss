@@ -124,7 +124,7 @@
 
     @include respondTo(mobile) {
       width: 100%;
-      grid-template-rows: repeat(auto-fill, 12rem);
+      grid-template-rows: repeat(auto-fill, 10rem);
       gap: 2rem;
     }
 
@@ -145,7 +145,7 @@
 
       @include respondTo(mobile) {
         height: 15rem;
-        width: 46.8%;
+        width: 46.5%;
       }
 
       img {
