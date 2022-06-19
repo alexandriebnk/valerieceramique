@@ -34,6 +34,10 @@ const About = () => {
   const [animationEnd, setAnimationEnd] = useState(false);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
     if (data) {
       setDescriptionFR(data.about.data.attributes.descriptionFR);
       setDescriptionEN(data.about.data.attributes.descriptionEN);

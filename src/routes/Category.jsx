@@ -53,6 +53,10 @@ const Category = () => {
   const { descriptionFR, descriptionEN } = useContext(DescriptionContext);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
     if (data) {
       const products = data.products.data.filter((product) => {
         return product.attributes.category.data.attributes.title === category;

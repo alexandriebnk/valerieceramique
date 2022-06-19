@@ -1,24 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../context/cart.context';
 
 const FooterLinks = ({ data }) => {
-  const { scrollTop } = useContext(CartContext);
-
   return (
     <div className='footer-links'>
       <p className='footer-links__item'>
-        <Link to='/mentions-legales' onClick={scrollTop}>
+        <Link to='/mentions-legales'>
           {data.legalFR} - {data.legalEN}
         </Link>
       </p>
       <p className='footer-links__item'>
-        <Link to='/cgv' onClick={scrollTop}>
+        <Link to='/cgv'>
           {data.conditionsFR} - {data.conditionsEN}
         </Link>
       </p>
       <p className='footer-links__item'>
-        <Link to='/confidentialite' onClick={scrollTop}>
+        <Link to='/confidentialite'>
           {data.confidentialiteFR} - {data.confidentialiteEN}
         </Link>
       </p>

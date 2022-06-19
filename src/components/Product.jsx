@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
-import { CartContext } from '../context/cart.context';
 
 const Product = ({ category, title, gallery, price, id }) => {
-  const { scrollTop } = useContext(CartContext);
   const firstImage = gallery[0].image.data.attributes.formats.small.url;
 
   return (
@@ -15,7 +13,6 @@ const Product = ({ category, title, gallery, price, id }) => {
         </div>
         <Link
           to={`/shop/${category}/${id}`}
-          onClick={scrollTop}
           className='product__visual__button'
         >
           <Button name={'View'} theme='light' size='small' />

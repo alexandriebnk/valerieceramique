@@ -6,6 +6,10 @@ const PaymentSuccess = () => {
   const [animationEnd, setAnimationEnd] = useState(false);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
     // animate loader in
     const tl = new Gsap.timeline({ onComplete: () => setAnimationEnd(true) });
     tl.set('.loader', { opacity: 1 });

@@ -48,7 +48,6 @@ export const CartContext = createContext({
   clearItemFromCart: () => {},
   cartCount: 0,
   cartSubTotal: 0,
-  scrollTop: () => {},
 });
 
 export const CartProvider = ({ children }) => {
@@ -101,10 +100,6 @@ export const CartProvider = ({ children }) => {
   const clearItemFromCart = (productToClear) =>
     setCartItems(clearCartItem(cartItems, productToClear));
 
-  const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const value = {
     isNavbarOpen,
     setIsNavbarOpen,
@@ -116,7 +111,6 @@ export const CartProvider = ({ children }) => {
     clearItemFromCart,
     cartCount,
     cartSubTotal,
-    scrollTop,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

@@ -30,6 +30,10 @@ const Gallery = () => {
   const [animationEnd, setAnimationEnd] = useState(false);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
     if (data) setGalleryData(data.galleryImages.data);
   }, [data]);
 

@@ -52,6 +52,10 @@ const Shop = () => {
     useContext(DescriptionContext);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
     if (data) {
       setDescriptionFR(data.shop.data.attributes.descriptionFR);
       setDescriptionEN(data.shop.data.attributes.descriptionEN);

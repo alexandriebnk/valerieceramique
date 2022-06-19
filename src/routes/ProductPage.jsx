@@ -65,6 +65,10 @@ const ProductPage = () => {
   const { addItemToCart, setIsCartOpen, cartItems } = useContext(CartContext);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
     if (data) {
       setMainVisual(
         data.products.data[0].attributes.gallery[0].image.data.attributes

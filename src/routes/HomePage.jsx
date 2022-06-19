@@ -31,6 +31,10 @@ const HomePage = () => {
   const [animationEnd, setAnimationEnd] = useState(false);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
     if (data) {
       setUrl(
         data.home.data.attributes.visual.data.attributes.formats.large.url

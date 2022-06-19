@@ -33,6 +33,10 @@ const Contact = () => {
   const [animationEnd, setAnimationEnd] = useState(false);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
     if (data) {
       setMainTitle(data.contact.data.attributes.title);
       setLocation(data.contact.data.attributes.location);
