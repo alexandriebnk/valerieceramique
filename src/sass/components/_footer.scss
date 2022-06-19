@@ -13,7 +13,8 @@
   }
 
   @include respondTo(mobile) {
-    width: 80%;
+    width: 100%;
+    bottom: 0;
   }
 
   &__content {
