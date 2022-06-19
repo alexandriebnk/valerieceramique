@@ -59,7 +59,7 @@ const CartDropdown = () => {
       return { id: product.slug, quantity: product.quantity };
     });
 
-    const backendEndpoint = 'https://murmuring-sea-64341.herokuapp.co';
+    const backendEndpoint = 'https://murmuring-sea-64341.herokuapp.com';
 
     try {
       const results = await fetch(`${backendEndpoint}/api/payment`, {
