@@ -19,9 +19,11 @@
   }
 
   @include respondTo(mobile) {
-    top: 1rem;
-    right: 9.5%;
-    width: 33.7rem;
+    width: 90%;
+    top: 2rem;
+    right: 0;
+
+    @include leftTransform;
   }
 
   &--is-open {
