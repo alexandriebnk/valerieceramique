@@ -25,6 +25,7 @@ const CustomForm = ({ status, onValidated }) => {
           type='email'
           name='email'
           placeholder='Email Address'
+          className='subscribe__input'
           ref={inputToClear}
           required
         />

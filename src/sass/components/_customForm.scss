@@ -7,6 +7,12 @@
     }
   }
 
+  &__input {
+    &:focus {
+      outline: none;
+    }
+  }
+
   &__submit {
     background-color: $emailing;
     border: 0.19rem solid $neutral;
