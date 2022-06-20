@@ -1,4 +1,6 @@
 .header {
+  position: relative;
+  border: 2px solid red;
   height: 20rem;
   width: 100%;
   max-width: 130rem;
@@ -75,11 +77,7 @@
   &__shop-cart {
     position: absolute;
     top: 17.8rem;
-    right: 5%;
-
-    @include respondTo(xlarge) {
-      right: 16.5%;
-    }
+    right: 0;
 
     @include respondTo(mobile) {
       top: 1.4rem;
