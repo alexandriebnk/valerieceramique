@@ -1,9 +1,7 @@
 .footer {
   background-color: $background;
   position: relative;
-  bottom: 1.5rem;
   width: 100%;
-  max-width: 138rem;
   padding-top: 8rem;
 
   @include leftTransform;
