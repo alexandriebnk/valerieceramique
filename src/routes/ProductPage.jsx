@@ -81,7 +81,7 @@ const ProductPage = () => {
         )
       );
     }
-  }, [data]);
+  }, [data, cartItems]);
 
   useEffect(() => {
     setItemFromContext(
@@ -89,7 +89,7 @@ const ProductPage = () => {
         (item) => item.slug === data?.products.data[0].attributes.slug
       )
     );
-  }, [cartItems]);
+  }, [cartItems, data?.products.data]);
 
   const updateMainVisual = (event) => {
     event.preventDefault();
